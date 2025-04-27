@@ -13,7 +13,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 50px;
-  background-color: #ffffff; /* veya sitene uygun bir renk */
+  background-color:bisque; /* veya sitene uygun bir renk */
 }
 
 .menu {
@@ -49,7 +49,7 @@ body {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  color: #fff;
+  color: black;
   overflow: hidden;
 }
 
