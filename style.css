@@ -1,133 +1,197 @@
-/* Genel Ayarlar */
+/* Genel */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
   }
   
   body {
+    font-family: 'Montserrat', sans-serif;
     background: #f0f8ff;
     color: #333;
   }
   
-  /* Hero Bölümü */
+  /* Hero */
   .hero {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
+    position: relative;
     height: 100vh;
+    background: linear-gradient(#00bcd4aa, #0097a7aa), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     text-align: center;
     color: #fff;
-  }
-  
-  .hero-content .logo {
-    width: 120px;
-    margin-bottom: 20px;
+    overflow: hidden;
   }
   
   .hero-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 3rem;
   }
   
   .hero-content p {
+    margin: 15px 0;
     font-size: 1.2rem;
-    margin-bottom: 30px;
+  }
+  
+  .logo {
+    width: 100px;
+    margin-bottom: 15px;
   }
   
   .btn {
-    padding: 10px 25px;
+    margin-top: 20px;
     background-color: #00bcd4;
-    color: white;
-    border: none;
+    padding: 12px 30px;
     border-radius: 25px;
     text-decoration: none;
-    font-size: 1rem;
+    color: white;
+    font-weight: bold;
     transition: background 0.3s;
   }
   
   .btn:hover {
-    background-color: #0097a7;
+    background-color: #00796b;
   }
   
-  /* Hakkında Bölümü */
-  .about, .activities, .contact {
+  .waves {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: url('https://svgshare.com/i/oW7.svg') repeat-x;
+    animation: wave 10s linear infinite;
+  }
+  
+  @keyframes wave {
+    0% {background-position-x: 0;}
+    100% {background-position-x: 1000px;}
+  }
+  
+  /* Hakkında */
+  .about, .activities, .gallery, .video-section, .team, .contact {
     padding: 80px 20px;
     background-color: #e0f7fa;
   }
   
   .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
     text-align: center;
   }
   
   h2 {
-    font-size: 2rem;
-    color: #00796b;
+    color: #004d40;
+    font-size: 2.2rem;
     margin-bottom: 20px;
   }
   
   p {
     font-size: 1rem;
-    margin-top: 10px;
   }
   
-  /* Etkinlik Kartları */
-  .cards {
+  /* Kartlar */
+  .cards, .team-cards, .gallery-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 20px;
+    justify-content: center;
     margin-top: 30px;
   }
   
-  .card {
+  .card, .team-card {
     background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     padding: 20px;
-    border-radius: 15px;
-    width: 300px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    width: 280px;
     transition: transform 0.3s;
   }
   
-  .card:hover {
-    transform: translateY(-10px);
+  .card:hover, .team-card:hover {
+    transform: scale(1.05);
   }
   
-  .card h3 {
-    color: #004d40;
-    margin-bottom: 10px;
+  /* Takım Kartları */
+  .team-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
   }
   
-  /* İletişim Formu */
+  .team-card h3 {
+    margin-top: 10px;
+    color: #00796b;
+  }
+  
+  .team-card p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+  }
+  
+  /* Galeri */
+  .gallery-grid img {
+    width: 250px;
+    border-radius: 15px;
+    transition: transform 0.3s;
+  }
+  
+  .gallery-grid img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Video */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+  
+  /* Form */
   form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     max-width: 500px;
-    margin: 0 auto;
+    margin: auto;
   }
   
   input, textarea {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 10px;
   }
   
   textarea {
     resize: vertical;
-    min-height: 100px;
   }
   
   /* Footer */
   footer {
-    background: #00796b;
+    background-color: #00796b;
     color: white;
     padding: 20px;
     text-align: center;
-    font-size: 0.9rem;
   }
+  
+  footer .socials {
+    margin-bottom: 10px;
+  }
+  
+  footer .socials a img {
+    width: 24px;
+    margin: 0 8px;
+  }
+  
   
