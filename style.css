@@ -4,6 +4,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+header img {
+  width: 120px; /* veya 100px, nasıl istersen */
+  height: auto;
+}
+
 
 body {
   font-family: 'Montserrat', sans-serif;
