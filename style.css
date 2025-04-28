@@ -118,22 +118,22 @@ p {
   font-size: 1rem;
 }
 
-/* style.css dosyasındaki ilgili bölüm */
-
-.card img {
-  width: 100%;
-  /* height: 200px;  <-- Bu satırı silin veya yorum satırı yapın */
-  object-fit: cover;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+/* Kartlar */
+.cards, .team-cards, .gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-/* Takım Kartları */
-.team-card img {
-  width: 100%;
-  /* height: 250px; <-- Bu satırı silin veya yorum satırı yapın */
-  object-fit: cover;
-  border-radius: 15px;
+.card, .team-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 280px;
+  transition: transform 0.3s;
 }
 
 .card:hover, .team-card:hover {
