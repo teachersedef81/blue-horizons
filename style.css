@@ -235,6 +235,42 @@ textarea {
   resize: vertical;
 }
 
+
+.events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.event-card {
+  background-color: #f0f8ff;
+  border: 1px solid #cce7ff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+/* Etkinlik karltarı */
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.event-card h3 {
+  color: #0077b6;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.event-card p {
+  font-size: 1em;
+  color: #333;
+}
+
 /* Footer */
 footer {
   background-color: #00796b;
