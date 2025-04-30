@@ -206,15 +206,6 @@ p {
   border-radius: 15px;
 }
 
-/* Banner */
-.banner img {
-    width: 75%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    margin-top: 50px;
-  }
-  
 
 /* Form */
 form {
@@ -328,7 +319,26 @@ footer .socials a img {
   width: 24px;
   margin: 0 8px;
 }
+.footer-banner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
 
+.footer-banner {
+  max-width: 80%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobil cihazlar için duyarlı tasarım */
+@media (max-width: 768px) {
+  .footer-banner {
+    max-width: 95%;
+  }
+}
 
 .video-container {
   position: relative;
