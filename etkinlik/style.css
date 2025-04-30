@@ -1,0 +1,354 @@
+/* Genel */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  header img {
+    width: 120px; /* veya 100px, nasıl istersen */
+    height: auto;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color:cornflowerblue; /* veya sitene uygun bir renk */
+  }
+  
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .menu li {
+    display: inline;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #333; /* koyu renk görünüm için */
+    font-weight: bold;
+  }
+  
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f0f8ff;
+    color: #333;
+  }
+  
+  /* Hero */
+  .hero {
+    position: relative;
+    height: 100vh;
+    background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+    overflow: hidden;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  
+  .hero-content p {
+    margin: 15px 0;
+    font-size: 1.2rem;
+  }
+  
+  .logo {
+    width: 500px;
+    margin-bottom: 15px;
+  }
+  
+  .btn {
+    margin-top: 20px;
+    background-color: #00bcd4;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #00796b;
+  }
+  
+  .waves {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: url('https://svgshare.com/i/oW7.svg') repeat-x;
+    animation: wave 10s linear infinite;
+  }
+  
+  @keyframes wave {
+    0% {background-position-x: 0;}
+    100% {background-position-x: 1000px;}
+  }
+  
+  /* Hakkında */
+  .about, .activities, .gallery, .video-section, .team, .contact {
+    padding: 80px 20px;
+    background-color: #e0f7fa;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  h2 {
+    color: #004d40;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1rem;
+  }
+  
+  /* Kartlar */
+  .cards, .team-cards, .gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .card, .team-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 280px;
+    transition: transform 0.3s;
+  }
+  
+  .card:hover, .team-card:hover {
+    transform: scale(1.05);
+  }
+  .card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden; /* Bu çok önemli */
+    width: 280px;
+    transition: transform 0.3s;
+  }
+  
+  .card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  
+  
+  /* Takım Kartları */
+  .team-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  .team-card h3 {
+    margin-top: 10px;
+    color: #00796b;
+  }
+  
+  .team-card p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+  }
+  
+  /* Galeri */
+  .gallery-grid img {
+    width: 250px;
+    border-radius: 15px;
+    transition: transform 0.3s;
+  }
+  
+  .gallery-grid img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Video */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+  
+  /* Banner */
+  .banner img {
+      width: 75%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+    
+  
+  /* Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  
+  .events {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  .event-card {
+    background-color: #f0f8ff;
+    border: 1px solid #cce7ff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  .event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+  
+  /* Responsive - Tablet ve altı cihazlar için */
+  @media (max-width: 768px) {
+  
+    header {
+      flex-direction: column;
+      padding: 10px 20px;
+    }
+  
+    .menu {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .logo {
+      width: 90%;
+      max-width: 300px;
+    }
+  
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+  
+    .hero-content p {
+      font-size: 1rem;
+    }
+  
+    .cards, .team-cards, .gallery-grid, .events {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card, .team-card, .event-card {
+      width: 90%;
+      max-width: 320px;
+    }
+  
+    .banner img {
+      width: 90%;
+    }
+  
+    .waves {
+      height: 50px;
+    }
+  }
+  
+  
+  /* Footer */
+  footer {
+    background-color:cornflowerblue;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer .socials {
+    margin-bottom: 10px;
+  }
+  
+  footer .socials a img {
+    width: 24px;
+    margin: 0 8px;
+  }
+  
+  
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    margin: 0 auto 20px;     /* ortala ve alt boşluk bırak */
+    max-width: 500px;        /* isteğe bağlı genişlik sınırlaması */
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+  .description {
+    max-width: 500px;
+   margin: auto;
+  }
+  

@@ -13,7 +13,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 50px;
-  background-color:#004d40; /* veya sitene uygun bir renk */
+  background-color:cornflowerblue; /* veya sitene uygun bir renk */
 }
 
 .menu {
@@ -314,7 +314,7 @@ textarea {
 
 /* Footer */
 footer {
-  background-color: #00796b;
+  background-color:cornflowerblue;
   color: white;
   padding: 20px;
   text-align: center;
