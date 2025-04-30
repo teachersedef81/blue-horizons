@@ -335,14 +335,17 @@ footer .socials a img {
   padding-bottom: 56.25%; /* 16:9 */
   padding-top: 25px;
   height: 0;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;     /* ortala ve alt boşluk bırak */
+  max-width: 800px;        /* isteğe bağlı genişlik sınırlaması */
 }
+
 .video-container iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 15px;
 }
 .description {
   max-width: 800px;
