@@ -396,16 +396,52 @@ footer {
   }
 }
 
-/* Orta boyut ekranlar için */
+/* style.css */
+
+/* ... Diğer genel stilleriniz ... */
+
+/* Video bölümünün genel stili (Medya sorgusu DIŞINDA) */
+.video-section {
+  padding: 80px 20px;
+  background-color: #f5f5f5;
+}
+
+/* Responsive Video Container (Medya sorgusu DIŞINDA) */
+.video-container-responsive {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%; /* 16:9 En Boy Oranı */
+  max-width: 900px; /* Maksimum genişlik - Değiştirebilirsiniz */
+  margin: 40px auto; /* Ortalama */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* iframe için stil (Medya sorgusu DIŞINDA) */
+.video-container-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ... Diğer stilleriniz ... */
+
+
+/* Orta boyut ekranlar için (Sadece bu aralığa özel kurallar burada kalmalı) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .card, .team-card {
     width: calc(50% - 20px);
   }
-  
-  .video-container {
-    max-width: 700px;
-  }
+  /* Video için bu aralığa özel bir stil değişikliği gerekmiyorsa burası boş kalabilir */
 }
+
+/* ... Diğer medya sorgularınız ... */
+
 /* About.html için ek stiller */
 .about-detailed {
   background-color: #f0f8ff;
