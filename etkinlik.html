@@ -21,15 +21,16 @@
             <ul class="menu">
                 <li><a href="index.html">Ana Sayfa</a></li>
                 <li><a href="about.html">Hakkında</a></li>
-                <li><a href="ekip.html" class="active">Ekip Üyelerimiz</a></li>
+                <li><a href="ekip.html">Ekip Üyelerimiz</a></li>
                 <li><a href="galeri.html">Galeri</a></li>
-                <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
+                <li><a href="etkinlik.html"  class="active">Etkinliklerimiz</a></li>
                 <li><a href="iletisim.html">İletişim</a></li>
             </ul>
         </nav>
     </header>
+
     <style>
-      .logo-container {
+.logo-container {
 width: 70px;
 height: 70px;
 background-color: white; /* ya da sayfayla uyumlu açık renk */
@@ -41,142 +42,58 @@ justify-content: center;
 box-shadow: 0 0 5px rgba(0,0,0,0.1);
 margin-right: 10px;
 }
-  </style>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color:#f0f8ff;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
+   body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background-color:#f0f8ff;
+     margin: 0;
+     padding: 0;
+     color: #333;
+   }
 
-    header {
-      background: linear-gradient(to right, #690422, #fd42a9);
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-    }
+   header {
+     background: linear-gradient(to right, #690422, #fd42a9);
+     color: white;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 10px 20px;
+   }
 
-    .logo img {
-      height: 50px;
-    }
+   .logo img {
+     height: 50px;
+   }
 
-    nav .menu {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-      padding: 0;
-      margin: 0;
-    }
+   nav .menu {
+     list-style: none;
+     display: flex;
+     gap: 15px;
+     padding: 0;
+     margin: 0;
+   }
 
-    nav .menu li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
+   nav .menu li a {
+     color: white;
+     text-decoration: none;
+     font-weight: bold;
+   }
 
-    nav .menu li a.active {
-      text-decoration: underline;
-    }
+   nav .menu li a.active {
+     text-decoration: underline;
+   }
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
+   .container {
+     max-width: 1000px;
+     margin: 0 auto;
+     padding: 40px 20px;
+     text-align: center;
+   }
 
-    h1 {
-      color: #00587a;
-      font-size: 2.5em;
-      margin-bottom: 30px;
-    }
-
-    .events {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .event-card {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      transition: transform 0.3s ease;
-      text-align: center;
-    }
-
-    .event-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .event-card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-
-    .event-card h3 {
-      color: #007b9e;
-      font-size: 1.3em;
-      margin-bottom: 10px;
-    }
-
-    .event-card p {
-      color: #444;
-      font-size: 1em;
-    }
-
-    footer {
-      background-color: #00587a;
-      color: white;
-      padding: 40px 20px;
-    }
-
-    .footer-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .footer-logo img {
-      height: 50px;
-    }
-
-    .footer-links ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .footer-links ul li a {
-      color: white;
-      text-decoration: none;
-    }
-
-    .footer-contact p,
-    .footer-social a {
-      color: white;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .social-icons a {
-      margin-right: 10px;
-      color: white;
-    }
-  </style>
+   h1 {
+     color: #00587a;
+     font-size: 2.5em;
+     margin-bottom: 30px;
+   }
+</style>
 </head>
 <body>
   
@@ -233,75 +150,79 @@ margin-right: 10px;
       </div>
     </section>
 
-  <!-- Alt Bilgi -->
-  <footer>
-    <div class="container">
+   <!-- Alt Bilgi -->
+ <footer>
+  <div class="container">
       <div class="footer-content">
-        <div class="footer-logo">
-          <img src="images/logo.png" alt="Blue Horizons Logo">
-          <h3>Mavi Ufuklar Projesi</h3>
+        <div class="logo-container">
+          <img src="images/logo.png" alt="Blue Horizons Logo" style="max-height: 100%; max-width: 100%;">
         </div>
-        <div class="footer-links">
-          <h4>Hızlı Erişim</h4>
-          <ul>
-            <li><a href="index.html">Ana Sayfa</a></li>
-            <li><a href="about.html">Hakkında</a></li>
-            <li><a href="ekip.html">Ekip Üyelerimiz</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
-            <li><a href="iletisim.html">İletişim</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>İletişim</h4>
-          <p><i class="fas fa-map-marker-alt"></i> BAHÇELİEVLER MAH. 31. SK. HÜRRİYET ORTA OKULU BLOK NO 2 İÇ KAPI NO 1 MERKEZ / DÜZCE</p>
-          <p><i class="fas fa-phone"></i> +90 (505) 350 58 11</p> <p><i class="fas fa-envelope"></i> <a href="mailto:duzcehurriyetortaokulu@meb.k12.tr">duzcehurriyetortaokulu@meb.k12.tr</a></p> </div>
-        <div class="footer-social">
-          <h4>Sosyal Medya</h4>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/duzcehurriyet" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/duzcehurriyetortaokulu/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.youtube.com/@hurriyetortaokuluduzcemerk6196" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-youtube"></i>
-            </a>
+          
+          <div class="footer-links">
+              <h4>Hızlı Erişim</h4>
+              <ul>
+                  <li><a href="index.html">Ana Sayfa</a></li>
+                  <li><a href="about.html">Hakkında</a></li>
+                  <li><a href="ekip.html">Ekip Üyelerimiz</a></li>
+                  <li><a href="galeri.html">Galeri</a></li>
+                  <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
+                  <li><a href="iletisim.html">İletişim</a></li>
+              </ul>
           </div>
+          
+          <div class="footer-contact">
+            <h4>İletişim</h4>
+            <p><i class="fas fa-map-marker-alt"></i> BAHÇELİEVLER MAH. 31. SK. HÜRRİYET ORTA OKULU BLOK NO 2 İÇ KAPI NO 1 MERKEZ / DÜZCE</p>
+            <p><i class="fas fa-phone"></i> +90 (505) 350 58 11</p> <p><i class="fas fa-envelope"></i> <a href="mailto:duzcehurriyetortaokulu@meb.k12.tr">duzcehurriyetortaokulu@meb.k12.tr</a></p> </div>
+          
+            <div class="footer-social">
+              <h4>Sosyal Medya</h4>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/duzcehurriyet" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/duzcehurriyetortaokulu/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@hurriyetortaokuluduzcemerk6196" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
           </div>
-        </div>
       </div>
+      
       <div class="footer-bottom">
-        <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
+          <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
       </div>
-    </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- Font Awesome Icons -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+<!-- Font Awesome Icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
-  <!-- ScrollReveal Animations -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      ScrollReveal().reveal('.reveal', {
-        delay: 200,
-        distance: '50px',
-        duration: 1000,
-        easing: 'ease-in-out',
-        origin: 'bottom',
-        interval: 200
+<!-- ScrollReveal Animations -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // ScrollReveal ayarları
+      ScrollReveal().reveal('.reveal', { 
+          delay: 200,
+          distance: '50px',
+          duration: 1000,
+          easing: 'ease-in-out',
+          origin: 'bottom',
+          interval: 200
       });
-
+      
+      // Mobil menü için hamburger toggle
       const menuToggle = document.createElement('div');
       menuToggle.classList.add('menu-toggle');
       menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
       document.querySelector('header').appendChild(menuToggle);
-
-      menuToggle.addEventListener('click', function () {
-        document.querySelector('.menu').classList.toggle('active');
+      
+      menuToggle.addEventListener('click', function() {
+          document.querySelector('.menu').classList.toggle('active');
       });
-    });
-  </script>
+  });
+</script>
 </body>
 </html>
