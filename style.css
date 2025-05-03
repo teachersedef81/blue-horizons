@@ -17,7 +17,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 50px;
-  background-color: cornflowerblue;
+  background: linear-gradient(to right, #690422, #fd42a9);
+  color: white;
 }
 
 .header-logos {
@@ -48,17 +49,39 @@ header {
 
 .menu a {
   text-decoration: none;
-  color: white;
+  color:lemonchiffon;
   font-weight: bold;
   transition: color 0.3s;
 }
 
 .menu a:hover {
-  color: #001f3f;
+  color: whitesmoke;
 }
 
+/* İlk menü aktif öğe stili */
 .menu a.active {
-  border-bottom: 2px solid white;
+  color: #fff;
+  background-color: #2e8b57; /* Mavi (#0077b6) yerine yeşil (#2e8b57) */
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+/* İkinci menü aktif öğe stili */
+.menu a.active {
+  color: #2e8b57; /* Mavi (#1a73e8) yerine yeşil (#2e8b57) */
+  font-weight: 700;
+}
+
+/* Alt çizgi rengi */
+.menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #2e8b57; /* Mavi (#1a73e8) yerine yeşil (#2e8b57) */
+  transition: width 0.3s ease;
 }
 
 /* Hero */
@@ -277,13 +300,13 @@ p {
 
 /* Footer */
 footer {
-  background-color: cornflowerblue;
+  background: linear-gradient(to right, #690422, #fd42a9);
   color: white;
   padding: 30px 20px;
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
@@ -736,11 +759,6 @@ header {
   width: 100%;
 }
 
-.menu a.active {
-  color: #1a73e8;
-  font-weight: 700;
-}
-
 .menu-toggle {
   display: none;
   font-size: 1.5rem;
@@ -818,7 +836,7 @@ header {
 
 /* Footer */
 footer {
-  background-color: #023e8a;
+  background-color: #8a022f;
   color: #fff;
   padding: 60px 0 20px;
 }

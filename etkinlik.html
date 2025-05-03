@@ -1,147 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Etkinliklerimiz</title>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-        <script src="https://unpkg.com/scrollreveal"></script>
-        <link rel="shortcut icon" href="images/logo.png" type="png">
-      </head>
-<body>
-       <!-- Üst Navigasyon -->
-       <header>
-        <div class="logo">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Etkinliklerimiz</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <link rel="shortcut icon" href="images/logo.png" type="image/png">
+  <!-- Üst Navigasyon -->
+    <header>
+      <div class="header-logos">
+        <div class="project-logo">
           <img src="images/logo.png" alt="Blue Horizons Logo">
         </div>
+        <div class="school-logo">
+          <!-- Buraya okul logonuzu ekleyin -->
+          <img src="images/okul logo.png" alt="Okul Logosu">
+        </div>
+      </div>
         <nav>
-          <ul class="menu">
+            <ul class="menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html">Hakkında</a></li>
+                <li><a href="ekip.html" class="active">Ekip Üyelerimiz</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color:#f0f8ff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #690422, #fd42a9);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav .menu {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav .menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav .menu li a.active {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #00587a;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+
+    .events {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .event-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .event-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .event-card h3 {
+      color: #007b9e;
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+
+    .event-card p {
+      color: #444;
+      font-size: 1em;
+    }
+
+    footer {
+      background-color: #00587a;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-logo img {
+      height: 50px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-contact p,
+    .footer-social a {
+      color: white;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .social-icons a {
+      margin-right: 10px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Etkinlikler Bölümü -->
+  <section class="events">
+    <div class="event-card">
+      <a href="activity/subat.html">
+        <img src="images/interview.jpg" alt="Röportaj">
+        <h3>Şubat</h3>
+        <p><strong>Düzce Valiliği Çevre Şehircilik İl Müdürlüğü Röportajı</strong></p>
+      </a>
+    </div>
+
+    <div class="event-card">
+      <a href="activity/mart1.html">
+        <img src="images/biyoloji.jpg" alt="Deniz Yağlıoğlu">
+        <h3>Mart-Etkinlik 1</h3>
+        <p><strong>Prof. Dr. Deniz Yağlıoğlu Semineri</strong></p>
+      </a>
+    </div>
+
+    <div class="event-card">
+      <h3>Mart-Etkinlik 2</h3>
+      <p><strong>Düzce Uğur Suyu Arıtma Tesisi Gezisi</strong></p>
+    </div>
+
+    <div class="event-card">
+      <h3>Nisan - Etkinlik 1</h3>
+      <p><strong>Düzce Üniversitesi Botanik Bahçesi Gezisi - Prof. Dr. Zeki Demir Semineri</strong></p>
+    </div>
+
+    <div class="event-card">
+      <h3>Nisan - Etkinlik 2</h3>
+      <p><strong>Efteni Gölü Su Filtrasyon Deneyi</strong></p>
+    </div>
+
+    <div class="event-card">
+      <h3>Mayıs Etkinlik 1</h3>
+      <p><strong>Akçakoca Resim Sergimiz ve VR Etkinliğimiz</strong></p>
+    </div>
+
+    <div class="event-card">
+      <h3>Mayıs Etkinlik 2</h3>
+      <p><strong>Projemiz Kısa Filmi</strong></p>
+    </div>
+  </section>
+
+  <!-- Alt Bilgi -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="images/logo.png" alt="Blue Horizons Logo">
+          <h3>Mavi Ufuklar Projesi</h3>
+        </div>
+        <div class="footer-links">
+          <h4>Hızlı Erişim</h4>
+          <ul>
             <li><a href="index.html">Ana Sayfa</a></li>
             <li><a href="about.html">Hakkında</a></li>
             <li><a href="ekip.html">Ekip Üyelerimiz</a></li>
             <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="etkinlik.html"  class="active" >Etkinliklerimiz</a></li>
+            <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
             <li><a href="iletisim.html">İletişim</a></li>
           </ul>
-        </nav>
-      </header>
-
-      <section class="events">
-        <div class="event-card">
-          <a href="activity/subat.html">
-            <img src="images/interview.jpg" alt="Röportaj">
-            <h3>Şubat</h3>
-            <p><strong>Düzce Valiliği Çevre Şehircilik İl Müdürlüğü Röportajı</strong></p>
-          </a>
         </div>
-
-        <div class="event-card">
-          <a href="activity/mart1.html">
-          <img src="images/biyoloji.jpg" alt="Deniz Yağlıoğlu">
-          <h3>Mart-Etkinlik 1</h3>
-          <p><strong>Prof. Dr. Deniz Yağlıoğlu Semineri</strong></p>
-        </a>
-        </div>
-        
-        <div class="event-card">
-          <h3>Mart-Etkinlik 2</h3>
-          <p><strong>Düzce Uğur Suyu Arıtma Tesisi Gezisi</strong></p>
-        </div>
-    
-        <div class="event-card">
-          <h3>Nisan - Etkinlik 1</h3>
-          <p><strong>Düzce Üniversitesi Botanik Bahçesi Gezisi-Prof. Dr. Zeki Demir Semineri</strong></p>
-        </div>
-
-        <div class="event-card">
-          <h3>Nisan- Etkinlik 2</h3>
-          <p><strong>Efteni Gölü Su Filtrasyon Deneyi</strong></p>
-        </div>
-
-        <div class="event-card">
-          <h3>Mayıs Etkinlik 1</h3>
-          <p><strong>Akçakoca Resim Sergimiz ve VR Etkinliğimiz</strong></p>
-        </div>
-
-        <div class="event-card">
-          <h3>Mayıs Etkinlik 2</h3>
-          <p><strong>Projemiz Kısa Filmi</strong></p>
-        </div>
-      </section>
-
-      
-     <!-- Alt Bilgi -->
-    <footer>
-      <div class="container">
-          <div class="footer-content">
-              <div class="footer-logo">
-                  <img src="images/logo.png" alt="Blue Horizons Logo">
-                  <h3>Mavi Ufuklar Projesi</h3>
-              </div>
-              
-              <div class="footer-links">
-                  <h4>Hızlı Erişim</h4>
-                  <ul>
-                      <li><a href="index.html">Ana Sayfa</a></li>
-                      <li><a href="about.html">Hakkında</a></li>
-                      <li><a href="ekip.html">Ekip Üyelerimiz</a></li>
-                      <li><a href="galeri.html">Galeri</a></li>
-                      <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
-                      <li><a href="iletisim.html">İletişim</a></li>
-                  </ul>
-              </div>
-              
-              <div class="footer-contact">
-                  <h4>İletişim</h4>
-                  <p><i class="fas fa-map-marker-alt"></i> Atatürk Caddesi No: 123, İzmir</p>
-                  <p><i class="fas fa-phone"></i> +90 232 123 4567</p>
-                  <p><i class="fas fa-envelope"></i> info@maviufuklar.org</p>
-              </div>
-              
-              <div class="footer-social">
-                  <h4>Sosyal Medya</h4>
-                  <div class="social-icons">
-                      <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                      <a href="#"><i class="fab fa-instagram"></i></a>
-                      <a href="#"><i class="fab fa-youtube"></i></a>
-                  </div>
-              </div>
-          </div>
-          
-          <div class="footer-bottom">
-              <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
-          </div>
+        <div class="footer-contact">
+          <h4>İletişim</h4>
+          <p><i class="fas fa-map-marker-alt"></i> BAHÇELİEVLER MAH. 31. SK. HÜRRİYET ORTA OKULU BLOK NO 2 İÇ KAPI NO 1 MERKEZ / DÜZCE</p>
+          <p><i class="fas fa-phone"></i> +9(505) 350 5811</p>
+          <p><i class="fas fa-envelope"></i>https://duzcehurriyetortaokulu.meb.k12.tr/</p>
       </div>
+        <div class="footer-social">
+          <h4>Sosyal Medya</h4>
+          <div class="social-icons">
+              <a href="https://www.facebook.com/duzcehurriyet"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/duzcehurriyetortaokulu/"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/@hurriyetortaokuluduzcemerk6196"><i class="fab fa-youtube"></i></a>
+          </div>"#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
   </footer>
 
   <!-- Font Awesome Icons -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-  
+
   <!-- ScrollReveal Animations -->
   <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          // ScrollReveal ayarları
-          ScrollReveal().reveal('.reveal', { 
-              delay: 200,
-              distance: '50px',
-              duration: 1000,
-              easing: 'ease-in-out',
-              origin: 'bottom',
-              interval: 200
-          });
-          
-          // Mobil menü için hamburger toggle
-          const menuToggle = document.createElement('div');
-          menuToggle.classList.add('menu-toggle');
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-          document.querySelector('header').appendChild(menuToggle);
-          
-          menuToggle.addEventListener('click', function() {
-              document.querySelector('.menu').classList.toggle('active');
-          });
+    document.addEventListener('DOMContentLoaded', function () {
+      ScrollReveal().reveal('.reveal', {
+        delay: 200,
+        distance: '50px',
+        duration: 1000,
+        easing: 'ease-in-out',
+        origin: 'bottom',
+        interval: 200
       });
+
+      const menuToggle = document.createElement('div');
+      menuToggle.classList.add('menu-toggle');
+      menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      document.querySelector('header').appendChild(menuToggle);
+
+      menuToggle.addEventListener('click', function () {
+        document.querySelector('.menu').classList.toggle('active');
+      });
+    });
   </script>
 </body>
 </html>

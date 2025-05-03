@@ -13,9 +13,15 @@
 <body>
     <!-- Üst Navigasyon -->
     <header>
-        <div class="logo">
+      <div class="header-logos">
+        <div class="project-logo">
           <img src="images/logo.png" alt="Blue Horizons Logo">
         </div>
+        <div class="school-logo">
+          <!-- Buraya okul logonuzu ekleyin -->
+          <img src="images/okul logo.png" alt="Okul Logosu">
+        </div>
+      </div>
         <nav>
           <ul class="menu">
             <li><a href="index.html">Ana Sayfa</a></li>
@@ -59,39 +65,191 @@
     <!-- İletişim Formu -->
     <section class="form-section">
         <div class="container">
-            <form id="contact-form" action="tesekkur.html" method="get" class="reveal">
-                <h2>İLETİŞİM FORMU</h2>
-            
-                <label for="name">İsim</label>
-                <input type="text" id="name" name="isim" required>
-            
-                <label for="email">E-mail Adres</label>
-                <input type="email" id="email" name="email" required>
-            
-                <label for="subject">Konu</label>
-                <input type="text" id="subject" name="konu" required>
-            
-                <label for="message">İçerik</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-            
-                <div class="form-buttons">
-                    <button type="submit" class="btn-submit">Gönder</button>
-                    <button type="reset" class="btn-reset">Temizle</button>
-                </div>
+            <h1>İletişim Formu</h1>
+            <form class="contact-form">
+              <label for="name">Ad Soyad</label>
+              <input type="text" id="name" name="name" required>
+          
+              <label for="email">E-posta</label>
+              <input type="email" id="email" name="email" required>
+          
+              <label for="message">Mesajınız</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+          
+              <button type="submit">Gönder</button>
             </form>
-        </div>
+          </div>
     </section>
+    <style>
+        body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
 
-    <footer>
-        <div class="socials">
-          <a href="https://www.facebook.com/duzcehurriyet" class="btn" target="_blank" rel="noopener noreferrer"><img src="images/facebook logo.png" alt="Facebook"></a>
-          <a href="https://www.instagram.com/duzcehurriyetortaokulu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="btn" target="_blank" rel="noopener noreferrer"><img src="images/instragram logo.jpg" alt="Instagram"></a>
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #00587a;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.contact-info p {
+  font-size: 1.1em;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.contact-info a {
+  color: #007b9e;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007b9e;
+  outline: none;
+}
+
+.contact-form button {
+  background-color: #007b9e;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #005f7f;
+}
+
+@media (max-width: 768px) {
+  .contact-info {
+    padding: 20px;
+  }
+}
+    </style>
+
+   <!-- Alt Bilgi -->
+   <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Blue Horizons Logo">
+                <h3>Mavi Ufuklar Projesi</h3>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Hızlı Erişim</h4>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkında</a></li>
+                    <li><a href="ekip.html">Ekip Üyelerimiz</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                    <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+              <h4>İletişim</h4>
+              <p><i class="fas fa-map-marker-alt"></i> BAHÇELİEVLER MAH. 31. SK. HÜRRİYET ORTA OKULU BLOK NO 2 İÇ KAPI NO 1 MERKEZ / DÜZCE</p>
+              <p><i class="fas fa-phone"></i> +9(505) 350 5811</p>
+              <p><i class="fas fa-envelope"></i>https://duzcehurriyetortaokulu.meb.k12.tr/</p>
+          </div>
+            
+            <div class="footer-social">
+              <h4>Sosyal Medya</h4>
+              <div class="social-icons">
+                  <a href="https://www.facebook.com/duzcehurriyet"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/duzcehurriyetortaokulu/"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.youtube.com/@hurriyetortaokuluduzcemerk6196"><i class="fab fa-youtube"></i></a>
+              </div>
+          </div>
+      </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
         </div>
-        <p>© 2025 Mavi Ufuklar Projesi. Tüm Hakları Saklıdır.</p>
-    </footer>
-    
-    <script>
-        ScrollReveal().reveal('.reveal', { delay: 200, distance: '50px', origin: 'bottom', duration: 1000 });
-    </script>
+    </div>
+</footer>
+
+<!-- Font Awesome Icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+<!-- ScrollReveal Animations -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // ScrollReveal ayarları
+        ScrollReveal().reveal('.reveal', { 
+            delay: 200,
+            distance: '50px',
+            duration: 1000,
+            easing: 'ease-in-out',
+            origin: 'bottom',
+            interval: 200
+        });
+        
+        // Mobil menü için hamburger toggle
+        const menuToggle = document.createElement('div');
+        menuToggle.classList.add('menu-toggle');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.querySelector('header').appendChild(menuToggle);
+        
+        menuToggle.addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+    });
+</script>
 </body>
 </html>
