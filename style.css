@@ -835,29 +835,16 @@ header {
 }
 
 /* Footer */
-footer {
-  background-color: #8a022f;
-  color: #fff;
-  padding: 60px 0 20px;
-}
-
 .footer-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
+  /* Mevcut sütunları otomatik ayarlama yerine belirli genişlikler veya oranlar verebilirsiniz */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Min/max genişlikleri ayarlayarak daha iyi sığdırma */
+  gap: 40px; /* Bölümler arası boşluğu artırabilirsiniz */
   margin-bottom: 40px;
+  text-align: left; /* İçerikleri sola hizalamak daha düzenli gösterebilir */
 }
 
-.footer-logo img {
-  height: 60px;
-  margin-bottom: 15px;
-}
-
-.footer-logo h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
+/* Başlıkların altındaki çizgiyi tüm footer başlıklarına uygulayın */
 .footer-links h4,
 .footer-contact h4,
 .footer-social h4 {
@@ -865,6 +852,7 @@ footer {
   margin-bottom: 20px;
   position: relative;
   padding-bottom: 10px;
+  display: inline-block; /* Çizginin sadece başlık kadar yer kaplaması için */
 }
 
 .footer-links h4::after,
@@ -874,66 +862,70 @@ footer {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 50px;
+  width: 50px; /* Çizgi uzunluğunu ayarlayabilirsiniz */
   height: 2px;
-  background-color: #1a73e8;
+  background-color: #1a73e8; /* Sitenin genel renk paletiyle uyumlu bir renk seçin */
 }
 
-.footer-links ul {
-  list-style: none;
-}
-
-.footer-links li {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  color: #fff;
-  opacity: 0.8;
-}
-
-.footer-links a:hover {
-  opacity: 1;
-}
-
+/* İkonların yanındaki metinler için hizalama */
 .footer-contact p {
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+  display: flex; /* İkon ve metni yan yana getirmek için */
+  align-items: center; /* Dikeyde ortalamak için */
 }
 
 .footer-contact i {
   margin-right: 10px;
-  color: #1a73e8;
+  color: #1a73e8; /* İkon rengi */
+  width: 20px; /* İkonlar için sabit genişlik */
+  text-align: center;
 }
 
-.social-icons {
-  display: flex;
+/* Sosyal medya ikonlarının boyutunu ve boşluklarını ayarlayın */
+/* Sosyal medya ikonlarının rengini ayarlayın */
+.social-icons a i {
+  color: white; /* İkonların rengini beyaz yapar */
+  font-size: 1.5rem; /* Boyut ayarı (isteğe bağlı, zaten vardı) */
 }
 
+/* Linkin (a etiketi) kendi rengi ikon rengini etkilemesin diye */
 .social-icons a {
-  display: flex;
+  color: inherit; /* Üst elementten renk almasın, kendi içindeki 'i' etiketinin rengi geçerli olsun */
+  display: flex; /* Bu satırlar zaten vardı, hizalama için önemli */
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1); /* Arka plan rengi */
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 15px; /* Boşluk ayarı */
   transition: all 0.3s ease;
 }
 
+/* Opsiyonel: Üzerine gelince ikon rengini değiştirmek isterseniz */
+.social-icons a:hover i {
+  color: #dddddd; /* Örneğin hafif gri tonu veya başka bir renk */
+}
+/* Opsiyonel: Üzerine gelince arka plan rengini değiştirmek isterseniz (mevcut kuralınız) */
 .social-icons a:hover {
-  background-color: #1a73e8;
+  background-color: #1a73e8; /* Mavi arka plan */
   transform: translateY(-3px);
 }
 
+/* Logo boyutunu ayarlama */
+.footer-logo img {
+    height: 60px; /* Yüksekliği ayarlayabilirsiniz */
+    width: auto; /* Genişlik otomatik ayarlansın */
+    margin-bottom: 15px;
+}
+
+/* Footer alt kısmı için stil */
 .footer-bottom {
   text-align: center;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Daha belirgin bir ayırıcı */
   font-size: 0.9rem;
-  opacity: 0.8;
+  opacity: 0.9; /* Biraz daha görünür yapabilirsiniz */
 }
 
 /* Medya Sorguları */
