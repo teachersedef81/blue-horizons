@@ -71,17 +71,77 @@
       </section>
 
       
-      <footer>
-        <div class="socials">
-          <a href="https://www.facebook.com/duzcehurriyet" class="btn" target="_blank" rel="noopener noreferrer"><img src="images/facebook logo.png" alt="Facebook"></a>
-          <a href="https://www.instagram.com/duzcehurriyetortaokulu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="btn" target="_blank" rel="noopener noreferrer"><img src="images/instragram logo.jpg" alt="Instagram"></a>
-        </div>
-        <p>© 2025 Mavi Ufuklar Projesi. Tüm Hakları Saklıdır.</p>
-      </footer>
-    
-      <script>
-        ScrollReveal().reveal('.reveal', { delay: 200, distance: '50px', origin: 'bottom', duration: 1000 });
-      </script>
-    
+     <!-- Alt Bilgi -->
+    <footer>
+      <div class="container">
+          <div class="footer-content">
+              <div class="footer-logo">
+                  <img src="images/logo.png" alt="Blue Horizons Logo">
+                  <h3>Mavi Ufuklar Projesi</h3>
+              </div>
+              
+              <div class="footer-links">
+                  <h4>Hızlı Erişim</h4>
+                  <ul>
+                      <li><a href="index.html">Ana Sayfa</a></li>
+                      <li><a href="about.html">Hakkında</a></li>
+                      <li><a href="ekip.html">Ekip Üyelerimiz</a></li>
+                      <li><a href="galeri.html">Galeri</a></li>
+                      <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
+                      <li><a href="iletisim.html">İletişim</a></li>
+                  </ul>
+              </div>
+              
+              <div class="footer-contact">
+                  <h4>İletişim</h4>
+                  <p><i class="fas fa-map-marker-alt"></i> Atatürk Caddesi No: 123, İzmir</p>
+                  <p><i class="fas fa-phone"></i> +90 232 123 4567</p>
+                  <p><i class="fas fa-envelope"></i> info@maviufuklar.org</p>
+              </div>
+              
+              <div class="footer-social">
+                  <h4>Sosyal Medya</h4>
+                  <div class="social-icons">
+                      <a href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="footer-bottom">
+              <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+  
+  <!-- ScrollReveal Animations -->
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // ScrollReveal ayarları
+          ScrollReveal().reveal('.reveal', { 
+              delay: 200,
+              distance: '50px',
+              duration: 1000,
+              easing: 'ease-in-out',
+              origin: 'bottom',
+              interval: 200
+          });
+          
+          // Mobil menü için hamburger toggle
+          const menuToggle = document.createElement('div');
+          menuToggle.classList.add('menu-toggle');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          document.querySelector('header').appendChild(menuToggle);
+          
+          menuToggle.addEventListener('click', function() {
+              document.querySelector('.menu').classList.toggle('active');
+          });
+      });
+  </script>
 </body>
 </html>

@@ -1,53 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ekip Üyelerimiz</title>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-        <script src="https://unpkg.com/scrollreveal"></script>
-        <link rel="shortcut icon" href="images/logo.png" type="png">
-      </head>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekip Üyelerimiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="shortcut icon" href="images/logo.png" type="png">
+</head>
 <body>
-       <!-- Üst Navigasyon -->
-       <header>
+    <!-- Üst Navigasyon -->
+    <header>
         <div class="logo">
-          <img src="images/logo.png" alt="Blue Horizons Logo">
+            <img src="images/logo.png" alt="Blue Horizons Logo">
         </div>
         <nav>
-          <ul class="menu">
-            <li><a href="index.html">Ana Sayfa</a></li>
-            <li><a href="about.html">Hakkında</a></li>
-            <li><a href="ekip.html"  class="active" >Ekip Üyelerimiz</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
-            <li><a href="iletisim.html">İletişim</a></li>
-          </ul>
+            <ul class="menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html">Hakkında</a></li>
+                <li><a href="ekip.html" class="active">Ekip Üyelerimiz</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
         </nav>
-      </header>
-      <section class="canva-presentation">
+    </header>
+
+    <!-- Ekip Bilgileri -->
+    <section class="team-section">
         <div class="container">
-          <h2>Proje Ekibimiz</h2>
-          <div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; box-shadow: 0 2px 8px rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
-            <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
-              src="https://www.canva.com/design/DAGjyqs_IQ4/y5R0CQrZ-hwPCzq-6MRPsw/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-            </iframe>
-          </div>
+            <h2>Proje Ekibimiz</h2>
+            <p>Mavi Ufuklar Projesi'ni hayata geçiren değerli ekip üyelerimiz</p>
+            
+            <div class="team-cards">
+                <div class="team-card reveal">
+                    <img src="images/ben.jpg" alt="Sedef Pehlivan">
+                    <h3>Sedef Pehlivan</h3>
+                    <p>Proje Koordinatörü</p>
+                </div>
+                
+                <div class="team-card reveal">
+                    <img src="images/mustafa hoca.jpg" alt="Mustafa Ege">
+                    <h3>Mustafa Ege</h3>
+                    <p>İletişim Sorumlusu</p>
+                </div>
+                
+                <div class="team-card reveal">
+                    <img src="images/elcin hocam.jpg" alt="Elçin Kahraman">
+                    <h3>Elçin Kahraman</h3>
+                    <p>Sanat Koordinatörü</p>
+                </div>
+                
+                <div class="team-card reveal">
+                    <img src="images/muhammet hocam.jpg" alt="Muhammet Özcan">
+                    <h3>Muhammet Özcan</h3>
+                    <p>Teknik Destek ve Bilişim Koordinatörü</p>
+                </div>
+                
+                <div class="team-card reveal">
+                    <img src="images/merve hocam.jpg" alt="Merve Anılır Tank">
+                    <h3>Merve Anılır Tank</h3>
+                    <p>eTwinning Koordinatörü</p>
+                </div>
+                
+                <div class="team-card reveal">
+                    <img src="images/ecenur.jpg" alt="Ecenur Demir">
+                    <h3>Ecenur Demir</h3>
+                    <p>İçerik Geliştirme Uzmanı</p>
+                </div>
+                
+                <div class="team-card reveal">
+                    <img src="images/ahmet.jpg" alt="Ahmet Yılmaz">
+                    <h3>Ahmet Yılmaz</h3>
+                    <p>Sosyal Medya Sorumlusu</p>
+                </div>
+                
+                <div class="team-card reveal">
+                    <img src="images/aylin.jpg" alt="Aylin Kaya">
+                    <h3>Aylin Kaya</h3>
+                    <p>Öğrenci Temsilcisi</p>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
     
-      <footer>
-        <div class="socials">
-          <a href="https://www.facebook.com/duzcehurriyet" class="btn" target="_blank" rel="noopener noreferrer"><img src="images/facebook logo.png" alt="Facebook"></a>
-          <a href="https://www.instagram.com/duzcehurriyetortaokulu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="btn" target="_blank" rel="noopener noreferrer"><img src="images/instragram logo.jpg" alt="Instagram"></a>
+    <!-- Proje Hakkında Kısa Bilgi -->
+    <section class="about-team-section">
+        <div class="container">
+            <div class="about-team-content reveal">
+                <h2>Ekibimiz Hakkında</h2>
+                <p>Mavi Ufuklar Projesi, deniz ekosistemlerinin korunması ve sürdürülebilir çevre bilincinin yaygınlaştırılması amacıyla bir araya gelmiş tutkulu eğitimcilerden oluşmaktadır. Ekibimiz, farklı disiplinlerden gelen uzmanlarla çevre bilincini artırmak, deniz kaynaklarının korunmasını sağlamak ve gelecek nesillere temiz bir dünya bırakmak için çalışmaktadır.</p>
+                
+                <p>Projemizde yer alan her bir üye, kendi uzmanlık alanında değerli katkılar sunarak öğrencilerimizin çevre konusunda bilinçlenmesini sağlamaktadır. Atölye çalışmaları, alan gezileri ve interaktif etkinliklerle deniz ekosistemlerinin önemi konusunda farkındalık yaratmayı hedefliyoruz.</p>
+                
+                <a href="iletisim.html" class="btn">Bize Katılın</a>
+            </div>
         </div>
-        <p>© 2025 Mavi Ufuklar Projesi. Tüm Hakları Saklıdır.</p>
-      </footer>
+    </section>
     
-      <script>
-        ScrollReveal().reveal('.reveal', { delay: 200, distance: '50px', origin: 'bottom', duration: 1000 });
-      </script>
+    <!-- Alt Bilgi -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Blue Horizons Logo">
+                    <h3>Mavi Ufuklar Projesi</h3>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Hızlı Erişim</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkında</a></li>
+                        <li><a href="ekip.html">Ekip Üyelerimiz</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>İletişim</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Atatürk Caddesi No: 123, İzmir</p>
+                    <p><i class="fas fa-phone"></i> +90 232 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@maviufuklar.org</p>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Sosyal Medya</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     
+    <!-- ScrollReveal Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ScrollReveal ayarları
+            ScrollReveal().reveal('.reveal', { 
+                delay: 200,
+                distance: '50px',
+                duration: 1000,
+                easing: 'ease-in-out',
+                origin: 'bottom',
+                interval: 200
+            });
+            
+            // Mobil menü için hamburger toggle
+            const menuToggle = document.createElement('div');
+            menuToggle.classList.add('menu-toggle');
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            document.querySelector('header').appendChild(menuToggle);
+            
+            menuToggle.addEventListener('click', function() {
+                document.querySelector('.menu').classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
