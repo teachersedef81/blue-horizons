@@ -1,24 +1,174 @@
 <!DOCTYPE html>
 <html lang="tr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Foto Galeri</title>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-        <script src="https://unpkg.com/scrollreveal"></script>
-        <link rel="shortcut icon" href="images/logo.png" type="png">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto Galeri</title>
+    <link rel="stylesheet" href="style.css"> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/png"> <style>
+        /* --- Lightbox Stilleri --- */
+
+        /* Galeri resimlerine tıklanabilirlik hissi vermek için */
+        .gallery-grid img {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05); /* Hafif büyütme efekti */
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* Gölgeyi belirginleştirme */
+        }
+
+        /* Lightbox Arka Planı */
+        .lightbox-overlay {
+            position: fixed; /* Sayfa kaysa bile yerinde kalır */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Yarı saydam siyah arka plan */
+            display: none; /* Başlangıçta gizli */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Diğer öğelerin üzerinde olması için */
+            padding: 20px; /* Kenarlardan boşluk */
+            box-sizing: border-box;
+        }
+
+        /* Lightbox İçerik Alanı */
+        .lightbox-content {
+            position: relative;
+            background-color: #fff; /* İçerik arka planı */
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 90%; /* Maksimum genişlik */
+            max-height: 90%; /* Maksimum yükseklik */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Lightbox Resmi */
+        .lightbox-image {
+            display: block;
+            max-width: 100%; /* İçerik alanına sığdır */
+            max-height: calc(90vh - 100px); /* Yüksekliği ayarla (başlık, butonlar vb. için pay bırak) */
+            height: auto; /* En boy oranını koru */
+            width: auto; /* En boy oranını koru */
+            border-radius: 5px; /* Hafif köşeleri yuvarlat */
+        }
+
+        /* Kapatma Butonu */
+        .lightbox-close {
+            position: absolute;
+            top: -15px; /* İçerik alanının biraz dışına */
+            right: -15px;
+            background-color: #fff; /* Buton arka planı */
+            color: #333; /* İkon rengi */
+            border: none;
+            font-size: 1.8rem; /* İkon boyutu */
+            cursor: pointer;
+            border-radius: 50%; /* Yuvarlak buton */
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background-color: #eee;
+            color: #000;
+        }
+
+        /* Navigasyon Butonları (Önceki/Sonraki) */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            z-index: 1001; /* Resmin üzerinde olmalı */
+        }
+
+        .lightbox-nav:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .lightbox-prev {
+            left: 20px; /* Soldan boşluk */
+        }
+
+        .lightbox-next {
+            right: 20px; /* Sağdan boşluk */
+        }
+
+        /* Lightbox aktifken body'e scroll'u engellemek için (opsiyonel) */
+        body.lightbox-active {
+            overflow: hidden;
+        }
+
+        /* --- Mevcut Header Stilleri (Tekrardan kaçınmak için kontrol edildi) --- */
+        /* Eğer style.css'de yoksa veya farklıysa buraya eklenebilir */
+        .logo-container {
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            padding: 5px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            margin-right: 10px;
+        }
+        header {
+            display: flex; /* Zaten style.css'de var gibi duruyor */
+            /* justify-content: space-between; */ /* style.css'deki daha uygun olabilir */
+            align-items: center;
+            /* padding: 10px 50px; */ /* style.css'deki daha uygun olabilir */
+            /* background: linear-gradient(to right, #690422, #fd42a9); */ /* style.css'deki daha uygun olabilir */
+            /* color: white; */ /* style.css'deki daha uygun olabilir */
+        }
+        /* header içindeki logo-container'ların yan yana gelmesi için */
+        header > div.logo-container {
+            display: inline-block; /* veya flex kullanılıyorsa header'da gerek yok */
+        }
+        /* Eğer header'da space-between varsa ve logolar solda, menü sağda kalacaksa */
+        header {
+          justify-content: space-between;
+        }
+        /* Logoları bir arada tutmak için ek bir div gerekebilir */
+        .header-logo-group {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Logolar arası boşluk */
+        }
+
+    </style>
+</head>
 <body>
-    <!-- Üst Navigasyon -->
     <header>
-        <div class="logo-container">
-            <img src="images/logo.png" alt="Blue Horizons Logo" style="max-height: 100%; max-width: 100%;">
-          </div>
-          <div class="logo-container">
-            <img src="images/okul logo.png" alt="Okul Logosu" style="max-height: 100%; max-width: 100%;">
-          </div>
-          </div>
+        <div class="header-logo-group">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Blue Horizons Logo" style="max-height: 100%; max-width: 100%;">
+            </div>
+            <div class="logo-container">
+                <img src="images/okul logo.png" alt="Okul Logosu" style="max-height: 100%; max-width: 100%;">
+            </div>
+        </div>
         <nav>
           <ul class="menu">
             <li><a href="index.html">Ana Sayfa</a></li>
@@ -29,36 +179,56 @@
             <li><a href="iletisim.html">İletişim</a></li>
           </ul>
         </nav>
-    </header>
-    <style>
-        .logo-container {
-  width: 70px;
-  height: 70px;
-  background-color: white; /* ya da sayfayla uyumlu açık renk */
-  padding: 5px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  margin-right: 10px;
-}
-    </style>
-    <!-- Galeri -->
+        </header>
+
     <section class="gallery">
         <div class="container">
             <h2>Projemizden Kareler</h2>
             <p>Mavi Ufuklar Projesi kapsamında gerçekleştirdiğimiz etkinlik ve çalışmalardan bazı fotoğraflar</p>
-            
+
             <div class="gallery-grid">
-                <img src="images/su kaynakları.jpg" alt="Su Kaynakları Araştırması" class="reveal">
-                <img src="images/su filtreleme.jpg" alt="Su Filtreleme Çalışması" class="reveal">
-                <img src="images/su tasarrufu.png" alt="Su Tasarrufu Eğitimi" class="reveal">
-                <img src="images/sanat.jpg" alt="Sanat Etkinliği" class="reveal">
-                <img src="images/interview.jpg" alt="Röportaj" class="reveal">
-                <img src="images/biyoloji.jpg" alt="Bilimsel Etkinlik" class="reveal">
-            </div>
-            
+                <img src="images/1.jpg" alt="Su Kaynakları Araştırması" class="reveal gallery-item">
+                <img src="images/2.jpg" alt="Su Filtreleme Çalışması" class="reveal gallery-item">
+                <img src="images/3.jpg" alt="Su Tasarrufu Eğitimi" class="reveal gallery-item">
+                <img src="images/4.jpg" alt="Sanat Etkinliği" class="reveal gallery-item">
+                <img src="images/5.jpg" alt="Röportaj" class="reveal gallery-item">
+                <img src="images/6.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/7.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/8.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/9.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/10.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/11.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/12.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/13.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/14.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/15.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/16.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/17.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/18.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/19.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/20.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/21.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/22.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/23.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/24.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/25.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/26.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/27.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/28.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/29.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/30.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/31.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/32.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/33.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/34.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/35.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/36.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/37.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/38.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/39.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                <img src="images/40.jpg" alt="Bilimsel Etkinlik" class="reveal gallery-item">
+                </div>
+
             <div class="gallery-description reveal">
                 <h3>Etkinliklerden Görüntüler</h3>
                 <p>Yukarıdaki fotoğraflar, projemiz kapsamında gerçekleştirdiğimiz çeşitli etkinliklerden kareler içermektedir. Su kaynaklarının korunması, su kalitesi ölçümleri, filtrasyon deneyleri ve sanatsal faaliyetlerimizden örnekler görebilirsiniz.</p>
@@ -67,23 +237,20 @@
         </div>
     </section>
 
-      <!-- Banner - Boyutu düzeltildi -->
-  <section class="banner-section">
-    <div class="container">
-      <div class="shore-logo">
-        <img src="images/banner.png" alt="SHORE Projesi Logo">
-    </div>
-    </div>
-  </section>
-    
-    <!-- Alt Bilgi -->
+    <section class="banner-section">
+        <div class="container"> <div class="shore-logo">
+                <img src="images/banner.png" alt="SHORE Projesi Banner" class="responsive-banner">
+                </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     <img src="images/logo.png" alt="Blue Horizons Logo">
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Hızlı Erişim</h4>
                     <ul>
@@ -95,58 +262,163 @@
                         <li><a href="iletisim.html">İletişim</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-contact">
                     <h4>İletişim</h4>
                     <p><i class="fas fa-map-marker-alt"></i> BAHÇELİEVLER MAH. 31. SK. HÜRRİYET ORTA OKULU BLOK NO 2 İÇ KAPI NO 1 MERKEZ / DÜZCE</p>
-                    <p><i class="fas fa-phone"></i> +90 (505) 350 58 11</p> <p><i class="fas fa-envelope"></i> <a href="mailto:duzcehurriyetortaokulu@meb.k12.tr">duzcehurriyetortaokulu@meb.k12.tr</a></p> </div>
-                
-                    <div class="footer-social">
-                        <h4>Sosyal Medya</h4>
-                        <div class="social-icons">
-                          <a href="https://www.facebook.com/duzcehurriyet" target="_blank" rel="noopener noreferrer">
-                              <i class="fab fa-facebook-f"></i>
-                          </a>
-                          <a href="https://www.instagram.com/duzcehurriyetortaokulu/" target="_blank" rel="noopener noreferrer">
-                              <i class="fab fa-instagram"></i>
-                          </a>
-                          <a href="https://www.youtube.com/@hurriyetortaokuluduzcemerk6196" target="_blank" rel="noopener noreferrer">
-                              <i class="fab fa-youtube"></i>
-                          </a>
+                    <p><i class="fas fa-phone"></i> +90 (505) 350 58 11</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:duzcehurriyetortaokulu@meb.k12.tr">duzcehurriyetortaokulu@meb.k12.tr</a></p>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Sosyal Medya</h4>
+                    <div class="social-icons">
+                      <a href="https://www.facebook.com/duzcehurriyet" target="_blank" rel="noopener noreferrer">
+                          <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/duzcehurriyetortaokulu/" target="_blank" rel="noopener noreferrer">
+                          <i class="fab fa-instagram"></i>
+                      </a>
+                      <a href="https://www.youtube.com/@duzcehurriyetortaokulu" target="_blank" rel="noopener noreferrer"> <i class="fab fa-youtube"></i>
+                      </a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Font Awesome Icons -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img src="" alt="Genişletilmiş Galeri Resmi" class="lightbox-image" id="lightboxImage">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-    
-    <!-- ScrollReveal Animations -->
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // ScrollReveal ayarları
-            ScrollReveal().reveal('.reveal', { 
+            ScrollReveal().reveal('.reveal', {
                 delay: 200,
                 distance: '50px',
                 duration: 1000,
                 easing: 'ease-in-out',
                 origin: 'bottom',
-                interval: 200
+                interval: 200 // Animasyonların ardışık başlaması için
             });
-            
-            // Mobil menü için hamburger toggle
+
+            // Mobil menü için hamburger toggle (Mevcut kodunuz)
             const menuToggle = document.createElement('div');
             menuToggle.classList.add('menu-toggle');
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            document.querySelector('header').appendChild(menuToggle);
-            
+            // Font Awesome ikonu ekleyelim
+            const icon = document.createElement('i');
+            icon.classList.add('fas', 'fa-bars');
+            menuToggle.appendChild(icon);
+
+            // Butonu header'a ekleyelim (nav'dan sonra daha mantıklı olabilir)
+            const header = document.querySelector('header');
+            const nav = document.querySelector('header nav');
+            if (header && nav) {
+                 header.insertBefore(menuToggle, nav.nextSibling); // Menünün yanına ekler
+            } else if (header) {
+                 header.appendChild(menuToggle); // Header sonuna ekler
+            }
+
+
             menuToggle.addEventListener('click', function() {
                 document.querySelector('.menu').classList.toggle('active');
+                // İkonu değiştir (opsiyonel: açıldığında çarpı ikonu)
+                const iconElement = menuToggle.querySelector('i');
+                if (document.querySelector('.menu').classList.contains('active')) {
+                    iconElement.classList.remove('fa-bars');
+                    iconElement.classList.add('fa-times');
+                } else {
+                    iconElement.classList.remove('fa-times');
+                    iconElement.classList.add('fa-bars');
+                }
+            });
+
+            // --- Lightbox JavaScript ---
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightboxOverlay = document.getElementById('lightboxOverlay');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+
+            let currentImageIndex = 0;
+            const images = Array.from(galleryItems).map(item => item.src); // Tüm resimlerin src'lerini al
+
+            // Resmi lightbox'ta açma fonksiyonu
+            function openLightbox(index) {
+                if (index < 0 || index >= images.length) {
+                    console.error("Geçersiz resim indeksi:", index);
+                    return;
+                }
+                currentImageIndex = index;
+                lightboxImage.src = images[currentImageIndex];
+                lightboxOverlay.style.display = 'flex'; // Görünür yap ve içeriği ortala
+                document.body.classList.add('lightbox-active'); // Body scroll'u engelle
+            }
+
+            // Lightbox'ı kapatma fonksiyonu
+            function closeLightbox() {
+                lightboxOverlay.style.display = 'none';
+                document.body.classList.remove('lightbox-active');
+            }
+
+            // Sonraki resmi gösterme fonksiyonu
+            function showNextImage() {
+                const nextIndex = (currentImageIndex + 1) % images.length; // Döngüsel geçiş
+                openLightbox(nextIndex);
+            }
+
+            // Önceki resmi gösterme fonksiyonu
+            function showPrevImage() {
+                const prevIndex = (currentImageIndex - 1 + images.length) % images.length; // Döngüsel geçiş
+                openLightbox(prevIndex);
+            }
+
+            // Galeri resimlerine tıklama olayını ekle
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    openLightbox(index);
+                });
+            });
+
+            // Kapatma butonuna tıklama olayını ekle
+            lightboxClose.addEventListener('click', closeLightbox);
+
+            // Arka plana tıklama olayını ekle (kapatmak için)
+            lightboxOverlay.addEventListener('click', (event) => {
+                // Sadece overlay'e (içeriğe değil) tıklandığında kapat
+                if (event.target === lightboxOverlay) {
+                    closeLightbox();
+                }
+            });
+
+            // Navigasyon butonlarına tıklama olaylarını ekle
+            lightboxPrev.addEventListener('click', showPrevImage);
+            lightboxNext.addEventListener('click', showNextImage);
+
+            // Klavye ile navigasyon (opsiyonel)
+            document.addEventListener('keydown', (event) => {
+                if (lightboxOverlay.style.display === 'flex') { // Sadece lightbox açıkken çalışsın
+                    if (event.key === 'Escape') {
+                        closeLightbox();
+                    } else if (event.key === 'ArrowRight') {
+                        showNextImage();
+                    } else if (event.key === 'ArrowLeft') {
+                        showPrevImage();
+                    }
+                }
             });
         });
     </script>
