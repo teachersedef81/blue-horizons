@@ -44,6 +44,52 @@ justify-content: center;
 box-shadow: 0 0 5px rgba(0,0,0,0.1);
 margin-right: 10px;
 }
+/* Video bölümü için stil */
+.video-section {
+        padding: 2rem 0; /* Üstten ve alttan boşluk */
+        background-color: #f8f9fa; /* Hafif bir arka plan rengi (isteğe bağlı) */
+    }
+
+    /* İçeriği sarmalayan konteyner */
+    .container {
+        max-width: 1140px; /* Maksimum genişlik */
+        margin: 0 auto; /* Ortalamak için */
+        padding: 0 15px; /* Kenarlardan boşluk */
+    }
+
+    /* Başlık stili */
+    .video-section h2 {
+        text-align: center; /* Başlığı ortala */
+        margin-bottom: 1.5rem; /* Başlık altı boşluk */
+        font-size: 2rem; /* Başlık font boyutu */
+        color: #333; /* Başlık rengi */
+    }
+
+    /* Videoyu sarmalayan ve ortalayan div */
+    .video-wrapper {
+        display: flex; /* Flexbox kullanarak içindeki öğeyi ortalamak için */
+        justify-content: center; /* Yatayda ortala */
+        align-items: center; /* Dikeyde ortala (eğer yükseklik verilirse) */
+        margin-bottom: 2rem; /* Video altı boşluk */
+    }
+
+    /* Gömülü video (iframe) stili */
+    .video-wrapper iframe {
+        max-width: 100%; /* Konteynerdan taşmasını engelle */
+        border-radius: 8px; /* Köşeleri yuvarlat */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    }
+
+    /* Daha küçük ekranlar için video boyutunu ayarla (Örnek) */
+    @media (max-width: 768px) {
+        .video-wrapper-iframe{
+            /* Genişliği ve yüksekliği küçültebilir veya yüzde kullanabilirsiniz */
+            /* Örneğin: width: 100%; height: auto; aspect-ratio: 16 / 9; */
+        }
+         .video-section h2 {
+            font-size: 1.5rem; /* Daha küçük ekranlarda başlık boyutu */
+        }
+    }
 </style>
   <!-- Hero Section -->
   <section class="hero">
@@ -115,15 +161,23 @@ margin-right: 10px;
   <section class="video-section">
     <div class="container">
       <h2>Proje İntromuz</h2>
-    <div class="video-container-responsive">
-      <iframe
-      src="https://www.youtube.com/embed/VIDEO_ID"
-      title="Proje intro"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-  </iframe>
-    </div>
+      <div class="video-wrapper">
+        <iframe
+          width="854" /* Genişlik artırıldı (16:9 oran için popüler bir boyut) */
+          height="480" /* Yükseklik artırıldı (16:9 oran için popüler bir boyut) */
+          src="https://www.youtube.com/embed/FnR06MeEm_k?si=mw9bOUqLMOnPCK1k" /* VIDEO URL'niz */
+          title="YouTube video player"
+          frameborder="0" /* Kenarlık kaldırıldı */
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+      </div>
+  </section>
+
+
+
   </div>
   </section>
 
