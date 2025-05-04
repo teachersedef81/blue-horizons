@@ -686,26 +686,7 @@ footer > .container {
 /* shore-logo stili index.html banner'ı ile aynı, yukarıda tanımlı */
 
 
-/* Galeri sayfası */
-.gallery {
-  /* background-color: #f0f8ff; Zaten yukarıda tanımlı */
-  padding: 60px 20px;
-}
 
-/* gallery-grid yukarıda .cards ile birleştirildi */
-.gallery-grid img {
-  width: 300px; /* Sabit genişlik */
-  height: 200px; /* Sabit yükseklik */
-  object-fit: cover; /* Oranları koruyarak sığdır */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-  cursor: pointer; /* Tıklanabilir hissi */
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.05); /* Hafif büyütme efekti */
-}
 
 
 /* İletişim sayfası */
@@ -1040,7 +1021,7 @@ footer > .container {
 
   .card, .team-card, .goals-card, .gallery-grid img {
       width: 100%; /* Tek sütunlu yapı */
-      max-width: 300px; /* Maksimum genişlik */
+      max-width: 100px; /* Maksimum genişlik */
       margin-left: auto;
       margin-right: auto;
   }

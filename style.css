@@ -511,6 +511,27 @@ footer {
   transform: scale(1.1) rotate(10deg); /* Hover efekti */
 }
 
+/* Galeri sayfası */
+.gallery {
+  /* background-color: #f0f8ff; Zaten yukarıda tanımlı */
+  padding: 60px 20px;
+}
+
+/* gallery-grid yukarıda .cards ile birleştirildi */
+.gallery-grid img {
+  width: 280px; /* 300px yerine daha küçük bir değer */
+  height: 187px; /* Genişlik değiştiği için yüksekliği de orantılı (veya sabit) ayarlayın */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05); /* Hafif büyütme efekti */
+}
+
 /* Footer Alt Kısım */
 .footer-bottom {
   text-align: center;
