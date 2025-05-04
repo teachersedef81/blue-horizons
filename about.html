@@ -3,22 +3,634 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hakkında</title>
-        <link rel="stylesheet" href="style.css">
+        <title>Hakkında - Mavi Ufuklar Projesi</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://unpkg.com/scrollreveal"></script>
-        <link rel="shortcut icon" href="images/logo.png" type="png">
-    </head>
+        <link rel="shortcut icon" href="images/logo.png" type="image/png">
+
+        <style>
+            /* Genel Stiller */
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+
+            body {
+              font-family: 'Montserrat', sans-serif;
+              background-color: #f5f7fa; /* Daha nötr bir arka plan */
+              color: #333;
+              line-height: 1.6;
+            }
+
+            .container {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 20px;
+            }
+
+            h2 {
+              color: #004d40; /* Ana tema rengi */
+              font-size: 2.2rem;
+              margin-bottom: 30px; /* Alt boşluk artırıldı */
+              position: relative;
+              display: inline-block;
+              text-align: center; /* Başlıkları ortala */
+              width: 100%; /* Tam genişlik kaplaması için */
+            }
+
+            h2:after {
+              content: "";
+              position: absolute;
+              bottom: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 60px; /* Çizgi uzunluğu */
+              height: 3px;
+              background-color: #00bcd4; /* Vurgu rengi */
+            }
+
+            h3 { /* Genel h3 stili */
+                color: #00796b;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                font-size: 1.4rem;
+            }
+
+            p {
+              font-size: 1rem;
+              line-height: 1.6;
+              margin-bottom: 1rem; /* Paragraflar arası boşluk */
+            }
+
+            a {
+              text-decoration: none;
+              color: #00796b; /* Link rengi */
+              transition: color 0.3s ease;
+            }
+
+            a:hover {
+              color: #004d40; /* Hover rengi */
+            }
+
+            img {
+                max-width: 100%; /* Resimlerin taşmasını önle */
+                height: auto; /* Oranları koru */
+                display: block; /* Altındaki gereksiz boşluğu kaldır */
+            }
+
+            ul { /* Genel liste stili */
+                margin-bottom: 1rem;
+                padding-left: 20px; /* İçeriden boşluk */
+            }
+            li {
+                margin-bottom: 0.5rem; /* Liste elemanları arası boşluk */
+            }
+
+            /* Header ve Navigasyon */
+            header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 10px 50px;
+              background: linear-gradient(to right, #690422, #fd42a9); /* Gradient arka plan */
+              color: white;
+              position: sticky; /* Sayfa kaydırıldığında sabit kalması için */
+              top: 0;
+              z-index: 1000; /* Diğer elemanların üzerinde kalması için */
+              box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Hafif gölge */
+            }
+
+            .logo-container { /* Önceki style etiketinden alındı */
+                width: 70px;
+                height: 70px;
+                background-color: white;
+                padding: 5px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 5px rgba(0,0,0,0.1);
+                margin-right: 10px; /* Logolar arası boşluk */
+            }
+
+            .logo-container img {
+              max-height: 100%;
+              max-width: 100%;
+              transition: transform 0.3s ease;
+            }
+            .logo-container img:hover {
+                transform: scale(1.1); /* Hover efekti */
+            }
+
+            .menu {
+              list-style: none;
+              display: flex;
+              gap: 25px; /* Menü öğeleri arası boşluk */
+            }
+
+            .menu li {
+              display: inline;
+            }
+
+            .menu a {
+              text-decoration: none;
+              color: lemonchiffon; /* Menü link rengi */
+              font-weight: bold;
+              padding: 8px 0; /* Dikey boşluk */
+              position: relative; /* Alt çizgi için */
+              transition: color 0.3s;
+            }
+
+            .menu a:hover {
+              color: #ffffff; /* Hover rengi */
+            }
+
+            /* Aktif menü öğesi */
+            .menu a.active {
+              color: #ffffff; /* Aktif link rengi */
+            }
+
+            /* Menü linkleri için alt çizgi efekti */
+            .menu a::after {
+              content: '';
+              position: absolute;
+              bottom: 0; /* Altına yerleştir */
+              left: 0;
+              width: 0; /* Başlangıçta genişlik 0 */
+              height: 2px;
+              background-color: #ffffff; /* Çizgi rengi */
+              transition: width 0.3s ease; /* Genişlik animasyonu */
+            }
+
+            .menu a:hover::after,
+            .menu a.active::after {
+              width: 100%; /* Hover veya aktif durumda tam genişlik */
+            }
+
+            /* Mobil Menü Toggle Butonu */
+            .menu-toggle {
+              display: none; /* Varsayılan olarak gizli */
+              font-size: 1.8rem; /* İkon boyutu */
+              color: white;
+              cursor: pointer;
+              background: none;
+              border: none;
+              padding: 5px;
+            }
+
+            /* Genel Bölüm Stilleri */
+            .about-detailed, .project-goals, .shore-connection {
+              padding: 80px 20px; /* Bölüm iç boşlukları */
+            }
+
+            .about-detailed, .shore-connection {
+                background-color: #e0f7fa; /* Açık mavi tonu */
+            }
+
+            .project-goals { /* Eğer bu class başka yerde kullanılmıyorsa kaldırılabilir */
+                background-color: #ffffff; /* Beyaz arka plan */
+            }
+
+            /* About Sayfası Özel Stilleri */
+            .about-detailed {
+                /* Arka plan rengi yukarıda tanımlandı */
+            }
+
+            .about-content {
+              display: flex; /* Yan yana hizalama için */
+              flex-wrap: wrap; /* Küçük ekranlarda alt alta gelmesi için */
+              align-items: flex-start; /* Öğeleri üste hizala */
+              gap: 40px; /* Resim ve metin arası boşluk */
+              margin-top: 30px; /* Üst başlıkla arası boşluk */
+            }
+
+            .about-image {
+              flex: 1; /* Esnek genişlik */
+              min-width: 280px; /* Minimum genişlik (sarmadan önce) */
+            }
+
+            .about-image img {
+              width: 100%; /* Konteynerını doldur */
+              border-radius: 10px;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .about-text {
+              flex: 2; /* Metin alanı daha fazla yer kaplasın */
+              min-width: 300px; /* Minimum genişlik */
+            }
+
+            .about-text h3 {
+              color: #004d40; /* Başlık rengi */
+              margin-top: 0; /* İlk başlığın üst boşluğunu kaldır */
+              margin-bottom: 10px;
+            }
+
+            /* Metin Olarak Proje Hedefleri */
+            .project-goals-text {
+              margin-top: 50px; /* Üstteki bölümle arasına boşluk */
+              padding-top: 40px; /* Kendi iç üst boşluğu */
+              border-top: 1px solid rgba(0, 77, 64, 0.1); /* Üstüne hafif ayırıcı çizgi */
+            }
+            .project-goals-text h2 { /* Hedefler başlığı için */
+                text-align: left; /* Sola hizala */
+                margin-bottom: 20px;
+            }
+            .project-goals-text h2:after { /* Başlık altı çizgiyi sola al */
+                left: 0;
+                transform: translateX(0);
+            }
+
+            .project-goals-text div { /* Her bir hedef grubu */
+                margin-bottom: 20px;
+            }
+
+            .project-goals-text h3 { /* Hedef başlıkları */
+               color: #00796b;
+               margin-top: 0; /* Üst boşluğu sıfırla */
+               margin-bottom: 5px;
+               font-size: 1.2rem; /* Biraz daha küçük */
+            }
+            .project-goals-text p { /* Hedef açıklamaları */
+                margin-bottom: 0; /* Alt boşluğu sıfırla */
+                color: #555;
+            }
+
+            /* SHORE Bağlantı Bölümü */
+            .shore-connection {
+                /* Arka plan rengi yukarıda tanımlandı */
+            }
+            .shore-connection h2 {
+                font-size: 1.8rem; /* Başlık biraz daha küçük */
+            }
+            .shore-content {
+              margin-top: 30px;
+            }
+            .shore-content h3 { /* Yaklaşımımız, Beklenen Etkiler vb. başlıklar */
+                color: #004d40;
+                margin-top: 25px;
+                margin-bottom: 10px;
+                font-size: 1.3rem;
+            }
+            .shore-content p {
+              margin-bottom: 15px;
+              line-height: 1.7; /* Okunabilirliği artır */
+            }
+            .shore-content ul {
+                list-style-type: disc; /* Madde işareti */
+                margin-left: 20px; /* İçeriden boşluk */
+                margin-bottom: 20px;
+            }
+            .shore-content li {
+                margin-bottom: 10px;
+            }
+
+
+            /* Footer Bannerları */
+            .footer-banner-container {
+              display: flex;
+              justify-content: center; /* Ortala */
+              align-items: center; /* Dikeyde ortala */
+              gap: 30px; /* Bannerlar arası boşluk */
+              padding: 40px 20px; /* İç boşluk */
+              background-color: #e8f1ff; /* Farklı bir arka plan */
+              flex-wrap: wrap; /* Küçük ekranlarda alt alta gelmesi için */
+            }
+
+            .footer-banner {
+              height: 60px; /* Banner yüksekliği */
+              max-width: 150px; /* Maksimum genişlik */
+              object-fit: contain; /* Oranları koruyarak sığdır */
+            }
+
+
+            /* Footer (Alt Bilgi) */
+            footer {
+              background: linear-gradient(to right, #690422, #fd42a9); /* Header ile aynı gradient */
+              color: #e0e0e0; /* Daha açık metin rengi */
+              padding: 60px 20px 30px; /* Üst boşluk artırıldı, alt boşluk azaltıldı */
+            }
+
+            .footer-content {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Min genişlik artırıldı */
+              gap: 40px 30px; /* Satır ve sütun boşlukları */
+              margin-bottom: 40px;
+              text-align: left; /* Genel hizalama sola */
+            }
+
+            /* Footer Logo Bölümü */
+            .footer-logo {
+                margin-bottom: 20px; /* Altındaki elemanlarla boşluk */
+            }
+            .footer-logo img {
+                max-height: 80px; /* Logo boyutu */
+                width: auto; /* Oranı koru */
+            }
+
+            /* Footer Başlıkları */
+            .footer-links h4,
+            .footer-contact h4,
+            .footer-social h4 {
+              font-size: 1.2rem; /* Başlık boyutu */
+              color: #ffffff; /* Beyaz başlık */
+              margin-bottom: 20px;
+              position: relative;
+              padding-bottom: 10px;
+              display: inline-block; /* Çizgi sadece başlık kadar yer kaplasın */
+            }
+
+            /* Başlık Altı Çizgileri */
+            .footer-links h4::after,
+            .footer-contact h4::after,
+            .footer-social h4::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 40px; /* Çizgi uzunluğu */
+              height: 2px;
+              background-color: #00bcd4; /* Vurgu rengi */
+            }
+
+            /* Footer Link Listesi */
+            .footer-links ul {
+              list-style: none;
+              padding: 0;
+              margin-left: 0; /* Üstteki genel ul stilini sıfırla */
+            }
+
+            .footer-links li {
+              margin-bottom: 10px; /* Linkler arası boşluk */
+            }
+
+            .footer-links a {
+              color: #e0e0e0; /* Link rengi */
+              transition: color 0.3s ease, padding-left 0.3s ease; /* Geçiş efekti */
+            }
+
+            .footer-links a:hover {
+              color: #ffffff; /* Hover rengi */
+              padding-left: 5px; /* Hover'da hafif içeri kayma */
+            }
+
+            /* Footer İletişim Bilgileri */
+            .footer-contact p {
+              margin-bottom: 12px; /* Satırlar arası boşluk */
+              display: flex; /* İkon ve metni hizala */
+              align-items: flex-start; /* Üste hizala (uzun adresler için) */
+              color: #e0e0e0; /* Metin rengi */
+            }
+
+            .footer-contact i {
+              margin-right: 12px; /* İkon sağ boşluk */
+              color: #00bcd4; /* İkon rengi */
+              width: 20px; /* Sabit ikon genişliği */
+              text-align: center;
+              margin-top: 3px; /* İkonu metinle hizalamak için ince ayar */
+              flex-shrink: 0; /* İkonun küçülmesini engelle */
+            }
+
+            .footer-contact a {
+                color: #e0e0e0; /* E-posta link rengi */
+            }
+            .footer-contact a:hover {
+                color: #ffffff; /* Hover rengi */
+            }
+
+            /* Footer Sosyal Medya İkonları */
+            .social-icons {
+                display: flex;
+                gap: 15px; /* İkonlar arası boşluk */
+                align-items: center;
+                flex-wrap: wrap; /* Gerekirse ikonlar alt satıra geçsin */
+            }
+
+            .social-icons a {
+              color: #690422; /* İkon rengi (arka plan rengiyle kontrast) */
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 40px;
+              height: 40px;
+              background-color: rgba(255, 255, 255, 0.9); /* Hafif şeffaf beyaz arka plan */
+              border-radius: 50%; /* Yuvarlak ikon */
+              font-size: 1.2rem; /* İkon boyutu */
+              transition: all 0.3s ease;
+            }
+
+            .social-icons a:hover {
+              background-color: #00bcd4; /* Hover arka plan rengi */
+              color: #ffffff; /* Hover ikon rengi */
+              transform: scale(1.1) rotate(10deg); /* Hover efekti */
+            }
+
+            /* Footer Alt Kısım */
+            .footer-bottom {
+              text-align: center;
+              padding-top: 30px; /* Üst boşluk */
+              margin-top: 40px; /* Üst bölümle arasına boşluk */
+              border-top: 1px solid rgba(255, 255, 255, 0.2); /* Ayırıcı çizgi */
+              font-size: 0.9rem;
+              color: rgba(255, 255, 255, 0.7); /* Daha soluk renk */
+            }
+
+            /* ScrollReveal için Gizleme (JS yüklenene kadar) */
+            .reveal {
+              visibility: hidden;
+            }
+
+            /* Responsive Tasarım (Medya Sorguları) */
+
+            /* Tablet ve Küçük Masaüstü */
+            @media (max-width: 992px) {
+              .container {
+                max-width: 960px;
+              }
+              h2 {
+                font-size: 2rem;
+              }
+              h3 {
+                  font-size: 1.3rem;
+              }
+              .footer-content {
+                gap: 30px; /* Boşlukları biraz azalt */
+              }
+              .about-image {
+                  /* max-width: 50%; */
+              }
+            }
+
+            /* Tablet */
+            @media (max-width: 768px) {
+              header {
+                padding: 15px 20px; /* Header iç boşluk */
+                flex-wrap: wrap; /* Gerekirse logolar ve menü alt alta gelebilir */
+                justify-content: space-between; /* Logolar ve toggle arası boşluk */
+              }
+
+              .menu-toggle {
+                display: block; /* Hamburger ikonunu göster */
+                order: 3; /* Sağ tarafta kalması için */
+              }
+
+              nav {
+                  order: 4; /* Menü toggle'dan sonra gelsin */
+                  width: 100%; /* Tam genişlik */
+              }
+
+              .menu {
+                display: none; /* Menüyü gizle */
+                flex-direction: column; /* Dikey menü */
+                width: 100%;
+                background-color: rgba(105, 4, 34, 0.95); /* Hafif şeffaf arka plan */
+                position: absolute;
+                top: 100%; /* Header'ın hemen altına */
+                left: 0;
+                padding: 15px 0; /* Dikey boşluk */
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+                gap: 0; /* Boşlukları sıfırla, li'den ayarla */
+              }
+
+              .menu.active {
+                display: flex; /* Aktif olunca göster */
+              }
+
+              .menu li {
+                margin: 0; /* Boşlukları sıfırla */
+                width: 100%;
+                text-align: center;
+              }
+
+              .menu a {
+                padding: 15px 20px; /* Tıklama alanını genişlet */
+                display: block; /* Tam genişlik */
+                border-bottom: 1px solid rgba(253, 66, 169, 0.3); /* Ayırıcı çizgi */
+                color: #ffffff; /* Mobil menü link rengi */
+              }
+              .menu li:last-child a {
+                  border-bottom: none; /* Son elemanın alt çizgisini kaldır */
+              }
+
+              .menu a:hover {
+                  background-color: rgba(253, 66, 169, 0.5); /* Hover arka planı */
+              }
+              .menu a::after {
+                  display: none; /* Mobil menüde alt çizgiyi kaldır */
+              }
+              .menu a.active {
+                  background-color: #fd42a9; /* Aktif link arka planı */
+              }
+
+              /* About sayfasında resim ve metni alt alta getir */
+              .about-content {
+                  flex-direction: column; /* Alt alta sırala */
+                  gap: 20px; /* Aradaki boşluğu azalt */
+              }
+              .about-image {
+                  max-width: 100%; /* Tam genişlik */
+                  min-width: unset; /* Min genişliği kaldır */
+                  margin-right: 0; /* Sağ boşluğu kaldır */
+              }
+               .about-text {
+                   min-width: unset; /* Min genişliği kaldır */
+               }
+
+              /* Footer'ı Tek Sütuna Düşür */
+              .footer-content {
+                grid-template-columns: 1fr; /* Tek sütun */
+                text-align: center; /* İçeriği ortala */
+              }
+
+              .footer-logo {
+                  text-align: center; /* Logoyu ortala */
+              }
+
+              .footer-links h4,
+              .footer-contact h4,
+              .footer-social h4 {
+                display: block; /* Başlıklar tam genişlik */
+                text-align: center;
+              }
+
+              .footer-links h4::after,
+              .footer-contact h4::after,
+              .footer-social h4::after {
+                left: 50%; /* Çizgiyi ortala */
+                transform: translateX(-50%);
+              }
+
+              .footer-links ul {
+                  text-align: center;
+              }
+
+              .footer-contact p {
+                justify-content: center; /* İletişim bilgilerini ortala */
+                text-align: left; /* Metni sola hizala */
+                padding: 0 10%; /* Kenarlardan boşluk bırak */
+                align-items: center; /* İkon ve metni dikeyde ortala (mobil için daha iyi olabilir) */
+              }
+               .footer-contact p i {
+                    margin-top: 0; /* Dikey hizalama yapıldığı için margin-top'a gerek yok */
+                }
+
+              .social-icons {
+                justify-content: center; /* Sosyal ikonları ortala */
+              }
+
+              .footer-banner-container {
+                gap: 15px; /* Daha az boşluk */
+                padding: 30px 15px;
+              }
+              .footer-banner {
+                height: 50px; /* Biraz daha küçük */
+              }
+            }
+
+            /* Küçük Mobil Cihazlar */
+            @media (max-width: 576px) {
+              body {
+                  font-size: 15px; /* Genel font boyutunu küçült */
+              }
+              h2 {
+                font-size: 1.8rem;
+              }
+               h3 {
+                  font-size: 1.2rem;
+              }
+
+              .btn { /* Buton stili (eğer about sayfasında varsa) */
+                  padding: 10px 25px;
+                  font-size: 0.9rem;
+              }
+
+              .footer-content {
+                  gap: 25px; /* Footer bölümleri arası boşluk */
+              }
+               .footer-contact p {
+                    padding: 0 5%; /* Daha az kenar boşluğu */
+                    font-size: 0.9rem; /* Biraz daha küçük font */
+                }
+
+              .footer-banner-container {
+                  gap: 10px;
+              }
+              .footer-banner {
+                  height: 40px;
+              }
+            }
+        </style>
+        </head>
 <body>
-    <!-- Üst Navigasyon -->
     <header>
         <div class="logo-container">
-            <img src="images/logo.png" alt="Blue Horizons Logo" style="max-height: 100%; max-width: 100%;">
+            <img src="images/logo.png" alt="Mavi Ufuklar Logosu">
           </div>
           <div class="logo-container">
-            <img src="images/okul logo.png" alt="Okul Logosu" style="max-height: 100%; max-width: 100%;">
+            <img src="images/okul logo.png" alt="Okul Logosu">
           </div>
-          
+
         <nav>
           <ul class="menu">
             <li><a href="index.html">Ana Sayfa</a></li>
@@ -29,77 +641,40 @@
             <li><a href="iletisim.html">İletişim</a></li>
           </ul>
         </nav>
-    </header>
-    <style>
-        .logo-container {
-  width: 70px;
-  height: 70px;
-  background-color: white; /* ya da sayfayla uyumlu açık renk */
-  padding: 5px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  margin-right: 10px;
-}
-    </style>
+        </header>
 
-    <!-- Proje Hakkında Detaylı Bilgi -->
     <section class="about-detailed">
         <div class="container reveal">
             <h2>Mavi Ufuklar Projesi Hakkında</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="images/su kaynakları.jpg" alt="Mavi Ufuklar Projesi">
+                    <img src="images/su kaynakları.jpg" alt="Düzce Su Kaynakları">
                 </div>
                 <div class="about-text">
                     <h3>Projemizin Amacı</h3>
                     <p>Mavi Ufuklar Projesi, Düzce'nin su kaynaklarının korunması ve iklim değişikliğine karşı farkındalık oluşturmayı amaçlayan bir projedir. SHORE (Sustainable Horizon for Our Regional Ecosystems) projesi kapsamında yürütülmektedir.</p>
-                    
                     <h3>Vizyonumuz</h3>
                     <p>Gelecek nesillere temiz su kaynakları ve sürdürülebilir bir çevre bırakmak için toplumda farkındalık oluşturmak ve somut adımlar atmak.</p>
-                    
                     <h3>Misyonumuz</h3>
                     <p>Öğrencilerimizi ve toplumu su kaynaklarının önemi, korunması ve sürdürülebilir kullanımı konusunda bilinçlendirmek. Eğitim, bilimsel araştırma ve sanatsal faaliyetlerle bu bilinci yaygınlaştırmak.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Proje Hedefleri -->
-    <section class="project-goals">
-        <div class="container reveal">
-            <h2>Projemizin Hedefleri</h2>
-            <div class="goals-cards">
-                <div class="goals-card reveal">
-                    <div class="card-icon">
-                        <img src="images/su tasarrufu.png" alt="Eğitim">
-                    </div>
+            <div class="project-goals-text reveal">
+                <h2>Projemizin Hedefleri</h2>
+                <div>
                     <h3>Eğitim ve Farkındalık</h3>
                     <p>Öğrencilere ve topluma su kaynaklarının önemi hakkında eğitimler düzenlemek.</p>
                 </div>
-                
-                <div class="goals-card reveal">
-                    <div class="card-icon">
-                        <img src="images/su filtreleme.jpg" alt="Araştırma">
-                    </div>
+                <div>
                     <h3>Bilimsel Araştırmalar</h3>
                     <p>Düzce'nin su kaynakları hakkında bilimsel çalışmalar yapmak ve sonuçları paylaşmak.</p>
                 </div>
-                
-                <div class="goals-card reveal">
-                    <div class="card-icon">
-                        <img src="images/sanat.jpg" alt="Sanat">
-                    </div>
+                <div>
                     <h3>Sanatsal Faaliyetler</h3>
                     <p>Su temalı sanat eserleriyle farkındalığı artırmak ve toplumu bilinçlendirmek.</p>
                 </div>
-                
-                <div class="goals-card reveal">
-                    <div class="card-icon">
-                        <img src="images/interview.jpg" alt="İşbirliği">
-                    </div>
+                <div>
                     <h3>Kurumsal İşbirlikleri</h3>
                     <p>Yerel ve ulusal kuruluşlarla işbirliği yaparak projenin etkisini artırmak.</p>
                 </div>
@@ -107,46 +682,43 @@
         </div>
     </section>
 
-    <!-- SHORE Projesi ve Mavi Ufuklar İlişkisi -->
     <section class="shore-connection">
         <div class="container reveal">
-            <h2>SHORE Mavi Ufuklar:Yarınlar İçin Bir Farkındalık Dalgası</h2>
-            <h1>Projemiz Hakkında</h1>
+            <h2>SHORE Mavi Ufuklar: Yarınlar İçin Bir Farkındalık Dalgası</h2>
             <div class="shore-content">
                 <p>"Mavi Ufuklar: Yarınlar İçin Bir Farkındalık Dalgası" projesi, Hürriyet Ortaokulu tarafından yürütülen ve Düzce'deki öğrenciler ile yerel halk arasında su tasarrufu ve su kaynaklarının korunması konusunda farkındalık yaratmayı amaçlayan bir girişimdir. Temel hedefimiz, öğrencilerimizi değişimin temsilcileri olarak güçlendirmek ve onları su okuryazarlığı konusunda bilinçlendirerek sürdürülebilir bir geleceğe katkıda bulunmalarını sağlamaktır.</p>
                 <p>Projemiz, Avrupa Birliği tarafından finanse edilen SHORE (Empower students as the agents of change) programı kapsamında desteklenmektedir. Bu doğrultuda, AB'nin "Okyanuslarımızı ve Sularımızı 2030'a Kadar Yeniden Canlandırma Misyonu" hedefleriyle uyumlu çalışmalar yürütmeyi hedefliyoruz. Aynı zamanda, Avrupa İklim Paktı'nın değerlerini destekleyerek karbon ayak izini azaltmaya ve karbonsuzlaştırmaya yönelik adımlar atmayı taahhüt ediyoruz.</p>
-                <h1>Yaklaşımımız ve Etkinliklerimiz</h1>
-            
+                <h3>Yaklaşımımız ve Etkinliklerimiz</h3>
                 <p>Projemiz, öğrencilerin aktif katılımını merkeze alan, uygulamalı ve disiplinler arası bir öğrenme modeli üzerine kuruludur. "Açık okul" yaklaşımını benimseyerek yerel paydaşları, çevre STK'larını, Düzce Üniversitesi'ni ve velileri öğrenme sürecine dahil ediyoruz. Bu kapsamda gerçekleştireceğimiz başlıca etkinlikler şunlardır:</p>
-            <ul <ul style="padding-left: 0; list-style-position: inside;"></ul>
-                <li><strong>Su Tasarrufu Atölyeleri:</strong>Öğrencilerin su tasarrufu yöntemlerini araştırıp topluma uygulanabilir öneriler geliştireceği ve TEMA Vakfı işbirliğiyle düzenlenecek atölyeler.</li>
-                <li><strong>Yerel Su Kaynakları İncelemesi:</strong>Düzce'deki su kaynaklarının öğrenciler tarafından incelenerek raporlanması.</li>
-                <li><strong>Su Filtrasyon Deneyleri:</strong>Basit filtrelerle kirli suların temizlenmesine yönelik bilimsel deneyler (örneğin Eftani Gölü'nde).Ve devamında da mikroskoplarla detaylı deneyler ve raporlamalar</li>
-                <li><strong>Çevrimiçi Farkındalık Kampanyaları:</strong>u tasarrufu ve çevre bilinci üzerine sosyal medya kampanyaları, yerel yöneticiler ve uzmanlarla röportajlar.Proje için su temalı bir VR sahne tasarımı ile birlikte yaygınlaştırma</li>
-                <li><strong>Sanatsal Çalışmalar ve Sergiler:</strong>Deniz ve su temalı sanat eserlerinin (örneğin duvar resimleri) üretilmesi ve sergilenmesi.</li>
-                <li><strong>Proje Şarkısı ve Koro:</strong>Öğrencilerin müzik öğretmenleriyle birlikte proje için su temalı bir beste yapması ve koro oluşturarak ulusal festivallere katılması.</li>
-                <li><strong>Kapanış Etkinliği (Mavi Ufuklar Festivali):</strong> Proje boyunca yapılan tüm çalışmaların ve hazırlanan kısa filmin/video kolajının sergileneceği, topluma açık bir festival.</li>
-            </ul>
-                <h1>Beklenen Etkiler</h1>
+                <ul style="list-style-position: inside; padding-left: 0;">
+                    <li><strong>Su Tasarrufu Atölyeleri:</strong> Öğrencilerin su tasarrufu yöntemlerini araştırıp topluma uygulanabilir öneriler geliştireceği ve TEMA Vakfı işbirliğiyle düzenlenecek atölyeler.</li>
+                    <li><strong>Yerel Su Kaynakları İncelemesi:</strong> Düzce'deki su kaynaklarının öğrenciler tarafından incelenerek raporlanması.</li>
+                    <li><strong>Su Filtrasyon Deneyleri:</strong> Basit filtrelerle kirli suların temizlenmesine yönelik bilimsel deneyler (örneğin Eftani Gölü'nde). Ve devamında da mikroskoplarla detaylı deneyler ve raporlamalar.</li>
+                    <li><strong>Çevrimiçi Farkındalık Kampanyaları:</strong> Su tasarrufu ve çevre bilinci üzerine sosyal medya kampanyaları, yerel yöneticiler ve uzmanlarla röportajlar. Proje için su temalı bir VR sahne tasarımı ile birlikte yaygınlaştırma.</li>
+                    <li><strong>Sanatsal Çalışmalar ve Sergiler:</strong> Deniz ve su temalı sanat eserlerinin (örneğin duvar resimleri) üretilmesi ve sergilenmesi.</li>
+                    <li><strong>Proje Şarkısı ve Koro:</strong> Öğrencilerin müzik öğretmenleriyle birlikte proje için su temalı bir beste yapması ve koro oluşturarak ulusal festivallere katılması.</li>
+                    <li><strong>Kapanış Etkinliği (Mavi Ufuklar Festivali):</strong> Proje boyunca yapılan tüm çalışmaların ve hazırlanan kısa filmin/video kolajının sergileneceği, topluma açık bir festival.</li>
+                </ul>
+                <h3>Beklenen Etkiler</h3>
                 <p>Bu proje ile öğrencilerimizin su okuryazarlığının artmasını, çevre sorunlarına karşı aktif katılım göstermelerini ve yaratıcı çözümler üretebilmelerini bekliyoruz. Proje sonunda düzenlenecek festival ile tüm çalışmalarımızı sergileyerek toplumda sürdürülebilir su kullanımı konusunda kalıcı bir farkındalık oluşturmayı hedefliyoruz. Ayrıca, projemiz aracılığıyla öğrencilerimizin liderlik, takım çalışması, iletişim ve dijital okuryazarlık gibi becerilerini geliştirmeyi amaçlıyoruz.</p>
-                <h1>İşbirlikleri</h1>
+                <h3>İşbirlikleri</h3>
                 <p>Projemizin hedeflerine ulaşmasında yerel paydaşlarla güçlü iş birlikleri kurmak büyük önem taşımaktadır. Bu kapsamda Düzce Belediyesi, Düzce Valiliği Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü, Düzce Su Ürünleri Kooperatifi, Düzce İl Milli Eğitim Müdürlüğü ve Düzce Üniversitesi gibi kurumlarla iş birliği yapmaktayız. </p>
-                <div class="shore-logo">  
-                <img src="images/banner.png" alt="SHORE Projesi Logo">
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Alt Bilgi -->
+    <div class="footer-banner-container">
+        <img src="images/banner.png" alt="EU Missions - Restore Our Ocean & Waters" class="footer-banner">
+        <img src="images/shore logo.png" alt="Shore Logo Vertical" class="footer-banner">
+        <img src="images/funded.png" alt="Funded by Europe logo" class="footer-banner">
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="images/logo.png" alt="Blue Horizons Logo">
-                    <h3>Mavi Ufuklar Projesi</h3>
+                    <img src="images/logo.png" alt="Mavi Ufuklar Logosu" style="max-height: 80px; max-width: 80px;">
                 </div>
-                
                 <div class="footer-links">
                     <h4>Hızlı Erişim</h4>
                     <ul>
@@ -158,59 +730,77 @@
                         <li><a href="iletisim.html">İletişim</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-contact">
                     <h4>İletişim</h4>
                     <p><i class="fas fa-map-marker-alt"></i> BAHÇELİEVLER MAH. 31. SK. HÜRRİYET ORTA OKULU BLOK NO 2 İÇ KAPI NO 1 MERKEZ / DÜZCE</p>
-                    <p><i class="fas fa-phone"></i> +90 (505) 350 58 11</p> <p><i class="fas fa-envelope"></i> <a href="mailto:duzcehurriyetortaokulu@meb.k12.tr">duzcehurriyetortaokulu@meb.k12.tr</a></p> </div>
-                
+                    <p><i class="fas fa-phone"></i> +90 (505) 350 58 11</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:duzcehurriyetortaokulu@meb.k12.tr">duzcehurriyetortaokulu@meb.k12.tr</a></p>
+                </div>
                 <div class="footer-social">
                     <h4>Sosyal Medya</h4>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/duzcehurriyet" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/duzcehurriyet" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/duzcehurriyetortaokulu/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/duzcehurriyetortaokulu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.youtube.com/@hurriyetortaokuluduzcemerk6196" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-youtube"></i>
+                        <a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" rel="noopener noreferrer" aria-label="YouTube"> <i class="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
+                <p>© 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Font Awesome Icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-    
-    <!-- ScrollReveal Animations -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // ScrollReveal ayarları
-            ScrollReveal().reveal('.reveal', { 
+            ScrollReveal().reveal('.reveal', {
                 delay: 200,
                 distance: '50px',
                 duration: 1000,
                 easing: 'ease-in-out',
                 origin: 'bottom',
-                interval: 200
+                interval: 200,
+                reset: false // Animasyonların tekrar etmemesi için
             });
-            
+
             // Mobil menü için hamburger toggle
             const menuToggle = document.createElement('div');
             menuToggle.classList.add('menu-toggle');
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            document.querySelector('header').appendChild(menuToggle);
-            
-            menuToggle.addEventListener('click', function() {
-                document.querySelector('.menu').classList.toggle('active');
-            });
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>'; // Hamburger ikonu
+            const header = document.querySelector('header');
+            // Toggle butonu zaten varsa ekleme
+            if (!header.querySelector('.menu-toggle')) {
+                header.appendChild(menuToggle);
+            }
+
+            const menu = document.querySelector('.menu'); // Menüyü seç
+
+            // Toggle butonu için olay dinleyici (zaten varsa tekrar ekleme)
+            const existingToggle = header.querySelector('.menu-toggle');
+            if (existingToggle && !existingToggle.hasAttribute('data-listener-added')) {
+                 existingToggle.addEventListener('click', function() {
+                    menu.classList.toggle('active'); // Menüye active class'ı ekle/kaldır
+                    // İkonu değiştir
+                    const icon = existingToggle.querySelector('i');
+                    if (menu.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times'); // Kapatma ikonu
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars'); // Hamburger ikonu
+                    }
+                });
+                existingToggle.setAttribute('data-listener-added', 'true'); // Dinleyicinin eklendiğini işaretle
+            }
         });
     </script>
 </body>
