@@ -41,7 +41,28 @@
     .document-item a:hover {
       text-decoration: underline;
     }
+    .document-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+  
+    .document-item {
+      flex: 1 1 45%;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+  
+    @media (max-width: 768px) {
+      .document-item {
+        flex: 1 1 100%;
+      }
+    }
   </style>
+  
 </head>
 
 <body>
@@ -67,12 +88,24 @@
 
   <section class="document-section">
     <h2>Anketler ve Analizler</h2>
-
-    <div class="document-item">
-      <h3>Öğrenci Anket Sonuçları</h3>
-      <p>2025 Şubat ayında uygulanan anketin analiz raporu.</p>
-      <a href="https://drive.google.com/file/d/1rs4PWvkN7cZmDAHDnaux0qN2-SxINhpa/view?usp=sharing" target="_blank">PDF’yi Görüntüle</a>
+    
+    <div class="document-container">
+      <div class="document-item">
+        <h3>Öğrenci Anket Sonuçları</h3>
+        <p>2025 Şubat ayında uygulanan anketin analiz raporu.</p>
+        <a href="https://drive.google.com/file/d/1rs4PWvkN7cZmDAHDnaux0qN2-SxINhpa/view?usp=sharing" target="_blank">
+          PDF’yi Görüntüle
+        </a>
+      </div>
+    
+      <div class="document-item">
+        <h3>European Blue School Certificate</h3>
+        <p>Projemizin kazandığı Mavi Okul Etiketi Belgesi</p>
+       <a href="https://drive.google.com/file/d/1Lq7_fQxGDrNQZdiRnfrvlIJeB-tC7a5D/preview" target="_blank">
+              PDF’yi Görüntüle
+            </a>
     </div>
+
 
     <div class="document-item">
       <h3>Veli Görüş Anketi</h3>
@@ -90,6 +123,13 @@
       <a href="docs/su-kaynaklari.pdf" target="_blank">PDF’yi Görüntüle</a>
     </div>
 
+     <div class="document-item">
+      <h3>Su Tasarrufu Analizi</h3>
+      <p>Yerel su kaynaklarının durumu üzerine su analizi deney raporu.</p>
+      <a href="docs/analiz.pdf" target="_blank">PDF’yi Görüntüle</a>
+    </div>
+
+
     <div class="document-item">
       <h3>Efteni Gölü Filtrasyon Deneyi Raporu</h3>
       <p>Öğrencilerle yapılan su filtreleme çalışmasının sonuçları.</p>
@@ -101,10 +141,11 @@
     <h2>Ek Belgeler</h2>
 
     <div class="document-item">
-      <h3>Proje Gelişim Raporu</h3>
-      <p>Etkinliklerin aylık gelişim özetleri ve değerlendirme notları.</p>
+      <h3>Proje Aylık Raporlar</h3>
+      <p>Etkinliklerin aylık özetleri ve değerlendirme notları.</p>
       <a href="docs/gelisim-raporu.pdf" target="_blank">PDF’yi Görüntüle</a>
     </div>
+
   </section>
   <footer>
     <div class="container">
