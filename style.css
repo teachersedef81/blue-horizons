@@ -397,6 +397,99 @@ header {
   border: none; /* Çerçeveyi kaldır */
 }
 
+/* Öne çıkan belgeler bölümü */
+.featured-docs {
+  background-color: #f2f8fc;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.featured-docs h2 {
+  color: #1a73e8;
+  margin-bottom: 1.5rem;
+}
+
+.featured-docs .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.featured-docs .card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 250px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.featured-docs .card:hover {
+  transform: translateY(-5px);
+}
+
+.featured-docs .card h4 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.featured-docs .card a {
+  display: flex;
+  align-items: center;
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.featured-docs .card a:hover {
+  text-decoration: underline;
+}
+
+.featured-docs .card img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+/* Tümünü gör butonu */
+.see-all-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.see-all-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: #1a73e8;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.see-all-btn:hover {
+  background-color: #0d5bbc;
+}
+
+/* Ekstra belgelerin saklanması için stil */
+.hidden-cards {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .featured-docs .card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
 /* Footer Bannerları */
 .footer-banner-container {
   display: flex;

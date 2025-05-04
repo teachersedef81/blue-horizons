@@ -84,6 +84,116 @@
         font-size: 1.5rem; /* Daha küçük ekranlarda başlık boyutu */
       }
     }
+    /* Öne çıkan belgeler bölümü */
+.featured-docs {
+  background-color: #f2f8fc;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.featured-docs h2 {
+  color: #1a73e8;
+  margin-bottom: 1.5rem;
+}
+
+.featured-docs .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Row container for horizontal layout */
+.featured-docs .row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px; /* For scrollbar space */
+}
+
+.featured-docs .card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 220px;
+  min-width: 220px; /* Prevent cards from shrinking */
+  margin: 0 10px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.featured-docs .card:hover {
+  transform: translateY(-5px);
+}
+
+.featured-docs .card h4 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.featured-docs .card a {
+  display: flex;
+  align-items: center;
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.featured-docs .card a:hover {
+  text-decoration: underline;
+}
+
+.featured-docs .card img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+/* Tümünü gör butonu */
+.see-all-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.see-all-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: #1a73e8;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.see-all-btn:hover {
+  background-color: #0d5bbc;
+}
+
+/* Ekstra belgelerin saklanması için stil */
+.hidden-cards {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .featured-docs .row {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 15px;
+  }
+}
   </style>
 
   <section class="hero">
@@ -145,13 +255,60 @@
       </div>
     </div>
   </section>
-
   <section class="featured-docs">
     <h2>Öne Çıkan Belgeler</h2>
-    <div class="card">
-      <h4>Su Tasarrufu Analizi</h4>
-      <a href="docs/analiz.pdf" target="_blank">
-  <img src="icons/pdf-icon.png" alt="PDF"> Su Analizi Rapor
+    <div class="cards-container">
+      <!-- İlk görünen belgeler (yan yana sıralı) -->
+      <div class="row">
+        <div class="card">
+          <h4>Su Tasarrufu Analizi</h4>
+          <a href="docs/analiz.pdf" target="_blank">
+            <img src="images/pdf.jpg" alt="PDF"> Su Analizi Rapor
+          </a>
+        </div>
+        <!-- İsterseniz daha fazla belge ekleyebilirsiniz -->
+        <div class="card">
+          <h4>İklim Değişimi Rehberi</h4>
+          <a href="docs/iklim-rehber.pdf" target="_blank">
+            <img src="images/pdf.jpg" alt="PDF"> İklim Rehberi
+          </a>
+        </div>
+        <div class="card">
+          <h4>Öğrenci Projeleri</h4>
+          <a href="docs/ogrenci-projeleri.pdf" target="_blank">
+            <img src="images/pdf.jpg" alt="PDF"> Proje Sunumları
+          </a>
+        </div>
+      </div>
+      
+      <!-- Gizli belgeler (yan yana sıralı) -->
+      <div class="hidden-cards">
+        <div class="row">
+          <div class="card">
+            <h4>Su Kalite Testleri</h4>
+            <a href="docs/su-kalite.pdf" target="_blank">
+              <img src="images/pdf.jpg" alt="PDF"> Kalite Test Sonuçları
+            </a>
+          </div>
+          <div class="card">
+            <h4>Çevre Eğitimi</h4>
+            <a href="docs/cevre-egitimi.pdf" target="_blank">
+              <img src="images/pdf.jpg" alt="PDF"> Eğitim Materyalleri
+            </a>
+          </div>
+          <div class="card">
+            <h4>Geri Dönüşüm Rehberi</h4>
+            <a href="docs/geri-donusum.pdf" target="_blank">
+              <img src="images/pdf.jpg" alt="PDF"> Geri Dönüşüm Kılavuzu
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tümünü Gör Butonu -->
+    <div class="see-all-container">
+      <a href="belgeler.html" class="see-all-btn" id="seeAllDocs" target="_blank">Tümünü Gör</a>
     </div>
   </section>
   
@@ -262,6 +419,7 @@
         <p>© 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
       </div>
     </div>
+
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
@@ -302,5 +460,6 @@
         });
     });
   </script>
+  
 </body>
 </html>
