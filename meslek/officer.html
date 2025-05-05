@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temizlik Görevlisi Ahmet Bey Diyor Ki</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="shortcut icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+          <img src="images/logo.png" alt="Mavi Ufuklar Logosu" style="max-height: 100%; max-width: 100%;">
+        </div>
+        <div class="logo-container">
+          <img src="images/okul logo.png" alt="Okul Logosu" style="max-height: 100%; max-width: 100%;">
+        </div>
+        </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         <!-- Alt Bilgi -->
+       <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Blue Horizons Logo">
+                    <h3>Mavi Ufuklar Projesi</h3>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Hızlı Erişim</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkında</a></li>
+                        <li><a href="ekip.html">Ekip Üyelerimiz</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>İletişim</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> BAHÇELİEVLER MAH. 31. SK. HÜRRİYET ORTA OKULU BLOK NO 2 İÇ KAPI NO 1 MERKEZ / DÜZCE</p>
+                    <p><i class="fas fa-phone"></i> +90 (505) 350 58 11</p> <p><i class="fas fa-envelope"></i> <a href="mailto:duzcehurriyetortaokulu@meb.k12.tr">duzcehurriyetortaokulu@meb.k12.tr</a></p> </div>
+                
+                <div class="footer-social">
+                    <h4>Sosyal Medya</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/duzcehurriyet" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/duzcehurriyetortaokulu/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@hurriyetortaokuluduzcemerk6196" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+  
+    <!-- Font Awesome Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    
+    <!-- ScrollReveal Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ScrollReveal ayarları
+            ScrollReveal().reveal('.reveal', { 
+                delay: 200,
+                distance: '50px',
+                duration: 1000,
+                easing: 'ease-in-out',
+                origin: 'bottom',
+                interval: 200
+            });
+            
+            // Mobil menü için hamburger toggle
+            const menuToggle = document.createElement('div');
+            menuToggle.classList.add('menu-toggle');
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            document.querySelector('header').appendChild(menuToggle);
+            
+            menuToggle.addEventListener('click', function() {
+                document.querySelector('.menu').classList.toggle('active');
+            });
+        });
+    </script>
+        
+    
+</body>
+</html>

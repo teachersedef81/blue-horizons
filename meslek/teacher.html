@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayşe Öğretmen Diyor Ki</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="shortcut icon" href="images/logo.png" type="image/png">
+</head>
+
+<body>
+<style>
+    /* meslek-style.css - Styles for profession-specific pages */
+
+/* Main Layout */
+.profession-guide {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+}
+
+/* Header Section with Image */
+.profession-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.profession-title {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profession-title h1 {
+    color: #1a73e8;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.profession-title h2 {
+    color: #4caf50;
+    font-size: 1.5rem;
+    margin-top: 0;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.profession-image {
+    flex: 0 0 250px;
+    text-align: center;
+    margin: 1rem;
+}
+
+.profession-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #4caf50;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Content Sections */
+.profession-content {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.introduction {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    border-left: 4px solid #1a73e8;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.section-block {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    position: relative;
+}
+
+.section-block h3 {
+    color: #1a73e8;
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 0.5rem;
+}
+
+.section-block ul, 
+.section-block ol {
+    padding-left: 1.5rem;
+}
+
+.section-block li {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+/* Activity Cards */
+.activity-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.2rem;
+    margin-bottom: 1.2rem;
+    border-left: 4px solid #4caf50;
+}
+
+.activity-card h4 {
+    color: #1a73e8;
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    font-size: 1.2rem;
+}
+
+/* Warning Section */
+.warning-section {
+    background-color: #fff3e0;
+    border-left: 4px solid #ff9800;
+}
+
+.warning-section h3 {
+    color: #ff5722;
+    border-bottom-color: #ff9800;
+}
+
+.warning-list li {
+    color: #d32f2f;
+    font-weight: 500;
+}
+
+/* Golden Rules */
+.golden-rules {
+    background-color: #e8f5e9;
+    border-left: 4px solid #4caf50;
+}
+
+.golden-rules ol {
+    counter-reset: rules;
+}
+
+.golden-rules ol li {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.golden-rules ol li::before {
+    counter-increment: rules;
+    content: counter(rules);
+    position: absolute;
+    left: -10px;
+    top: -8px;
+    background-color: #4caf50;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.golden-rules strong {
+    color: #1a73e8;
+}
+
+/* Call to Action */
+.call-to-action {
+    background-color: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    text-align: center;
+}
+
+.highlight {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a73e8;
+    margin-top: 1.5rem;
+    font-style: italic;
+}
+
+/* Back Button */
+.back-to-professions {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.btn-back {
+    display: inline-block;
+    background-color: #4caf50;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-back:hover {
+    background-color: #1a73e8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .profession-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profession-title {
+        order: 2;
+        margin-top: 1rem;
+    }
+    
+    .profession-image {
+        order: 1;
+        margin: 0 auto;
+    }
+    
+    .profession-title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .profession-title h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-block h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profession-guide {
+        margin: 1rem auto;
+        padding: 0 1rem;
+    }
+    
+    .profession-header {
+        padding: 1.5rem;
+    }
+    
+    .profession-avatar {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .profession-content {
+        padding: 1.5rem;
+    }
+    
+    .section-block {
+        padding: 1rem;
+    }
+}
+</style>
+    
+    <header>
+        <div class="logo-container">
+          <img src="images/logo.png" alt="Mavi Ufuklar Logosu" style="max-height: 100%; max-width: 100%;">
+        </div>
+        <div class="logo-container">
+          <img src="images/okul logo.png" alt="Okul Logosu" style="max-height: 100%; max-width: 100%;">
+        </div>
+        </header>
+        
+            <main class="profession-guide">
+                <section class="profession-header">
+                    <div class="profession-title reveal">
+                        <h1>İlkokul Öğretmeni Gözüyle Geri Dönüşüm Rehberi</h1>
+                        <h2>Minik Eller, Temiz Gelecek: Çocuklarımızla Geri Dönüşüm Yolculuğu</h2>
+                    </div>
+                    <div class="profession-image reveal">
+                        <img src="../images/teacher.jpg" alt="İlkokul Öğretmeni" class="profession-avatar">
+                    </div>
+                </section>
+        
+                <section class="profession-content reveal">
+                    <div class="introduction">
+                        <p>Merhaba Sevgili Anne Babalar ve Değerli Meslektaşlarım,</p>
+                        <p>Ben bir ilkokul öğretmeniyim. Her gün sınıfta geleceğimizin mimarı olan çocuklarımızla birlikteyim. Onlara sadece harfleri, sayıları değil, aynı zamanda yaşadıkları dünyaya karşı sorumlu olmayı, doğayı sevmeyi ve korumayı da öğretmeye çalışıyorum. Geri dönüşüm, bu dersin en önemli ve en eğlenceli konularından biri! Çünkü çocuklarımıza öğrettiğimiz her doğru alışkanlık, yarınlarımızı daha güzel yapacak bir tohuma dönüşüyor.</p>
+                    </div>
+        
+                    <div class="section-block">
+                        <h3>Geri Dönüşüm Neden Bir Süper Kahramanlık?</h3>
+                        <p>Çocuklarımıza geri dönüşümü anlatırken basit ve ilgi çekici benzetmeler kullanabiliriz:</p>
+                        <ul>
+                            <li>"Tıpkı süper kahramanların dünyayı kurtarması gibi, biz de geri dönüşüm yaparak Dünyamızı kurtarmaya yardım ediyoruz!"</li>
+                            <li>"Kullandığımız kağıtlar ağaçlardan geliyor. Kağıtları geri dönüştürerek daha az ağacın kesilmesini sağlıyoruz, ormanlarımızı koruyoruz!"</li>
+                            <li>"Plastik şişeleri geri dönüştürdüğümüzde, denizdeki balıkların veya ormandaki hayvanların bunlardan zarar görmesini engelliyoruz."</li>
+                            <li>"Eski eşyaları geri dönüştürerek onlara yeni bir hayat veriyoruz, tıpkı sihir yapmak gibi!"</li>
+                        </ul>
+                    </div>
+        
+                    <div class="section-block">
+                        <h3>Evde ve Okulda Küçük Çevre Dedektifleri</h3>
+                        <p>Çocuklarımızı bu süreçte aktif birer "çevre dedektifi" yapabiliriz:</p>
+                        
+                        <div class="activity-card">
+                            <h4>Kağıt Canavarı Neyi Sever?</h4>
+                            <p>Evdeki ve okuldaki kağıt atıklarını (gazete, dergi, temiz kutular) bulup "Kağıt Canavarı" dediğimiz geri dönüşüm kutusuna atmalarını sağlayabiliriz. Boyama yaparak kendi kutularını tasarlayabilirler. Ama unutmayalım, Canavarımız ıslak veya yağlı kağıtları sevmez!</p>
+                        </div>
+                        
+                        <div class="activity-card">
+                            <h4>Plastik Şişe Dansı</h4>
+                            <p>İçtikleri su veya süt şişelerini çöpe atmadan önce içini suyla çalkalayıp "şişe dansı" yaptırarak temizlemelerini öğretebiliriz. Sonra kapağını kapatıp (veya ayrı kutuya atıp) ezerek küçültebilirler.</p>
+                        </div>
+                        
+                        <div class="activity-card">
+                            <h4>Cam Kavanoz Orkestrası</h4>
+                            <p>Boşalan cam kavanozları dikkatlice (kırmadan!) çalkalayıp temizledikten sonra ayrı bir kutuya koymalarını sağlayabiliriz. Dokunduklarında çıkan sesle "kavanoz orkestrası" kurabiliriz. Ama kırık camların tehlikeli olduğunu mutlaka hatırlatalım.</p>
+                        </div>
+                        
+                        <div class="activity-card">
+                            <h4>Metal Kutu Robotlar</h4>
+                            <p>Boşalan konserve veya içecek kutularını temizleyip biriktirerek onlardan basit robotlar veya başka figürler yapabiliriz (yine keskin kenarlara dikkat!). Sonra doğru geri dönüşüm kutusuna atarız.</p>
+                        </div>
+                    </div>
+        
+                    <div class="section-block warning-section">
+                        <h3>Sakın Bunları Yapma! (Basit Hatalar)</h3>
+                        <ul class="warning-list">
+                            <li>Yemek artığı kalmış kutuları atmak (Kutular kirlenir ve kokar).</li>
+                            <li>Her şeyi aynı kutuya atmak (Karışınca geri dönüştürülemez).</li>
+                            <li>Pilleri çöpe atmak (Piller özel kutulara atılmalı, çünkü zehirlidir).</li>
+                        </ul>
+                    </div>
+        
+                    <div class="section-block golden-rules">
+                        <h3>3 Altın Kuralımız: Azalt, Tekrar Kullan, Geri Dönüştür!</h3>
+                        <p>Çocuklarımıza sadece geri dönüştürmeyi değil, daha da önemlisi:</p>
+                        <ol>
+                            <li>
+                                <strong>Azalt:</strong> Daha az çöp çıkarmayı (örneğin, musluğu kapatmak, gereksiz ışıkları söndürmek gibi kaynakları da azaltmayı konuşabiliriz). Tek kullanımlık yerine mataralarını kullanmalarını teşvik edebiliriz.
+                            </li>
+                            <li>
+                                <strong>Tekrar Kullan:</strong> Eskiyen oyuncakları, kitapları başkalarına vermeyi, boş kavanozları kalemlik yapmayı öğretebiliriz.
+                            </li>
+                            <li>
+                                <strong>Geri Dönüştür:</strong> Artık kullanılamayacak ambalajları doğru kutulara atmayı öğretebiliriz.
+                            </li>
+                        </ol>
+                    </div>
+        
+                    <div class="section-block call-to-action">
+                        <h3>Haydi Ailece Harekete Geçelim!</h3>
+                        <p>Sevgili anne babalar, bu konuda en büyük destekçimiz sizlersiniz. Evde çocuklarınızla birlikte geri dönüşüm yapmak, onlara sorumluluk verirken birlikte kaliteli zaman geçirmenizi de sağlar. Okulda başlattığımız bu bilinci evde pekiştirelim.</p>
+                        <p class="highlight">Unutmayın, minik ellerle atılan her doğru adım, gezegenimizin geleceği için atılmış dev bir adımdır!</p>
+                    </div>
+                </section>
+        
+                <div class="back-to-professions reveal">
+                    <a href="../meslekler.html" class="btn-back">Diğer Mesleklere Göz At</a>
+                </div>
+            </main>
+         <!-- Alt Bilgi -->
+       <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Blue Horizons Logo">
+                    <h3>Mavi Ufuklar Projesi</h3>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Hızlı Erişim</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkında</a></li>
+                        <li><a href="ekip.html">Ekip Üyelerimiz</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="etkinlik.html">Etkinliklerimiz</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>İletişim</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> BAHÇELİEVLER MAH. 31. SK. HÜRRİYET ORTA OKULU BLOK NO 2 İÇ KAPI NO 1 MERKEZ / DÜZCE</p>
+                    <p><i class="fas fa-phone"></i> +90 (505) 350 58 11</p> <p><i class="fas fa-envelope"></i> <a href="mailto:duzcehurriyetortaokulu@meb.k12.tr">duzcehurriyetortaokulu@meb.k12.tr</a></p> </div>
+                
+                <div class="footer-social">
+                    <h4>Sosyal Medya</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/duzcehurriyet" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/duzcehurriyetortaokulu/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@hurriyetortaokuluduzcemerk6196" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+  
+    <!-- Font Awesome Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    
+    <!-- ScrollReveal Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ScrollReveal ayarları
+            ScrollReveal().reveal('.reveal', { 
+                delay: 200,
+                distance: '50px',
+                duration: 1000,
+                easing: 'ease-in-out',
+                origin: 'bottom',
+                interval: 200
+            });
+            
+            // Mobil menü için hamburger toggle
+            const menuToggle = document.createElement('div');
+            menuToggle.classList.add('menu-toggle');
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            document.querySelector('header').appendChild(menuToggle);
+            
+            menuToggle.addEventListener('click', function() {
+                document.querySelector('.menu').classList.toggle('active');
+            });
+        });
+    </script>
+
+        
+    
+</body>
+</html>

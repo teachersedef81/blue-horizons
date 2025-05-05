@@ -1,0 +1,1072 @@
+/* Genel */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f0f8ff;
+    color: #333;
+  }
+  
+  /* Header ve Logolar için Yeni Stiller */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background: linear-gradient(to right, #690422, #fd42a9);
+    color: white;
+  }
+  
+  .logo img { /* mart1.html'deki header logosu için */
+    height: 50px; /* index.html'deki gibi bir yükseklik */
+  }
+  
+  .logo-container { /* index.html'deki header logoları için */
+    width: 70px;
+    height: 70px;
+    background-color: white; /* ya da sayfayla uyumlu açık renk */
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    margin-right: 10px;
+  }
+  
+  .logo-container img { /* index.html'deki header logoları içindeki resimler */
+     max-height: 100%;
+     max-width: 100%;
+  }
+  
+  
+  .header-logos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .project-logo img, .school-logo img {
+    width: 80px;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-logo img:hover, .school-logo img:hover {
+    transform: scale(1.1);
+  }
+  
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .menu li {
+    display: inline;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color:lemonchiffon;
+    font-weight: bold;
+    transition: color 0.3s;
+    position: relative; /* Alt çizgi için */
+  }
+  
+  .menu a:hover {
+    color: whitesmoke;
+  }
+  
+  /* Aktif menü öğesi stili */
+  .menu a.active {
+    color: #fff;
+    background-color: #0077b6; /* index.html'deki mavi tonu */
+    padding: 8px 15px;
+    border-radius: 20px;
+  }
+  
+  
+  /* Alt çizgi efekti (index.html'deki gibi) */
+  .menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1a73e8; /* index.html'deki mavi */
+    transition: width 0.3s ease;
+  }
+  
+  .menu a:hover::after,
+  .menu a.active::after {
+    width: 100%;
+  }
+  
+  /* Hero */
+  .hero {
+    position: relative;
+    height: 90vh;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+    overflow: hidden;
+  }
+  
+  .hero-content {
+    z-index: 2;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    max-width: 80%;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #004d40;
+  }
+  
+  .hero-content p {
+    margin: 15px 0;
+    font-size: 1.2rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #00bcd4; /* index.html'deki butondan farklı, isterseniz #1a73e8 yapabilirsiniz */
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #00796b; /* index.html'deki butondan farklı */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .waves {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: url('https://svgshare.com/i/oW7.svg') repeat-x;
+    animation: wave 10s linear infinite;
+  }
+  
+  @keyframes wave {
+    0% {background-position-x: 0;}
+    100% {background-position-x: 1000px;}
+  }
+  
+  /* Genel Bölümler (About, Activities, Gallery vb.) */
+  .about, .activities, .gallery, .video-section, .team, .contact, .team-section, .about-team-section, .contact-section, .canva-presentation {
+    padding: 80px 20px;
+    background-color: #e0f7fa; /* Genel bir arka plan rengi */
+  }
+  
+  /* Farklı arka plan isteyenler için özel kurallar */
+  .about-detailed, .shore-connection, .gallery, .contact-section, .canva-presentation {
+      background-color: #f0f8ff;
+  }
+  .video-section, .about-team-section {
+      background-color: #e8f1ff; /* Veya #f5f5f5 */
+  }
+  .banner-section {
+      background-color: #e0f7fa;
+      padding: 40px 0;
+  }
+  .team-section {
+       padding: 80px 0;
+       background-color: white; /* Veya #f5f7fa */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 0 20px; /* index.html'deki gibi */
+  }
+  
+  h2 {
+    color: #004d40; /* Veya #1a73e8 */
+    font-size: 2.2rem; /* Veya 2.5rem */
+    margin-bottom: 20px; /* Veya 1rem */
+    position: relative;
+    display: inline-block;
+    text-align: center; /* index.html'deki gibi */
+  }
+  
+  h2:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #00bcd4; /* Veya #1a73e8 */
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem; /* Genel p için */
+    color: #333; /* Genel p rengi */
+  }
+  
+  /* mart1.html'deki açıklama paragrafı için özel stil */
+  .description p {
+      text-align: justify; /* Metni iki yana yasla */
+      max-width: 900px; /* Maksimum genişlik */
+      margin: 20px auto; /* Üst/alt boşluk ve ortalama */
+      padding: 0 15px; /* Kenar boşlukları */
+  }
+  
+  
+  /* Kartlar */
+  .cards, .team-cards, .gallery-grid, .goals-cards, .events {
+    display: flex; /* veya grid */
+    flex-wrap: wrap;
+    gap: 20px; /* veya 30px */
+    justify-content: center;
+    margin-top: 30px; /* veya 40px */
+  }
+  /* Grid kullananlar için özel */
+  .events, .team-cards { /* index.html'deki team-cards grid kullanıyor */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Min/max ayarı */
+      gap: 30px;
+  }
+  
+  
+  .card { /* Genel aktivite kartı */
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 280px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+  
+  .card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  .card-content h3 {
+    color: #00796b;
+    margin-bottom: 10px;
+  }
+  
+  /* Takım Kartları (index.html ve ekip.html) */
+  .team-card {
+    background: white;
+    border-radius: 10px; /* index.html'deki gibi */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* index.html'deki gibi */
+    overflow: hidden; /* index.html'deki gibi */
+    transition: all 0.3s ease; /* index.html'deki gibi */
+    /* width: 250px; - Grid kullandığı için width'e gerek yok */
+  }
+  
+  .team-card:hover {
+    transform: translateY(-10px); /* index.html'deki gibi */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* index.html'deki gibi */
+  }
+  
+  .team-card img {
+    width: 100%;
+    height: 250px; /* index.html'deki gibi */
+    object-fit: cover;
+    border-bottom: 3px solid #1a73e8; /* index.html'deki gibi */
+    border-radius: 0; /* Alt border olduğu için radius'a gerek yok */
+  }
+  
+  .team-card h3 {
+    padding: 15px 15px 5px; /* index.html'deki gibi */
+    font-size: 1.2rem; /* index.html'deki gibi */
+    color: #1a73e8; /* index.html'deki gibi */
+    margin-top: 0; /* Üst padding var */
+  }
+  
+  .team-card p {
+    padding: 0 15px 15px; /* index.html'deki gibi */
+    color: #666; /* index.html'deki gibi */
+    font-size: 0.9rem; /* index.html'deki gibi */
+    margin-top: 0; /* Üst padding var */
+  }
+  
+  /* Etkinlik Kartları (etkinlik.html) */
+  .event-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+    text-align: center;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .event-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .event-card h3 {
+    color: #007b9e;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+  
+  .event-card p {
+    color: #444;
+    font-size: 1em;
+  }
+  
+  /* Video Container */
+  .video-container { /* mart1.html'deki */
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 20px auto; /* Üst/alt boşluk ve ortalama */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: none; /* Kenarlık olmasın */
+  }
+  
+  .video-wrapper { /* index.html'deki */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+  }
+  
+  .video-wrapper iframe { /* index.html'deki */
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 854px; /* index.html'de belirtilen */
+      height: 480px; /* index.html'de belirtilen */
+      border: none; /* Kenarlık olmasın */
+  }
+  
+  
+  /* Banner (index.html) */
+  .banner-container { /* index.html'deki banner sarmalayıcı */
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .shore-logo { /* index.html'deki banner resmi sarmalayıcı */
+    margin: 30px auto;
+    max-width: 600px; /* index.html'deki boyut */
+  }
+  
+  .shore-logo img { /* index.html'deki banner resmi */
+    width: 100%;
+    border-radius: 8px;
+    display: block; /* Alt boşluğu engellemek için */
+  }
+  
+  /* Footer Öncesi Banner ve Logolar (mart1.html) - YENİ EKLENEN KURALLAR */
+  .footer-banner-container {
+    display: flex; /* Öğeleri yan yana dizer */
+    justify-content: center; /* Ortalar */
+    align-items: center; /* Dikeyde hizalar */
+    gap: 30px; /* Öğeler arası boşluk */
+    padding: 40px 20px; /* Üst/alt ve yan boşluklar */
+    background-color: #e0f7fa; /* index.html banner bölümü ile aynı arka plan */
+    flex-wrap: wrap; /* Küçük ekranlarda alta sarması için */
+  }
+  
+  .footer-banner {
+    height: 60px; /* Logoların yüksekliğini sınırlar (index.html footer içindeki logolar gibi) */
+    width: auto; /* Genişlik otomatik ayarlanır */
+    max-width: 100%; /* Taşmayı engeller */
+  }
+  
+  
+  /* Footer */
+  footer {
+    background: linear-gradient(to right, #690422, #fd42a9); /* mart1.html'deki gradient */
+    color: white;
+    padding: 50px 20px 30px; /* Üst boşluk artırıldı */
+  }
+  
+  /* footer > .container genel hizalama için */
+  footer > .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: left; /* İçerik sola dayalı olsun */
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  
+  .footer-logo img {
+      height: 60px;
+      width: auto;
+      margin-bottom: 15px;
+      display: block; /* Alt boşluğu engelle */
+  }
+  
+  .footer-logo h3 {
+      margin: 0; /* Resim altındaki başlık için boşluk sıfırlama */
+      font-size: 1.1rem;
+  }
+  
+  /* Footer başlıkları */
+  .footer-links h4,
+  .footer-contact h4,
+  .footer-social h4 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    display: inline-block;
+  }
+  
+  .footer-links h4::after,
+  .footer-contact h4::after,
+  .footer-social h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #1a73e8; /* Mavi çizgi */
+  }
+  
+  /* Footer link listesi */
+  .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  }
+  
+  .footer-links li {
+      margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+      color: #ddd; /* Daha açık bir renk */
+  }
+  
+  
+  /* Footer iletişim bilgileri */
+  .footer-contact p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem; /* Biraz küçültebiliriz */
+  }
+  
+  .footer-contact i {
+    margin-right: 10px;
+    color: #1a73e8; /* İkon rengi */
+    width: 20px;
+    text-align: center;
+  }
+  
+  .footer-contact a { /* Mail linki için */
+      color: white;
+      text-decoration: underline; /* Link olduğunu belirtmek için */
+  }
+  .footer-contact a:hover {
+      color: #ddd;
+  }
+  
+  /* Footer sosyal medya ikonları */
+  .social-icons {
+      display: flex;
+      align-items: center;
+  }
+  
+  .social-icons a {
+    color: white; /* İkon rengi */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+    font-size: 1.2rem; /* ikon boyutu */
+  }
+  
+  .social-icons a:hover {
+    background-color: #1a73e8;
+    transform: translateY(-3px);
+    color: white; /* Hover durumunda da beyaz kalsın */
+  }
+  
+  
+  
+  /* Footer alt kısım */
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  /* About.html için ek stiller */
+  .about-detailed {
+    /* background-color: #f0f8ff; Zaten yukarıda tanımlı */
+    padding: 60px 20px;
+  }
+  
+  .about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    align-items: center; /* Dikeyde ortalama */
+  }
+  
+  .about-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+  }
+  
+  .about-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: block; /* Alt boşluğu engelle */
+  }
+  
+  .about-text {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+  }
+  
+  .about-text h3 {
+    color: #004d40;
+    margin: 15px 0;
+  }
+  
+  .about-text p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Proje Hedefleri (About.html) */
+  .project-goals {
+    /* background-color: #e0f7fa; Zaten yukarıda tanımlı */
+    padding: 60px 20px;
+  }
+  
+  /* goals-cards yukarıda .cards ile birleştirildi */
+  .goals-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .goals-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #eee; /* Resim yoksa arka plan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .goals-card h3 {
+    color: #00796b;
+    margin-bottom: 10px;
+  }
+  
+  /* SHORE Bağlantısı (About.html) */
+  .shore-connection {
+    /* background-color: #f0f8ff; Zaten yukarıda tanımlı */
+    padding: 60px 20px;
+  }
+  
+  .shore-content {
+    margin-top: 30px;
+    max-width: 800px; /* Metin genişliğini sınırlama */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .shore-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  /* shore-logo stili index.html banner'ı ile aynı, yukarıda tanımlı */
+  
+  
+  
+  
+  
+  /* İletişim sayfası */
+  .contact-section {
+    /* background-color: #f0f8ff; Zaten yukarıda tanımlı */
+    padding: 60px 20px;
+  }
+  
+  .contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+    align-items: flex-start; /* Üstten hizala */
+  }
+  
+  .contact-info {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+  }
+  
+  .contact-info h3 {
+    color: #004d40;
+    margin: 15px 0 20px; /* Alt boşluk artırıldı */
+  }
+  /* contact-info içindeki p ve i stilleri footer-contact ile aynı, yukarıda tanımlı */
+  .contact-info p {
+      margin-bottom: 15px;
+  }
+  .contact-info i {
+      color: #1a73e8;
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+  }
+  .contact-info a {
+      color: #1a73e8;
+      text-decoration: none;
+  }
+  .contact-info a:hover {
+      text-decoration: underline;
+  }
+  
+  
+  .map-container {
+    flex: 1;
+    min-width: 300px;
+    height: 400px; /* Harita için sabit yükseklik */
+  }
+  
+  .map-container iframe {
+    width: 100%;
+    height: 100%; /* Konteyner yüksekliğini doldur */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: none;
+  }
+  
+  #contact-form {
+    background-color: #e0f7fa;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 40px auto;
+    max-width: 600px; /* Form genişliğini sınırla */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  #contact-form h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #004d40;
+  }
+  
+  .form-group {
+      margin-bottom: 20px;
+  }
+  
+  .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+  }
+  
+  .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+  }
+  
+  .form-buttons {
+      text-align: center;
+      margin-top: 30px;
+  }
+  
+  .btn-submit, .btn-reset {
+    padding: 12px 25px; /* Biraz daha büyük butonlar */
+    border: none;
+    border-radius: 25px; /* Yuvarlak kenarlar */
+    margin: 0 10px; /* Butonlar arası boşluk */
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  
+  .btn-submit {
+    background-color: #00bcd4;
+    color: white;
+  }
+  
+  .btn-reset {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .btn-submit:hover {
+    background-color: #00796b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  
+  .btn-reset:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  
+  
+  /* Mobil Görünüm İyileştirmeleri (Hamburger Menü) */
+  .menu-toggle {
+    display: none; /* Başlangıçta gizli */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white; /* Header rengine uygun */
+    padding: 5px;
+  }
+  
+  /* ScrollReveal için gizli elemanlar */
+  .reveal {
+      visibility: hidden;
+  }
+  
+  
+  /* Medya Sorguları (Responsive Tasarım) */
+  
+  /* Büyük Tabletler ve Küçük Laptoplar */
+  @media (max-width: 992px) {
+    h2 {
+        font-size: 2rem;
+    }
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+    .about-content {
+        gap: 20px;
+    }
+  }
+  
+  /* Tabletler */
+  @media (max-width: 768px) {
+    header {
+      padding: 15px 20px;
+      position: relative; /* Menünün doğru konumlanması için */
+    }
+  
+    .menu-toggle {
+        display: block; /* Hamburger ikonu görünür */
+    }
+  
+    nav {
+        position: absolute; /* Menüyü akıştan çıkar */
+        top: 100%; /* Header'ın hemen altına */
+        left: 0;
+        right: 0;
+        background: linear-gradient(to right, #690422, #fd42a9); /* Header ile aynı */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-150%); /* Başlangıçta yukarıda gizli */
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        opacity: 0;
+        z-index: 99; /* Diğer içeriklerin üzerinde */
+        padding: 10px 0; /* İç boşluk */
+    }
+  
+    nav.active { /* JavaScript ile eklenecek sınıf */
+        transform: translateY(0); /* Aşağı kayarak görünür */
+        opacity: 1;
+    }
+  
+    .menu {
+        flex-direction: column; /* Menü öğeleri alt alta */
+        align-items: center; /* Ortala */
+        gap: 0; /* Boşlukları kaldır */
+        width: 100%;
+    }
+  
+    .menu li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Ayırıcı çizgi */
+    }
+     .menu li:last-child {
+          border-bottom: none; /* Son öğeden sonra çizgi olmasın */
+      }
+  
+    .menu a {
+        display: block; /* Tüm satırı kapla */
+        padding: 15px 20px; /* Tıklama alanını genişlet */
+        color: white; /* Mobil menüde renk */
+        width: 100%;
+    }
+     .menu a:hover {
+          background-color: rgba(255, 255, 255, 0.1); /* Hafif vurgu */
+          color: white;
+      }
+     .menu a.active {
+          background-color: rgba(255, 255, 255, 0.2); /* Aktif öğe vurgusu */
+          padding: 15px 20px; /* Padding sıfırlanmasın */
+          border-radius: 0; /* Köşe yuvarlaklığını kaldır */
+      }
+     .menu a::after {
+          display: none; /* Mobil menüde alt çizgiyi gizle */
+      }
+  
+  
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+  
+    .hero-content p {
+      font-size: 1rem;
+    }
+  
+    .hero-content {
+      max-width: 90%;
+    }
+  
+    .cards, .team-cards, .gallery-grid, .goals-cards, .events {
+      gap: 15px;
+    }
+    /* Grid kullananlar için mobil ayarı */
+    .events, .team-cards {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Daha küçük min genişlik */
+        gap: 15px;
+    }
+  
+  
+    .card, .team-card, .goals-card {
+      width: calc(50% - 10px); /* İki sütunlu yapı */
+      max-width: none; /* Max width'i kaldır */
+    }
+    .gallery-grid img {
+        width: calc(50% - 10px); /* İki sütunlu */
+        height: auto; /* Yükseklik otomatik */
+    }
+  
+    .banner-container {
+      width: 90%;
+    }
+  
+    .waves {
+      height: 50px;
+    }
+  
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Daha küçük min genişlik */
+        gap: 25px;
+    }
+  
+    .about-content, .contact-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px; /* Boşluk */
+    }
+  
+    .about-text, .contact-info {
+      text-align: center; /* Metinleri ortala */
+    }
+    .contact-info p {
+        justify-content: center; /* İkon ve metni ortala */
+    }
+  
+    .map-container {
+        height: 300px; /* Harita yüksekliğini azalt */
+        width: 100%; /* Tam genişlik */
+    }
+  
+    #contact-form {
+      width: 90%;
+      padding: 20px;
+    }
+    .form-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-submit, .btn-reset {
+        margin: 0;
+        width: 100%;
+    }
+  
+    .video-wrapper iframe { /* index.html video mobil */
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9; /* Oranı koru */
+    }
+    .video-container { /* mart1.html video mobil */
+        max-width: 95%;
+    }
+  }
+  
+  /* Küçük Telefonlar */
+  @media (max-width: 576px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+  
+    .card, .team-card, .goals-card, .gallery-grid img {
+        width: 100%; /* Tek sütunlu yapı */
+        max-width: 100px; /* Maksimum genişlik */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* Grid kullananlar için mobil ayarı */
+      .events, .team-cards {
+        grid-template-columns: 1fr; /* Tek sütun */
+    }
+    .team-card img {
+        height: 200px;
+    }
+  
+    .about-team-content p {
+        font-size: 1rem;
+    }
+  
+    .footer-content {
+        grid-template-columns: 1fr; /* Tek sütun */
+        text-align: center; /* Footer içeriğini ortala */
+    }
+     .footer-links h4, .footer-contact h4, .footer-social h4 {
+          display: block; /* Başlıklar tam genişlik */
+      }
+      .footer-links h4::after, .footer-contact h4::after, .footer-social h4::after {
+          left: 50%; /* Çizgiyi ortala */
+          transform: translateX(-50%);
+      }
+      .footer-contact p {
+          justify-content: center; /* İletişim bilgilerini ortala */
+      }
+      .social-icons {
+          justify-content: center; /* Sosyal ikonları ortala */
+      }
+      .footer-logo {
+          text-align: center; /* Logoyu ortala */
+      }
+       .footer-logo img {
+          margin-left: auto;
+          margin-right: auto;
+      }
+  
+     .footer-banner-container {
+          gap: 15px; /* Daha az boşluk */
+          padding: 30px 15px;
+     }
+     .footer-banner {
+          height: 50px; /* Biraz daha küçük */
+     }
+  }
+  .description { /* Açıklama bölümü çok küçük ekran */
+    padding: 20px 10px;
+  }
+  .description p strong { /* Başlık mobil */
+     font-size: 1rem;
+  }
+  .description nav ul li {
+     padding-left: 1.2em; /* Daha az girinti */
+     font-size: 0.95rem; /* Biraz küçült */
+  }
+  

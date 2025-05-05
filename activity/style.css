@@ -60,10 +60,6 @@ header {
   transform: scale(1.1);
 }
 
-nav { /* index.html'deki navigasyon menüsünü sarmalayan eleman */
-  /* Gerekirse ek stiller eklenebilir */
-}
-
 .menu {
   list-style: none;
   display: flex;
@@ -453,10 +449,6 @@ footer > .container {
   text-align: left;
 }
 
-.footer-logo { /* Footer içindeki ana logo bölümü */
-   /* Grid içinde olduğu için özel hizalamaya gerek yok */
-}
-
 .footer-logo img {
     height: 60px;
     width: auto;
@@ -563,9 +555,6 @@ footer > .container {
   color: white; /* Hover durumunda da beyaz kalsın */
 }
 
-.social-icons a i {
-    /* Font Awesome kendi rengini kullanır, a etiketi rengi belirler */
-}
 
 
 /* Footer alt kısım */
