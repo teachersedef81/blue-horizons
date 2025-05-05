@@ -10,6 +10,273 @@
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
 </head>
 <body>
+    <style>
+        /* meslek-style.css - Styles for profession-specific pages */
+    
+    /* Main Layout */
+    .profession-guide {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+        font-family: 'Montserrat', sans-serif;
+        color: #333;
+    }
+    
+    /* Header Section with Image */
+    .profession-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        background-color: #f8f9fa;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+    }
+    
+    .profession-title {
+        flex: 1;
+        min-width: 300px;
+    }
+    
+    .profession-title h1 {
+        color: #1a73e8;
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+    
+    .profession-title h2 {
+        color: #4caf50;
+        font-size: 1.5rem;
+        margin-top: 0;
+        font-weight: 500;
+        line-height: 1.3;
+    }
+    
+    .profession-image {
+        flex: 0 0 250px;
+        text-align: center;
+        margin: 1rem;
+    }
+    
+    .profession-avatar {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #4caf50;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Content Sections */
+    .profession-content {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+    }
+    
+    .introduction {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        border-left: 4px solid #1a73e8;
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .section-block {
+        margin-bottom: 2.5rem;
+        padding: 1.5rem;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        position: relative;
+    }
+    
+    .section-block h3 {
+        color: #1a73e8;
+        font-size: 1.6rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #4caf50;
+        padding-bottom: 0.5rem;
+    }
+    
+    .section-block ul, 
+    .section-block ol {
+        padding-left: 1.5rem;
+    }
+    
+    .section-block li {
+        margin-bottom: 0.8rem;
+        line-height: 1.5;
+    }
+    
+    /* Activity Cards */
+    .activity-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 1.2rem;
+        margin-bottom: 1.2rem;
+        border-left: 4px solid #4caf50;
+    }
+    
+    .activity-card h4 {
+        color: #1a73e8;
+        margin-top: 0;
+        margin-bottom: 0.7rem;
+        font-size: 1.2rem;
+    }
+    
+    /* Warning Section */
+    .warning-section {
+        background-color: #fff3e0;
+        border-left: 4px solid #ff9800;
+    }
+    
+    .warning-section h3 {
+        color: #ff5722;
+        border-bottom-color: #ff9800;
+    }
+    
+    .warning-list li {
+        color: #d32f2f;
+        font-weight: 500;
+    }
+    
+    /* Golden Rules */
+    .golden-rules {
+        background-color: #e8f5e9;
+        border-left: 4px solid #4caf50;
+    }
+    
+    .golden-rules ol {
+        counter-reset: rules;
+    }
+    
+    .golden-rules ol li {
+        position: relative;
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+    }
+    
+    .golden-rules ol li::before {
+        counter-increment: rules;
+        content: counter(rules);
+        position: absolute;
+        left: -10px;
+        top: -8px;
+        background-color: #4caf50;
+        color: white;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+    
+    .golden-rules strong {
+        color: #1a73e8;
+    }
+    
+    /* Call to Action */
+    .call-to-action {
+        background-color: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        text-align: center;
+    }
+    
+    .highlight {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #1a73e8;
+        margin-top: 1.5rem;
+        font-style: italic;
+    }
+    
+    /* Back Button */
+    .back-to-professions {
+        text-align: center;
+        margin: 2rem 0;
+    }
+    
+    .btn-back {
+        display: inline-block;
+        background-color: #4caf50;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-back:hover {
+        background-color: #1a73e8;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .profession-header {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .profession-title {
+            order: 2;
+            margin-top: 1rem;
+        }
+        
+        .profession-image {
+            order: 1;
+            margin: 0 auto;
+        }
+        
+        .profession-title h1 {
+            font-size: 1.8rem;
+        }
+        
+        .profession-title h2 {
+            font-size: 1.3rem;
+        }
+        
+        .section-block h3 {
+            font-size: 1.4rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .profession-guide {
+            margin: 1rem auto;
+            padding: 0 1rem;
+        }
+        
+        .profession-header {
+            padding: 1.5rem;
+        }
+        
+        .profession-avatar {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .profession-content {
+            padding: 1.5rem;
+        }
+        
+        .section-block {
+            padding: 1rem;
+        }
+    }
+    </style>
+
     <header>
         <div class="logo-container">
           <img src="images/logo.png" alt="Mavi Ufuklar Logosu" style="max-height: 100%; max-width: 100%;">
@@ -18,12 +285,93 @@
           <img src="images/okul logo.png" alt="Okul Logosu" style="max-height: 100%; max-width: 100%;">
         </div>
         </header>
+  <main class="profession-guide">
+        <section class="profession-header"> <div class="profession-title">
+                <h1>Hem Çevreci Hem Kazançlı</h1>
+                <h2>İşletmeler İçin Akıllı Atık Yönetimi ve Geri Dönüşüm</h2>
+            </div>
+            </section>
 
+        <section class="profession-content"> <div class="introduction"> <p>Merhaba Değerli Meslektaşlarım,</p>
+                <p>Bir kafe veya restoran işletmecisi olarak hepimiz kaliteli hizmet, lezzetli ürünler ve müşteri memnuniyeti için çabalıyoruz. Ama mutfağımızın arkasında veya depomuzda biriken atıklar ne olacak? Artan çevre bilinci, yasal düzenlemeler ve hatta maliyetler, atık yönetimini artık görmezden gelemeyeceğimiz bir konu haline getiriyor. Kendi işletmemdeki deneyimlerimden yola çıkarak, geri dönüşümün sadece bir "zorunluluk" değil, aynı zamanda bir "fırsat" olabileceğini anlatmak istiyorum.</p>
+            </div>
 
-    
+            <div class="section-block golden-rules">
+                <h3>İşletmede Geri Dönüşüm Adımları</h3>
+                <ol>
+                    <li>
+                        <strong>Giriş: Neden Bir Kafe Geri Dönüşümü Ciddiye Almalı?</strong>
+                        <ul>
+                            <li><strong>Marka İmajı:</strong> Müşteriler artık çevreye duyarlı işletmeleri tercih ediyor. Geri dönüşüm yapmak, işletmenize pozitif bir imaj katar.</li>
+                            <li><strong>Maliyet Tasarrufu:</strong> Atık miktarınızı azaltmak ve geri dönüştürülebilir malzemeleri ayrı toplamak, belediyeye ödediğiniz atık toplama ücretlerini düşürebilir.</li>
+                            <li><strong>Yasal Uyum:</strong> Özellikle "Sıfır Atık Yönetmeliği" gibi düzenlemeler, işletmelere atıklarını ayrıştırma ve geri dönüşüme gönderme sorumluluğu yüklüyor. Cezalarla karşılaşmamak için uyum şart.</li>
+                            <li><strong>Çalışan Motivasyonu:</strong> Çalışanlarınızın çevreye duyarlı bir iş yerinde çalışmaktan gurur duymasını sağlayabilir.</li>
+                            <li><strong>Vicdani Sorumluluk:</strong> Gelecek nesillere daha yaşanabilir bir dünya bırakmak hepimizin görevi.</li>
+                        </ul>
+                    </li>
 
+                    <li>
+                        <strong>Atık Haritanızı Çıkarın: Neler Atıyoruz?</strong>
+                        <p>İlk adım, ne tür ve ne miktarda atık ürettiğinizi bilmektir. Birkaç gün boyunca çöplerinizi gözlemleyin:</p>
+                        <ul>
+                            <li><strong>Cam:</strong> İçecek şişeleri (bira, şarap, meşrubat), kavanozlar (turşu, sos vb.)</li>
+                            <li><strong>Plastik:</strong> Su şişeleri, süt/ayran kutuları, streç filmler, yoğurt/sos kapları, deterjan şişeleri.</li>
+                            <li><strong>Kağıt/Karton:</strong> Tedarikçilerden gelen koliler, ambalaj kağıtları, peçeteler (temizse!), menüler, ofis kağıtları.</li>
+                            <li><strong>Metal:</strong> Konserve kutuları, içecek kutuları, metal kapaklar.</li>
+                            <li><strong>Organik Atık:</strong> Sebze-meyve kabukları, yemek artıkları, kahve telvesi, çay posası (En büyük hacimli atıklarınızdan biri olabilir!).</li>
+                            <li><strong>Diğer:</strong> Bitkisel atık yağlar (kesinlikle lavaboya dökülmemeli!), tehlikeli atıklar (temizlik kimyasalları vb.).</li>
+                        </ul>
+                    </li>
 
+                    <li>
+                        <strong>Azaltmakla Başlayın!</strong>
+                        <p>Geri dönüşümden önce atığı azaltmak en etkili yoldur:</p>
+                        <ul>
+                            <li><strong>Tedarikçilerle Konuşun:</strong> Ürünleri daha az ambalajla veya yeniden kullanılabilir kasalarda/kaplarda göndermelerini talep edin.</li>
+                            <li><strong>Toplu Alım:</strong> Mümkünse ürünleri daha büyük ambalajlarda veya dökme olarak alın.</li>
+                            <li><strong>Tek Kullanımlıktan Kaçının:</strong> Mümkün olduğunca cam bardak, porselen tabak, metal çatal-bıçak kullanın. Paket serviste biyobozunur veya geri dönüştürülebilir ambalajları tercih edin. Şeker, tuz gibi ürünler için tek kullanımlık paketler yerine doldurulabilir kaplar kullanın.</li>
+                            <li><strong>Su Tasarrufu:</strong> Sebzeleri yıkarken veya temizlikte suyu idareli kullanın.</li>
+                        </ul>
+                    </li>
 
+                    <li>
+                        <strong>Etkili Ayrıştırma Sistemi Kurmak</strong>
+                        <ul>
+                            <li><strong>Net Tanımlı Kovalar:</strong> Mutfakta, depoda ve hatta müşteri alanında (varsa) farklı atık türleri için (Cam, Plastik/Metal, Kağıt, Organik, Genel Çöp) ayrı ve net etiketlenmiş kovalar bulundurun.</li>
+                            <li><strong>Personel Eğitimi:</strong> Tüm personelinizi hangi atığın nereye atılacağı konusunda eğitin. Bu, sistemin başarısı için kritiktir. Sorumluluk verin, düzenli kontrol edin.</li>
+                            <li><strong>Temizlik:</strong> Geri dönüşüm kovalarına atılacak ambalajların (özellikle plastik ve metallerin) içlerinin boşaltılıp hızlıca çalkalanmasını sağlayın. Bu, koku ve haşere sorununu önler.</li>
+                        </ul>
+                    </li>
+
+                     <li>
+                        <strong>Organik Atıklar: Altın Değerinde!</strong>
+                         <p>Yemek artıkları, sebze-meyve kabukları, kahve telvesi gibi organik atıklar çöpünüzün önemli bir kısmını oluşturur. Bunları:</p>
+                        <ul>
+                            <li><strong>Kompost Yapın/Yaptırın:</strong> İmkanınız varsa bahçenizde kompost yapabilir veya belediyenin/özel firmaların kompost toplama hizmetlerinden yararlanabilirsiniz. Kompost, değerli bir gübredir.</li>
+                            <li><strong>Ayrı Toplayın:</strong> Belediyenizin organik atık toplama programı varsa buna katılın. Hayvan barınaklarıyla veya çiftliklerle anlaşarak yemek artıklarını (uygun olanları) onlara verebilirsiniz.</li>
+                        </ul>
+                    </li>
+
+                     <li>
+                        <strong>Yasal Zorunluluklar ve Fırsatlar</strong>
+                        <p>"Sıfır Atık Yönetmeliği" kapsamında belirli büyüklükteki işletmelerin atıklarını ayrı biriktirme ve kayıt altına alma zorunluluğu vardır. Belediyenizle iletişime geçerek yükümlülüklerinizi öğrenin. Atıklarınızı lisanslı geri dönüşüm firmalarına vererek belge almanız gerekebilir. Unutmayın, bu aynı zamanda atık bertaraf maliyetlerinizi düşürme fırsatı da sunabilir.</p>
+                    </li>
+
+                     <li>
+                        <strong>Müşterilerinizi de Dahil Edin</strong>
+                        <p>Müşterilerinizin görebileceği yerlere küçük bilgilendirme notları asabilir, geri dönüşüme katkıda bulunduğunuzu belirtebilirsiniz. Eğer self-servis bir alanınız varsa, ayrı atık kutuları koyarak onları da sürece dahil edebilirsiniz.</p>
+                    </li>
+                </ol>
+            </div> <div class="section-block call-to-action"> <h3>Sonuç: Yeşil İmaj, Mutlu Müşteri, Sağlıklı Bütçe</h3>
+                <p>Başlangıçta biraz planlama ve çaba gerektirse de, etkili bir atık yönetimi ve geri dönüşüm sistemi kurmak, işletmenize çevresel faydaların yanı sıra ekonomik ve itibari kazançlar da sağlayacaktır.</p>
+                <p class="highlight">Bu, hem gezegenimiz hem de işletmemiz için akıllıca bir yatırımdır.</p>
+            </div>
+        </section>
+        <div class="back-to-professions reveal">
+            <a href="../meslekler.html" class="btn-back" target="_blank">Diğer Mesleklere Göz At</a>
+        </div>
+        
+        </main>
 
          <!-- Alt Bilgi -->
        <footer>
@@ -100,6 +448,6 @@
             });
         });
     </script>
-    
+
 </body>
 </html>

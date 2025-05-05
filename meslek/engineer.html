@@ -10,6 +10,331 @@
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
 </head>
 <body>
+    <style>
+
+        /* style.css - teacher.html'den alınan ve uyarlanan stiller */
+
+/* Ana Düzen */
+body {
+    margin: 0; /* Sayfa kenar boşluklarını sıfırla */
+    font-family: 'Montserrat', sans-serif; /* Yazı tipi */
+    color: #333; /* Genel metin rengi */
+    background-color: #f4f4f4; /* Sayfa arka planı (daha önceki yanıtlardan uyarlama) */
+}
+
+.profession-guide {
+    max-width: 900px; /* İçerik ana kapsayıcı genişliği (ihtiyaca göre 1200px de olabilir) */
+    margin: 2rem auto; /* Ortala ve üst/alt boşluk */
+    padding: 0 1.5rem; /* Sağ/sol iç boşluk */
+}
+
+/* Başlık Bölümü */
+.profession-header {
+    display: flex; /* Elemanları yan yana diz */
+    flex-wrap: wrap; /* Sığmazsa alt satıra geç */
+    align-items: center; /* Dikeyde ortala */
+    justify-content: space-between; /* Elemanlar arası boşluk bırak */
+    margin-bottom: 2rem; /* Alt boşluk */
+    background-color: #f8f9fa; /* Başlık arka plan rengi (teacher.html'den) */
+    border-radius: 12px; /* Köşe yuvarlama */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+    padding: 2rem; /* İç boşluk */
+}
+
+.profession-title {
+    flex: 1; /* Esnek genişlik, kaplayabildiği kadar yer kapla */
+    min-width: 300px; /* Minimum genişlik */
+}
+
+.profession-title h1 {
+    color: #1a73e8; /* Ana başlık rengi (teacher.html'den) */
+    font-size: 2.2rem; /* Başlık boyutu */
+    margin-bottom: 0.5rem; /* Alt boşluk */
+    line-height: 1.2; /* Satır yüksekliği */
+}
+
+.profession-title h2 {
+    color: #4caf50; /* Alt başlık rengi (teacher.html'den) */
+    font-size: 1.5rem; /* Alt başlık boyutu */
+    margin-top: 0; /* Üst boşluk sıfırla */
+    font-weight: 500; /* Yazı kalınlığı */
+    line-height: 1.3; /* Satır yüksekliği */
+}
+
+.profession-image { /* İsteğe bağlı görsel alanı */
+    flex: 0 0 250px; /* Sabit genişlik, esnemez (teacher.html'den) */
+    text-align: center; /* İçeriği ortala */
+    margin: 1rem; /* Dış boşluk */
+}
+
+.profession-avatar { /* İsteğe bağlı görsel stili */
+    width: 200px; /* Genişlik (teacher.html'den) */
+    height: 200px; /* Yükseklik (teacher.html'den) */
+    border-radius: 50%; /* Tamamen yuvarlak yap */
+    object-fit: cover; /* Resmi kırpıp sığdır */
+    border: 5px solid #4caf50; /* Yeşil çerçeve (teacher.html'den) */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Gölge */
+}
+
+/* İçerik Bölümleri */
+.profession-content {
+    background-color: white; /* İçerik arka planı */
+    border-radius: 12px; /* Köşe yuvarlama */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Gölge */
+    padding: 2rem; /* İç boşluk */
+}
+
+.introduction { /* Giriş metni stili */
+    font-size: 1.1rem; /* Yazı boyutu */
+    line-height: 1.6; /* Satır yüksekliği */
+    border-left: 4px solid #1a73e8; /* Mavi sol kenarlık (teacher.html'den) */
+    padding-left: 1.5rem; /* Sol iç boşluk */
+    margin-bottom: 2rem; /* Alt boşluk */
+    background-color: #f8f9fa; /* Hafif arka plan (uyarlama) */
+    padding-top: 1rem;    /* Üst iç boşluk (uyarlama) */
+    padding-bottom: 1rem; /* Alt iç boşluk (uyarlama) */
+    border-radius: 0 8px 8px 0; /* Sağ köşe yuvarlama (uyarlama) */
+}
+
+.section-block { /* Genel içerik bloğu */
+    margin-bottom: 2.5rem; /* Alt boşluk */
+    padding: 1.5rem; /* İç boşluk */
+    background-color: #f8f9fa; /* Arka plan rengi (teacher.html'den) */
+    border-radius: 8px; /* Köşe yuvarlama */
+    position: relative; /* Konumlandırma için (örneğin ::before için) */
+}
+
+.section-block h3 { /* Bölüm başlıkları */
+    color: #1a73e8; /* Mavi başlık rengi (teacher.html'den) */
+    font-size: 1.6rem; /* Yazı boyutu */
+    margin-top: 0; /* Üst boşluk sıfırla */
+    margin-bottom: 1rem; /* Alt boşluk */
+    border-bottom: 2px solid #4caf50; /* Yeşil alt çizgi (teacher.html'den) */
+    padding-bottom: 0.5rem; /* Alt iç boşluk */
+}
+
+.section-block p { /* Paragraflar */
+    line-height: 1.6; /* Satır yüksekliği */
+    margin-bottom: 1rem; /* Alt boşluk (uyarlama) */
+}
+
+.section-block ul,
+.section-block ol { /* Listeler */
+    padding-left: 1.5rem; /* Liste başı sol boşluk */
+    margin-top: 1rem; /* Liste üst boşluk */
+}
+
+.section-block li { /* Liste elemanları */
+    margin-bottom: 0.8rem; /* Elemanlar arası boşluk */
+    line-height: 1.5; /* Satır yüksekliği */
+}
+
+/* Aktivite Kartları (teacher.html'den) */
+.activity-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.2rem;
+    margin-bottom: 1.2rem;
+    border-left: 4px solid #4caf50; /* Yeşil sol kenarlık */
+}
+
+.activity-card h4 {
+    color: #1a73e8; /* Mavi başlık */
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    font-size: 1.2rem;
+}
+
+/* Uyarı Bölümü (teacher.html'den) */
+.warning-section {
+    background-color: #fff3e0; /* Açık turuncu arka plan */
+    border-left: 4px solid #ff9800; /* Turuncu sol kenarlık */
+}
+
+.warning-section h3 {
+    color: #ff5722; /* Koyu turuncu başlık */
+    border-bottom-color: #ff9800; /* Turuncu alt çizgi */
+}
+
+.warning-list li { /* Eğer uyarı bölümünde özel liste varsa */
+    color: #d32f2f; /* Kırmızımsı yazı */
+    font-weight: 500; /* Orta kalınlık */
+}
+
+/* Altın Kurallar / Numaralı Liste (teacher.html'den uyarlama) */
+.golden-rules {
+    background-color: #e8f5e9; /* Açık yeşil arka plan */
+    border-left: 4px solid #4caf50; /* Yeşil sol kenarlık */
+}
+
+.golden-rules h3 { /* Eğer altın kurallar bölümünün kendi başlığı varsa */
+    color: #2e7d32; /* Koyu yeşil başlık (uyarlama) */
+    border-bottom-color: #81c784; /* Açık yeşil alt çizgi (uyarlama) */
+}
+
+.golden-rules ol {
+    counter-reset: rules; /* Sayaç sıfırla */
+    padding-left: 1.5rem;
+    list-style: none; /* Varsayılan numaralandırmayı kaldır */
+}
+
+.golden-rules ol li {
+    position: relative; /* ::before'u konumlandırmak için */
+    margin-bottom: 1.5rem; /* Eleman alt boşluğu */
+    padding-left: 2.5rem; /* Metin için sol boşluk (uyarlama) */
+}
+
+.golden-rules ol li::before { /* Numaraları oluştur */
+    counter-increment: rules; /* Sayacı artır */
+    content: counter(rules); /* Sayacın değerini göster */
+    position: absolute; /* Mutlak konumlandırma */
+    left: -5px; /* Sol pozisyon (uyarlama) */
+    top: -2px; /* Üst pozisyon (uyarlama) */
+    background-color: #4caf50; /* Yeşil arka plan */
+    color: white; /* Beyaz yazı */
+    width: 30px; /* Genişlik (uyarlama) */
+    height: 30px; /* Yükseklik (uyarlama) */
+    border-radius: 50%; /* Yuvarlak yap */
+    display: flex; /* İçeriği ortalamak için */
+    align-items: center; /* Dikeyde ortala */
+    justify-content: center; /* Yatayda ortala */
+    font-weight: bold; /* Kalın yazı */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Hafif gölge (uyarlama) */
+}
+
+.golden-rules strong { /* Liste elemanlarındaki vurgulu metinler */
+    color: #1a73e8; /* Mavi renk */
+    display: block;      /* Ayrı satıra al (uyarlama) */
+    margin-bottom: 0.5rem; /* Alt boşluk (uyarlama) */
+    font-size: 1.2rem;    /* Yazı boyutu (uyarlama) */
+}
+
+/* Çağrı / Sonuç Bölümü */
+.call-to-action {
+    background-color: #e3f2fd; /* Açık mavi arka plan */
+    border-left: 4px solid #2196f3; /* Mavi sol kenarlık */
+    text-align: center; /* Metni ortala */
+}
+
+.call-to-action h3 { /* Eğer bu bölümün kendi başlığı varsa */
+     color: #1565c0; /* Koyu mavi başlık (uyarlama) */
+    border-bottom-color: #64b5f6; /* Açık mavi alt çizgi (uyarlama) */
+}
+
+.highlight { /* Vurgulu metin */
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a73e8; /* Mavi renk */
+    margin-top: 1.5rem;
+    font-style: italic; /* Eğik yazı */
+}
+
+/* Geri Dön Butonu (teacher.html'den) */
+.back-to-professions {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.btn-back {
+    display: inline-block; /* Satır içi blok eleman */
+    background-color: #4caf50; /* Yeşil arka plan */
+    color: white; /* Beyaz yazı */
+    padding: 0.8rem 1.5rem; /* İç boşluk */
+    border-radius: 50px; /* Yuvarlak kenarlar */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    font-weight: 600; /* Yarı kalın yazı */
+    transition: all 0.3s ease; /* Geçiş efekti */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Gölge */
+}
+
+.btn-back:hover { /* Buton üzerine gelince */
+    background-color: #1a73e8; /* Mavi arka plan */
+    transform: translateY(-2px); /* Yukarı hafif kaydır */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
+}
+
+/* Responsive Ayarlamalar (teacher.html'den) */
+@media (max-width: 768px) { /* Tablet ve altı */
+    .profession-header {
+        flex-direction: column; /* Başlık elemanlarını alt alta diz */
+        text-align: center; /* Başlık metnini ortala */
+    }
+
+    .profession-title {
+        order: 2; /* Başlık metnini görselin altına al */
+        margin-top: 1rem; /* Üst boşluk */
+    }
+
+    .profession-image {
+        order: 1; /* Görseli üste al */
+        margin: 0 auto 1rem auto; /* Ortala ve alt boşluk */
+        flex-basis: auto; /* Genişliği otomatik ayarla */
+    }
+
+    .profession-title h1 {
+        font-size: 1.8rem; /* Başlık boyutunu küçült */
+    }
+
+    .profession-title h2 {
+        font-size: 1.3rem; /* Alt başlık boyutunu küçült */
+    }
+
+    .section-block h3 {
+        font-size: 1.4rem; /* Bölüm başlığı boyutunu küçült */
+    }
+
+    .golden-rules ol li {
+       padding-left: 2rem; /* Mobilde madde içeriği boşluğunu ayarla */
+    }
+    .golden-rules ol li::before {
+        width: 28px;  /* Numara boyutunu ayarla */
+        height: 28px;
+        left: -8px; /* Numara pozisyonunu ayarla */
+        top: -5px;
+    }
+}
+
+@media (max-width: 480px) { /* Mobil cihazlar */
+    .profession-guide {
+        margin: 1rem auto; /* Üst/alt boşluğu azalt */
+        padding: 0 1rem; /* Sağ/sol boşluğu azalt */
+    }
+
+    .profession-header {
+        padding: 1.5rem; /* Başlık iç boşluğunu azalt */
+    }
+
+    .profession-avatar {
+        width: 150px; /* Görsel boyutunu küçült */
+        height: 150px;
+    }
+
+    .profession-content {
+        padding: 1.5rem; /* İçerik alanını boşluğunu azalt */
+    }
+
+    .section-block {
+        padding: 1rem; /* Bölüm iç boşluğunu azalt */
+    }
+
+     .profession-title h1 {
+        font-size: 1.6rem; /* Başlıkları daha da küçült */
+    }
+
+    .profession-title h2 {
+        font-size: 1.2rem;
+    }
+
+     .section-block h3 {
+        font-size: 1.3rem;
+    }
+
+    .introduction {
+        font-size: 1rem; /* Giriş metni boyutunu küçült */
+    }
+}
+    </style>
     <header>
         <div class="logo-container">
           <img src="images/logo.png" alt="Mavi Ufuklar Logosu" style="max-height: 100%; max-width: 100%;">
@@ -19,17 +344,54 @@
         </div>
         </header>
 
-        
-
-
-
-
-
-
-
-
-
-
+        <main class="profession-guide">
+            <section class="profession-header"> <div class="profession-title">
+                    <h1>Geri Dönüşümün Bilimsel Temelleri</h1>
+                    <h2>Gezegensel Etkileri ve Döngüsel Ekonomi</h2>
+                </div>
+                </section>
+    
+            <section class="profession-content"> <div class="introduction"> <h3>Giriş: Döngüsel Ekonomiye Geçişin Zorunluluğu</h3>
+                    <p>Modern toplumların lineer "üret-kullan-at" modeli, gezegenimizin kaynakları ve ekosistemleri üzerinde sürdürülemez bir baskı yaratmaktadır. Sınırlı kaynakların verimli kullanıldığı, atıkların minimize edildiği ve malzemelerin döngü içinde kaldığı "döngüsel ekonomi" modeline geçiş, çevresel sürdürülebilirlik için kritik öneme sahiptir. Geri dönüşüm, bu modelin temel taşlarından biridir. Bu rehber, geri dönüşümün bilimsel temellerini ve çevresel etkilerini açıklamayı amaçlamaktadır.</p>
+                </div>
+    
+                <div class="section-block"> <h3>Kaynak Tüketimi ve Ekolojik Ayak İzi</h3>
+                    <p>Her ürünün üretimi, doğal kaynakların (madenler, petrol, su, ağaç vb.) çıkarılmasını ve işlenmesini gerektirir. Bu süreçler habitat kaybına, biyoçeşitlilik azalmasına ve yüksek enerji tüketimine yol açar. Geri dönüşüm, birincil hammadde kullanımını azaltarak doğal sermayenin korunmasına katkıda bulunur.</p>
+                    <p>Örneğin, 1 ton kağıdın geri dönüştürülmesi yaklaşık 17 ağacı kurtarırken, 1 ton alüminyumun geri dönüştürülmesi boksit madenciliği ihtiyacını ortadan kaldırır.</p>
+                </div>
+    
+                <div class="section-block">
+                    <h3>Geri Dönüşümün Enerji Bilançosu ve Sera Gazı Salınımı Azaltımı</h3>
+                    <p>İkincil hammaddelerden (geri dönüştürülmüş malzemelerden) üretim yapmak, genellikle birincil hammaddelerden üretim yapmaya kıyasla önemli ölçüde daha az enerji gerektirir. Bu oran alüminyum için %95'e, plastik (PET) için %70-80'e, kağıt için %40-60'a, cam için %30'a varabilir.</p>
+                    <p>Daha az enerji tüketimi, fosil yakıt kullanımının ve buna bağlı olarak karbondioksit (CO₂) gibi sera gazı emisyonlarının azalması anlamına gelir. Ayrıca, atıkların depolama alanları yerine geri dönüşüme yönlendirilmesi, depolama alanlarından kaynaklanan güçlü bir sera gazı olan metan (CH₄) salınımını da azaltır.</p>
+                </div>
+    
+                <div class="section-block">
+                    <h3>Malzeme Bilimi Açısından Geri Dönüşüm</h3>
+                    <p>Geri dönüşüm süreçleri malzeme türüne göre farklılık gösterir. Metaller ve cam, kalite kaybı olmaksızın defalarca geri dönüştürülebilir ("kapalı döngü"). Kağıt lifleri her geri dönüşümde kısalır ve mukavemeti azalır, bu nedenle genellikle aynı kalitede kağıt üretiminde değil, daha düşük kaliteli ürünlerde (karton, tuvalet kağıdı vb.) kullanılır ("açık döngü" veya "downcycling").</p>
+                    <p>Plastiklerin geri dönüşümü ise polimer yapısı, katkı maddeleri ve özellikle kontaminasyon (farklı tür plastiklerin veya yabancı maddelerin karışması) nedeniyle daha karmaşıktır. Kirlilik, geri dönüştürülmüş plastiğin mekanik özelliklerini düşürür ve kullanım alanlarını sınırlar.</p>
+                </div>
+    
+                 <div class="section-block">
+                    <h3>Yaşam Döngüsü Değerlendirmesi (LCA) ve Geri Dönüşüm</h3>
+                    <p>Bir ürünün veya sürecin çevresel etkilerini bütüncül olarak değerlendirmek için Yaşam Döngüsü Değerlendirmesi (LCA) kullanılır. LCA çalışmaları, geri dönüşümün çevresel faydalarını (enerji tasarrufu, emisyon azaltımı, kaynak koruma) doğrulamaktadır.</p>
+                    <p>Ancak toplama, taşıma ve işleme süreçlerinin de kendi çevresel etkileri vardır. Bu nedenle, verimli lojistik sistemler kurmak ve geri dönüşüm tesislerinde temiz enerji kullanmak önemlidir. En iyi senaryo, "Azalt" ve "Tekrar Kullan" stratejileriyle atık oluşumunu en aza indirmektir.</p>
+                </div>
+    
+                 <div class="section-block warning-section"> <h3>Karşılaşılan Zorluklar ve Teknolojik İnovasyonlar</h3>
+                    <p>Geri dönüşümün önündeki engeller arasında düşük toplama oranları, halkın yetersiz katılımı/bilgilendirilmesi, ayrıştırma teknolojilerinin maliyeti ve karmaşıklığı (özellikle çok katmanlı ambalajlar ve kompozit malzemeler için) ve geri dönüştürülmüş malzemeler için istikrarlı bir pazarın olmaması sayılabilir.</p>
+                    <p>Optik ayırıcılar, yapay zeka destekli robotik sistemler ve kimyasal geri dönüşüm gibi teknolojik inovasyonlar bu zorlukların üstesinden gelmeye yardımcı olmaktadır.</p>
+                </div>
+    
+                <div class="section-block call-to-action"> <h3>Politika Önerileri ve Bireysel Sorumluluk</h3>
+                    <p>Etkin geri dönüşüm sistemleri için güçlü yasal düzenlemeler (örneğin, Türkiye'deki Sıfır Atık Yönetmeliği), üretici sorumluluğu programları, vergilendirme/teşvik mekanizmaları ve kamuoyu bilinçlendirme kampanyaları gereklidir.</p>
+                    <p class="highlight">Bilimsel veriler ışığında, bireylerin de atıklarını doğru şekilde ayrıştırarak, temiz ve kuru teslim ederek, azaltma ve tekrar kullanma prensiplerini benimseyerek bu sürece aktif katılımı elzemdir.</p>
+                </div>
+            </section>
+            <div class="back-to-professions reveal">
+                <a href="../meslekler.html" class="btn-back" target="_blank"">Diğer Mesleklere Göz At</a>
+            </div>
+            </main>
 
          <!-- Alt Bilgi -->
        <footer>

@@ -10,6 +10,285 @@
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
 </head>
 <body>
+    <style>
+
+        /* style.css - Geri Dönüşüm Notları için Stiller */
+
+/* Ana Düzen */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    background-color: #f4f4f4; /* Sayfa arka planı */
+}
+
+.profession-guide {
+    max-width: 900px; /* İçerik genişliğini ayarlayabilirsiniz */
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Başlık Bölümü */
+.profession-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    background-color: #e3f2fd; /* Başlık arka plan rengi */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.profession-title {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profession-title h1 {
+    color: #0d47a1; /* Ana başlık rengi */
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.profession-title h2 {
+    color: #1976d2; /* Alt başlık rengi */
+    font-size: 1.5rem;
+    margin-top: 0;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.profession-image { /* İsteğe bağlı görsel alanı */
+    flex: 0 0 200px; /* Görsel boyutunu ayarlayabilirsiniz */
+    text-align: center;
+    margin: 1rem;
+}
+
+.profession-avatar { /* İsteğe bağlı görsel stili */
+    width: 150px; /* Görsel boyutunu ayarlayabilirsiniz */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #1976d2; /* Görsel çerçeve rengi */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* İçerik Bölümleri */
+.profession-content {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.introduction {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    border-left: 4px solid #1976d2; /* Giriş metni sol kenarlık rengi */
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: #f8f9fa; /* Hafif arka plan */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.section-block {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    position: relative;
+}
+
+.section-block h3 {
+    color: #0d47a1; /* Bölüm başlığı rengi */
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #4caf50; /* Alt çizgi rengi (yeşil tonu) */
+    padding-bottom: 0.5rem;
+}
+
+.section-block p {
+    line-height: 1.6;
+    margin-bottom: 1rem; /* Paragraflar arası boşluk */
+}
+
+/* Numaralı Liste Stilleri (Golden Rules'dan uyarlandı) */
+.golden-rules { /* Ricalar bölümü için stil */
+    background-color: #e8f5e9; /* Yeşilimsi arka plan */
+    border-left: 4px solid #4caf50; /* Yeşil sol kenarlık */
+}
+
+.golden-rules h3 {
+    color: #2e7d32; /* Koyu yeşil başlık */
+    border-bottom-color: #81c784; /* Açık yeşil alt çizgi */
+}
+
+.golden-rules ol {
+    counter-reset: rules;
+    padding-left: 1.5rem; /* Liste içeriğini biraz sağa kaydır */
+    list-style: none; /* Varsayılan numaralandırmayı kaldır */
+}
+
+.golden-rules ol li {
+    position: relative;
+    margin-bottom: 2rem; /* Maddeler arası boşluk */
+    padding-left: 2.5rem; /* Madde metni için sol boşluk */
+}
+
+.golden-rules ol li::before {
+    counter-increment: rules;
+    content: counter(rules);
+    position: absolute;
+    left: -5px; /* Numara pozisyonu */
+    top: -2px; /* Numara dikey pozisyonu */
+    background-color: #4caf50; /* Numara arka plan rengi */
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.golden-rules strong { /* Madde başlıkları için */
+    color: #1a73e8; /* Mavi tonu */
+    display: block; /* Başlığı ayrı satıra al */
+    margin-bottom: 0.5rem; /* Başlık altı boşluk */
+    font-size: 1.2rem;
+}
+
+/* Son Çağrı Bölümü */
+.call-to-action {
+    background-color: #e3f2fd; /* Açık mavi arka plan */
+    border-left: 4px solid #2196f3; /* Mavi sol kenarlık */
+    text-align: center;
+}
+
+.call-to-action h3 {
+     color: #1565c0; /* Koyu mavi başlık */
+    border-bottom-color: #64b5f6; /* Açık mavi alt çizgi */
+}
+
+.highlight {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a73e8; /* Vurgu rengi */
+    margin-top: 1.5rem;
+    font-style: italic;
+}
+
+/* Geri Dön Butonu (isteğe bağlı) */
+.back-to-professions {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.btn-back {
+    display: inline-block;
+    background-color: #4caf50; /* Yeşil buton */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-back:hover {
+    background-color: #1a73e8; /* Mavi hover rengi */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Ayarlamalar */
+@media (max-width: 768px) {
+    .profession-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profession-title {
+        order: 2;
+        margin-top: 1rem;
+    }
+
+    .profession-image {
+        order: 1;
+        margin: 0 auto 1rem auto; /* Görseli üste alıp boşluk ekle */
+    }
+
+    .profession-title h1 {
+        font-size: 1.8rem;
+    }
+
+    .profession-title h2 {
+        font-size: 1.3rem;
+    }
+
+    .section-block h3 {
+        font-size: 1.4rem;
+    }
+
+    .golden-rules ol li {
+       padding-left: 2rem; /* Mobilde madde içeriği boşluğunu azalt */
+    }
+    .golden-rules ol li::before {
+        width: 26px;
+        height: 26px;
+        left: -8px; /* Numara pozisyonunu ayarla */
+    }
+}
+
+@media (max-width: 480px) {
+    .profession-guide {
+        margin: 1rem auto;
+        padding: 0 1rem;
+    }
+
+    .profession-header {
+        padding: 1.5rem;
+    }
+
+    .profession-avatar {
+        width: 120px; /* Daha küçük görsel */
+        height: 120px;
+    }
+
+    .profession-content {
+        padding: 1.5rem;
+    }
+
+    .section-block {
+        padding: 1rem;
+    }
+
+     .profession-title h1 {
+        font-size: 1.6rem;
+    }
+
+    .profession-title h2 {
+        font-size: 1.2rem;
+    }
+
+     .section-block h3 {
+        font-size: 1.3rem;
+    }
+
+    .introduction {
+        font-size: 1rem;
+    }
+}
+    </style>
     <header>
         <div class="logo-container">
           <img src="images/logo.png" alt="Mavi Ufuklar Logosu" style="max-height: 100%; max-width: 100%;">
@@ -19,17 +298,54 @@
         </div>
         </header>
 
-
-
-
-
-
-
-
-
-
-
-
+        <main class="profession-guide">
+            <section class="profession-header">
+                <div class="profession-title">
+                    <h1>Sokaktaki Dostunuzdan Geri Dönüşüm Notları</h1>
+                    <h2>Lütfen Bize Yardımcı Olun!</h2>
+                </div>
+                </section>
+    
+            <section class="profession-content">
+                <div class="introduction">
+                    <p>Selam Komşular,</p>
+                    <p>Ben her gün mahallenizin sokaklarını temizleyen, çöplerinizi ve geri dönüşüm atıklarınızı toplayan görevlilerden biriyim. Sabahın erken saatlerinden itibaren kamyonumuzla sokak sokak gezerken pek çok şeye şahit oluyorum. Çoğunuzun geri dönüşüme önem verdiğini görmek güzel, ama bazen küçük hatalar işimizi çok zorlaştırıyor, hatta tehlikeli hale getirebiliyor. Size hem işimizi kolaylaştırmak hem de geri dönüşümün daha verimli olmasını sağlamak için birkaç ricam olacak:</p>
+                </div>
+    
+                <div class="section-block golden-rules"> <h3>Ricamız Var: Geri Dönüşümde Dikkat Edilmesi Gerekenler</h3>
+                    <ol>
+                        <li>
+                            <strong>Doğru Kutu, Doğru Malzeme: Neden Bu Kadar Önemli?</strong>
+                            <p>Mahallenizdeki kumbaraların üzerinde yazar: CAM, KAĞIT, PLASTİK/METAL gibi. Lütfen buna dikkat edin. Cam kutusuna atılmış plastik şişeler veya kağıt kutusuna atılmış yemek artıkları o kumbaradaki bütün malzemeyi kullanılmaz hale getirebiliyor. Bizim bunları kamyonda veya tesiste tekrar ayırma şansımız olmuyor maalesef. Karışık atılan malzeme doğruca çöp depolama sahasına gidiyor, tüm emek boşa gidiyor.</p>
+                        </li>
+                        <li>
+                            <strong>"Temiz ve Kuru" Sadece Slogan Değil, Şart!</strong>
+                            <p>İçi yıkanmadan atılmış salça kutuları, dibinde süt kalmış şişeler... Bunlar hem kamyonda hem de konteynerlerde çok kötü kokulara neden oluyor, sinek ve böcek çekiyor. Daha da kötüsü, temiz malzemeleri de kirletip geri dönüşüme uygunsuz hale getiriyor. Lütfen atmadan önce ambalajları hızlıca bir sudan geçirin ve süzülmesini bekleyin. Bu küçük çaba çok şey fark ettiriyor.</p>
+                        </li>
+                        <li>
+                            <strong>Poşetleri Boşaltın, Kutuları Ezin!</strong>
+                            <p>Geri dönüşüm malzemelerini lütfen büyük bir çöp poşetinin içinde kumbaraya atmayın. O poşetler ayrıştırma tesisinde makineleri tıkıyor ve elle açılması gerekiyor, bu da büyük zaman kaybı. Malzemeleri doğrudan kumbaraya dökün. Ayrıca karton kutuları katlamak, plastik şişeleri ezmek kamyonda daha az yer kaplamasını sağlıyor, böylece tek seferde daha çok atık toplayabiliyoruz.</p>
+                        </li>
+                        <li>
+                            <strong>Camlara Dikkat!</strong>
+                            <p>Cam kumbaralarına şişe veya kavanozları bütün olarak atmaya çalışın. Kırık camlar hem bizim için hem de tesisteki çalışanlar için ciddi yaralanma riski taşıyor. Özellikle evsel atıkların içine kırık cam atmayın. Eğer bir şey kırıldıysa, kalın kağıda sarıp ayrı bir notla belirtmeniz en doğrusu olur.</p>
+                        </li>
+                         <li>
+                            <strong>Büyük ve Tehlikeli Atıklar Farklıdır!</strong>
+                            <p>Eski mobilyalar, halılar, inşaat molozları gibi büyük atıkları veya pilleri, elektronik eşyaları, boya kutularını lütfen normal çöp veya geri dönüşüm kutularına atmayın. Bunların toplama yöntemleri farklıdır. Belediyenizin bu tür atıklar için belirlediği toplama günlerini veya Atık Getirme Merkezlerini öğrenin. Piller ve elektronikler kesinlikle ayrı toplanmalı.</p>
+                        </li>
+                    </ol>
+                </div>
+    
+                <div class="section-block call-to-action"> <h3>Birlikte Çalışırsak Mahallemiz Daha Temiz Olur</h3>
+                    <p>Bizler sizin için çalışıyoruz. Sizlerin bu küçük noktalara dikkat etmesi hem bizim işimizi güvenli ve verimli hale getiriyor hem de geri dönüşümün amacına ulaşmasını sağlıyor. Daha temiz sokaklar, daha yaşanabilir bir mahalle için gelin el ele verelim.</p>
+                    <p class="highlight">Hepinize şimdiden teşekkürler!</p>
+                </div>
+            </section>
+            <div class="back-to-professions reveal">
+                <a href="../meslekler.html" class="btn-back" target="_blank">Diğer Mesleklere Göz At</a>
+            </div>
+            </main>
 
 
          <!-- Alt Bilgi -->
