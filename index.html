@@ -58,12 +58,6 @@
       padding: 2rem 0; /* Üstten ve alttan boşluk */
       background-color: #f8f9fa; /* Hafif bir arka plan rengi (isteğe bağlı) */
     }
-    /* İçeriği sarmalayan konteyner */
-    .container { /* Bu stil zaten style.css içinde var, burada tekrar tanımlamaya gerek yok */
-      /* max-width: 1140px; */ /* style.css'den alacak */
-      /* margin: 0 auto; */ /* style.css'den alacak */
-      /* padding: 0 15px; */ /* style.css'den alacak */
-    }
     /* Başlık stili */
     .video-section h2 {
       text-align: center; /* Başlığı ortala */
@@ -86,13 +80,6 @@
     }
     /* Daha küçük ekranlar için video boyutunu ayarla (Örnek) */
     @media (max-width: 768px) {
-      .video-wrapper iframe { /* .video-wrapper-iframe değil, iframe'in kendisi hedeflenmeli */
-        /* Genişliği ve yüksekliği küçültebilir veya yüzde kullanabilirsiniz */
-        /* Örneğin: width: 100%; height: auto; aspect-ratio: 16 / 9; */
-      }
-      .video-section h2 {
-        font-size: 1.5rem; /* Daha küçük ekranlarda başlık boyutu */
-      }
     }
     /* Öne çıkan belgeler bölümü */
 .featured-docs {
@@ -360,6 +347,215 @@
       </div>
     </div>
   </section>
+
+  <section id="yorumlar" class="py-8 md:py-16"> {/* Üst ve alt boşluk artırıldı */}
+    <div class="custom-container mx-auto px-4">
+        <h2 class="section-title">Yorumlar</h2>
+
+        <div class="comment-form-container">
+            <h3>Yorumunuzu Ekleyin</h3>
+            <form id="commentForm" class="space-y-6">
+                <div>
+                    <label for="userName" class="block text-sm font-medium mb-1">Adınız:</label>
+                    <input type="text" id="userName" name="userName" required
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+                           placeholder="Adınızı girin">
+                </div>
+                <div>
+                    <label for="userComment" class="block text-sm font-medium mb-1">Yorumunuz:</label>
+                    <textarea id="userComment" name="userComment" rows="5" required
+                              class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+                              placeholder="Yorumunuzu buraya yazın..."></textarea>
+                </div>
+                <div>
+                    <button type="submit"
+                            class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+                        <i class="fas fa-paper-plane mr-2"></i> Yorumu Gönder
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <h3 class="comments-list-title">Tüm Yorumlar (<span id="commentCount">0</span>)</h3>
+            <div id="commentsList" class="space-y-6"> {/* Yorum kartları arası boşluk artırıldı */}
+                {/* Yorumlar JavaScript ile buraya eklenecek */}
+                <p id="noCommentsMessage" class="text-gray-500">Henüz yorum yapılmamış. İlk yorumu siz yapın!</p>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const commentForm = document.getElementById('commentForm');
+        const commentsList = document.getElementById('commentsList');
+        const commentCountElement = document.getElementById('commentCount');
+        const noCommentsMessage = document.getElementById('noCommentsMessage');
+
+        // Sayfa yüklendiğinde localStorage'dan yorumları al
+        loadComments();
+
+        commentForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Formun varsayılan gönderimini engelle
+
+            const userNameInput = document.getElementById('userName');
+            const userCommentInput = document.getElementById('userComment');
+            
+            const userName = userNameInput.value.trim();
+            const userComment = userCommentInput.value.trim();
+
+            if (userName === '' || userComment === '') {
+                // Daha kullanıcı dostu bir uyarı
+                if (userName === '') userNameInput.classList.add('border-red-500'); else userNameInput.classList.remove('border-red-500');
+                if (userComment === '') userCommentInput.classList.add('border-red-500'); else userCommentInput.classList.remove('border-red-500');
+                
+                // Geçici bir mesaj kutusu (alert yerine)
+                displayTemporaryMessage('Lütfen adınızı ve yorumunuzu girin.', 'error');
+                return;
+            }
+            userNameInput.classList.remove('border-red-500');
+            userCommentInput.classList.remove('border-red-500');
+
+
+            const comment = {
+                name: userName,
+                text: userComment,
+                date: new Date().toLocaleString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+            };
+
+            addCommentToDOM(comment);
+            saveCommentToLocalStorage(comment);
+
+            commentForm.reset(); 
+            updateCommentCount();
+            toggleNoCommentsMessage();
+            displayTemporaryMessage('Yorumunuz başarıyla eklendi!', 'success');
+        });
+
+        function addCommentToDOM(comment) {
+            const commentElement = document.createElement('div');
+            // .comment-card sınıfı CSS'den gelecek
+            commentElement.classList.add('comment-card');
+            
+            const avatarElement = document.createElement('div');
+            // .comment-avatar sınıfı CSS'den gelecek
+            avatarElement.classList.add('comment-avatar');
+            avatarElement.innerHTML = `<i class="fas fa-user"></i>`;
+            // Alternatif: avatarElement.textContent = comment.name.charAt(0).toUpperCase();
+
+            const commentContentElement = document.createElement('div');
+            // .comment-content sınıfı CSS'den gelecek
+            commentContentElement.classList.add('comment-content');
+
+            commentContentElement.innerHTML = `
+                <p class="comment-author">${escapeHTML(comment.name)}</p>
+                <p class="comment-text">${escapeHTML(comment.text)}</p>
+                <p class="comment-date">${comment.date}</p>
+            `;
+            
+            commentElement.appendChild(avatarElement);
+            commentElement.appendChild(commentContentElement);
+            
+            // Yeni yorumları listenin başına ekle (isteğe bağlı)
+            if (commentsList.firstChild && commentsList.firstChild.id === 'noCommentsMessage') {
+                commentsList.insertBefore(commentElement, commentsList.firstChild.nextSibling);
+            } else if (commentsList.firstChild) {
+                commentsList.insertBefore(commentElement, commentsList.firstChild);
+            } else {
+                 commentsList.appendChild(commentElement);
+            }
+
+            // "Yorum yok" mesajını kaldır eğer varsa ve bu ilk yorumsa
+            if(noCommentsMessage && commentsList.children.length > 1 && noCommentsMessage.parentElement === commentsList) {
+                // Eğer noCommentsMessage commentsList'in doğrudan çocuğu ise ve başka yorumlar varsa
+                 toggleNoCommentsMessage(); // Bu fonksiyon zaten gizleyecek
+            }
+        }
+
+        function saveCommentToLocalStorage(comment) {
+            let comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.unshift(comment); // Yeni yorumları başa ekle
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        function loadComments() {
+            commentsList.innerHTML = ''; // Önce mevcut yorumları temizle (noCommentsMessage hariç)
+            commentsList.appendChild(noCommentsMessage); // noCommentsMessage'ı tekrar ekle, toggle halledecek
+
+            let comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.forEach(comment => {
+                addCommentToDOM(comment);
+            });
+            updateCommentCount();
+            toggleNoCommentsMessage();
+        }
+
+        function updateCommentCount() {
+            let comments = JSON.parse(localStorage.getItem('comments')) || [];
+            commentCountElement.textContent = comments.length;
+        }
+
+        function toggleNoCommentsMessage() {
+            let comments = JSON.parse(localStorage.getItem('comments')) || [];
+            if (noCommentsMessage) { // noCommentsMessage elementinin varlığını kontrol et
+                if (comments.length > 0) {
+                    noCommentsMessage.style.display = 'none';
+                } else {
+                    noCommentsMessage.style.display = 'block';
+                }
+            }
+        }
+        
+        function escapeHTML(str) {
+            var p = document.createElement("p");
+            p.appendChild(document.createTextNode(str));
+            return p.innerHTML.replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        // Geçici mesaj gösterme fonksiyonu
+        function displayTemporaryMessage(message, type = 'info') {
+            const messageBox = document.createElement('div');
+            messageBox.textContent = message;
+            messageBox.style.position = 'fixed';
+            messageBox.style.bottom = '20px';
+            messageBox.style.left = '50%';
+            messageBox.style.transform = 'translateX(-50%)';
+            messageBox.style.padding = '10px 20px';
+            messageBox.style.borderRadius = '8px';
+            messageBox.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+            messageBox.style.zIndex = '1000';
+            messageBox.style.transition = 'opacity 0.5s ease-in-out';
+            messageBox.style.opacity = '1';
+
+            if (type === 'success') {
+                messageBox.style.backgroundColor = '#d4edda'; // Yeşilimsi
+                messageBox.style.color = '#155724';
+                messageBox.style.border = '1px solid #c3e6cb';
+            } else if (type === 'error') {
+                messageBox.style.backgroundColor = '#f8d7da'; // Kırmızımsı
+                messageBox.style.color = '#721c24';
+                messageBox.style.border = '1px solid #f5c6cb';
+            } else { // info
+                messageBox.style.backgroundColor = '#cce5ff'; // Mavimsi
+                messageBox.style.color = '#004085';
+                messageBox.style.border = '1px solid #b8daff';
+            }
+            
+            document.body.appendChild(messageBox);
+
+            setTimeout(() => {
+                messageBox.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(messageBox);
+                }, 500); // Opaklık geçişi bittikten sonra kaldır
+            }, 3000); // 3 saniye sonra kaybolmaya başla
+        }
+
+        // İlk yüklemede mesajı gizle/göster
+        toggleNoCommentsMessage();
+    });
+</script>
+
 
   <div class="footer-banner-container">
     <img src="images/banner.png" alt="EU Missions - Restore Our Ocean & Waters" class="footer-banner">
