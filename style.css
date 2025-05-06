@@ -301,7 +301,7 @@ header {
 
 .card-content p, .goals-card p {
     font-size: 0.95rem; /* Metin boyutu */
-    color: #555; /* Metin rengi */
+    color:darkred; /* Metin rengi */
     flex-grow: 1; /* Mümkünse alanı doldur */
 }
 
