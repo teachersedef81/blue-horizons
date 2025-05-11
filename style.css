@@ -664,22 +664,50 @@ body {
 
 
 /* Footer Bannerları */
+/* Footer Bannerları */
 .footer-banner-container {
   display: flex;
-  justify-content: center; /* Ortala */
+  justify-content: space-between; /* Sola ve sağa yasla */
   align-items: center; /* Dikeyde ortala */
-  gap: 30px; /* Bannerlar arası boşluk */
-  padding: 40px 20px; /* İç boşluk */
+  padding: 50px 5%; /* Yanlarda daha az boşluk bırakarak genişliği artır */
   background-color: #e8f1ff; /* Farklı bir arka plan */
   flex-wrap: wrap; /* Küçük ekranlarda alt alta gelmesi için */
+  max-width: 1200px; /* Maksimum genişlik */
+  margin: 0 auto; /* Sayfada ortalama */
 }
 
 .footer-banner {
-  height: 60px; /* Banner yüksekliği */
-  max-width: 150px; /* Maksimum genişlik */
+  height: auto; /* Otomatik yükseklik */
+  width: 45%; /* Genişliğin %45'ini kaplasın */
+  max-width: none; /* Maksimum genişlik sınırını kaldırdım */
   object-fit: contain; /* Oranları koruyarak sığdır */
+  transition: transform 0.3s ease; /* Hover efekti için geçiş ekledim */
 }
 
+.footer-banner:hover {
+  transform: scale(1.05); /* Hafif bir hover efekti ekledim */
+}
+
+/* Mobil cihazlarda responsive düzenleme */
+@media (max-width: 768px) {
+  .footer-banner-container {
+    flex-direction: column; /* Alt alta getir */
+    gap: 30px; /* Aralarında boşluk bırak */
+    padding: 40px 20px; /* Padding ayarla */
+  }
+  
+  .footer-banner {
+    width: 90%; /* Daha geniş alan kaplasın */
+    max-height: 120px; /* Yükseklik sınırı */
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-banner {
+    width: 100%; /* Tam genişlik */
+    max-height: 100px; /* En küçük ekranlar için */
+  }
+}
 
 /* Footer (Alt Bilgi) - DÜZENLENMİŞ KISIM */
 footer {
