@@ -373,10 +373,6 @@ header {
 }
 
 
-/* Video Bölümü */
-.video-section {
-    /* Arka plan rengi yukarıda tanımlandı */
-}
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
