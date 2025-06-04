@@ -838,6 +838,55 @@ p {
     border: none; /* Kenarlık olmasın */
 }
 
+/* Paragraf Stilleri */
+.description p {
+  text-indent: 2em; /* Paragraf başı girintisi */
+  line-height: 1.8; /* Satır aralığı (okunabilirliği artırır) */
+  margin-bottom: 1.5em; /* Paragraflar arası boşluk */
+  text-align: justify; /* İki yana yaslı metin (daha düzenli bir görünüm için) */
+}
+
+/* Açıklama Bölümü İçin Başlık Stilleri */
+.description h3 {
+  font-size: 1.6em; /* Başlık boyutu */
+  color: #005689; /* Projenizin mavi tonlarına uygun bir renk */
+  margin-top: 2em;   /* Üst boşluk */
+  margin-bottom: 1em; /* Alt boşluk */
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid #007bff; /* Temanızla uyumlu bir alt çizgi */
+  font-weight: bold;
+}
+
+.description h4 {
+  font-size: 1.3em;
+  color: #333;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+  font-weight: bold;
+}
+
+/* Madde İşaretleri (Listeler) İçin Stiller */
+.description ul {
+  list-style-type: disc; /* Standart disk madde işareti */
+  margin-left: 2em;      /* Sol boşluk (girinti) */
+  margin-bottom: 1.5em;  /* Liste sonrası boşluk */
+  padding-left: 1em;     /* Madde işaretleri için iç boşluk */
+  line-height: 1.7;      /* Liste elemanları satır aralığı */
+}
+
+.description li {
+  margin-bottom: 0.6em; /* Her bir liste elemanı altındaki boşluk */
+}
+
+/* Vurgu için (isteğe bağlı) */
+.description strong { /* Kalın metin için */
+  color: #004080; /* Daha koyu bir mavi veya projenizin ana rengi */
+}
+
+.description em { /* İtalik metin için */
+  color: #555;
+  font-style: italic;
+}
 
 /* Banner (index.html) */
 .banner-container { /* index.html'deki banner sarmalayıcı */
