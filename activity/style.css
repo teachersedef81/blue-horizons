@@ -82,6 +82,45 @@ header {
   color: whitesmoke;
 }
 
+/* --- Etkinlik Galerisi Stilleri (Önerilen Yeni Kodlar) --- */
+
+.gallery {
+    padding: 60px 20px; /* Galeri bölümüne boşluk vermek için */
+    background-color: #f0f8ff; /* Arka plan rengi */
+}
+
+.gallery h2 { /* "Etkinlik Galerisi" başlığı için */
+    text-align: center;
+    margin-bottom: 40px; /* Başlık ile resimler arası boşluk */
+}
+
+.gallery-grid {
+  display: grid; /* Izgara düzenini aktif et */
+  /* Sütunları ayarla: Ekrana sığdığı kadar, her biri en az 250px olan sütunlar oluşturur */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 20px; /* Resimler arasındaki boşluk */
+}
+
+/* Galeri sayfası */
+.gallery {
+  /* background-color: #f0f8ff; Zaten yukarıda tanımlı */
+  padding: 60px 20px;
+}
+
+/* gallery-grid yukarıda .cards ile birleştirildi */
+.gallery-grid img {
+  width: 280px; /* 300px yerine daha küçük bir değer */
+  height: 187px; /* Genişlik değiştiği için yüksekliği de orantılı (veya sabit) ayarlayın */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05); /* Hafif büyütme efekti */
+}
 /* Aktif menü öğesi stili */
 .menu a.active {
   color: #fff;
@@ -1422,7 +1461,7 @@ footer > .container {
     max-width: 90%;
   }
 
-  .cards, .team-cards, .gallery-grid, .goals-cards, .events {
+  .cards, .team-cards,.goals-cards, .events {
     gap: 15px;
   }
   /* Grid kullananlar için mobil ayarı */
@@ -1435,10 +1474,6 @@ footer > .container {
   .card, .team-card, .goals-card {
     width: calc(50% - 10px); /* İki sütunlu yapı */
     max-width: none; /* Max width'i kaldır */
-  }
-  .gallery-grid img {
-      width: calc(50% - 10px); /* İki sütunlu */
-      height: auto; /* Yükseklik otomatik */
   }
 
   .banner-container {
@@ -1505,7 +1540,7 @@ footer > .container {
       font-size: 1.8rem;
   }
 
-  .card, .team-card, .goals-card, .gallery-grid img {
+  .card, .team-card, .goals-card{
       width: 100%; /* Tek sütunlu yapı */
       max-width: 100px; /* Maksimum genişlik */
       margin-left: auto;
