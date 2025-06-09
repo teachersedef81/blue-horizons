@@ -146,6 +146,100 @@ header {
 .menu a.active::after {
   width: 100%;
 }
+/* ======================================== */
+/* ESTETİK AÇIKLAMA BÖLÜMÜ STİLLERİ       */
+/* ======================================== */
+
+.description {
+  max-width: 900px;
+  margin: 60px auto; /* Sayfanın üstü ve altıyla boşluğu artırır */
+  background-color: #ffffff; /* Kart görünümü için beyaz arka plan */
+  padding: 30px 40px; /* İç boşluklar (üst/alt, sağ/sol) */
+  border-radius: 15px; /* Yumuşak köşeler */
+  box-shadow: 0 10px 30px rgba(0, 86, 137, 0.1); /* Belirgin ama yumuşak gölge */
+  border: 1px solid #eaf6ff; /* Çok hafif bir kenarlık */
+}
+
+/* Sayfa ana başlığı (description içindeki) */
+.description h2 {
+  text-align: center;
+  font-size: 2.2em;
+  color: #005689; /* Ana mavi renk */
+  margin-bottom: 20px;
+  font-weight: 700;
+  border-bottom: none; /* Mevcut h2 alt çizgisini iptal et */
+  line-height: 1.3;
+}
+/* h2'den sonra gelen ilk paragraf (giriş paragrafı) */
+.description h2 + p {
+  font-size: 1.1em;
+  font-style: italic;
+  text-align: center;
+  color: #555;
+  text-indent: 0; /* Bu paragrafta girinti olmasın */
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+/* Alt başlıklar (h3) */
+.description h3 {
+  font-size: 1.7em;
+  color: #007bff; /* Daha canlı bir mavi */
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0f7fa; /* Hafif bir ayırıcı çizgi */
+  display: flex;
+  align-items: center;
+}
+/* Başlıkların önüne ikon ekleme (Font Awesome gerekir, zaten sitenizde mevcut) */
+.description h3::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900; /* Solid ikonlar için */
+  margin-right: 15px;
+  color: #007bff;
+  font-size: 0.9em;
+}
+
+/* Normal Paragraflar */
+.description p {
+  text-indent: 1.5em; /* Girinti */
+  line-height: 1.8;
+  text-align: justify;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+/* Listeler (ul) */
+.description ul {
+  list-style-type: none; /* Standart madde işaretini kaldır */
+  padding-left: 0;
+  margin-left: 10px;
+}
+
+.description ul li {
+  padding-left: 35px; /* İkon için yer aç */
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+/* Liste elemanlarına özel ikonlar */
+.description ul li::before {
+  content: "\f00c"; /* Font Awesome "check" (onay) ikonu */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  color: #28a745; /* Yeşil renk */
+  font-size: 1.1em;
+}
+
+/* Vurgulu metin (strong) */
+.description strong {
+    color: #005689;
+    font-weight: 700;
+}
 
 
 /* Video sonrası metin düzenleme stilleri */
