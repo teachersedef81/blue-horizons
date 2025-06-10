@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mavi Ufuklar Projesi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="shortcut icon" href="images/logo.png" type="image/png"> 
+     <style>
+        /* --- Lightbox Stilleri --- */
+
+        /* Galeri resimlerine tıklanabilirlik hissi vermek için */
+        .gallery-grid img {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05); /* Hafif büyütme efekti */
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* Gölgeyi belirginleştirme */
+        }
+
+        /* Lightbox Arka Planı */
+        .lightbox-overlay {
+            position: fixed; /* Sayfa kaysa bile yerinde kalır */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Yarı saydam siyah arka plan */
+            display: none; /* Başlangıçta gizli */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Diğer öğelerin üzerinde olması için */
+            padding: 20px; /* Kenarlardan boşluk */
+            box-sizing: border-box;
+        }
+
+        /* Lightbox İçerik Alanı */
+        .lightbox-content {
+            position: relative;
+            background-color: #fff; /* İçerik arka planı */
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 90%; /* Maksimum genişlik */
+            max-height: 90%; /* Maksimum yükseklik */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Lightbox Resmi */
+        .lightbox-image {
+            display: block;
+            max-width: 100%; /* İçerik alanına sığdır */
+            max-height: calc(90vh - 100px); /* Yüksekliği ayarla (başlık, butonlar vb. için pay bırak) */
+            height: auto; /* En boy oranını koru */
+            width: auto; /* En boy oranını koru */
+            border-radius: 5px; /* Hafif köşeleri yuvarlat */
+        }
+
+        /* Kapatma Butonu */
+        .lightbox-close {
+            position: absolute;
+            top: -15px; /* İçerik alanının biraz dışına */
+            right: -15px;
+            background-color: #fff; /* Buton arka planı */
+            color: #333; /* İkon rengi */
+            border: none;
+            font-size: 1.8rem; /* İkon boyutu */
+            cursor: pointer;
+            border-radius: 50%; /* Yuvarlak buton */
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background-color: #eee;
+            color: #000;
+        }
+
+        /* Navigasyon Butonları (Önceki/Sonraki) */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            z-index: 1001; /* Resmin üzerinde olmalı */
+        }
+
+        .lightbox-nav:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .lightbox-prev {
+            left: 20px; /* Soldan boşluk */
+        }
+
+        .lightbox-next {
+            right: 20px; /* Sağdan boşluk */
+        }
+
+        /* Lightbox aktifken body'e scroll'u engellemek için (opsiyonel) */
+        body.lightbox-active {
+            overflow: hidden;
+        }
+
+        /* --- Mevcut Header Stilleri (Tekrardan kaçınmak için kontrol edildi) --- */
+        /* Eğer style.css'de yoksa veya farklıysa buraya eklenebilir */
+        .logo-container {
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            padding: 5px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            margin-right: 10px;
+        }
+        header {
+            display: flex; /* Zaten style.css'de var gibi duruyor */
+            /* justify-content: space-between; */ /* style.css'deki daha uygun olabilir */
+            align-items: center;
+            /* padding: 10px 50px; */ /* style.css'deki daha uygun olabilir */
+            /* background: linear-gradient(to right, #690422, #fd42a9); */ /* style.css'deki daha uygun olabilir */
+            /* color: white; */ /* style.css'deki daha uygun olabilir */
+        }
+        /* header içindeki logo-container'ların yan yana gelmesi için */
+        header > div.logo-container {
+            display: inline-block; /* veya flex kullanılıyorsa header'da gerek yok */
+        }
+        /* Eğer header'da space-between varsa ve logolar solda, menü sağda kalacaksa */
+        header {
+          justify-content: space-between;
+        }
+        /* Logoları bir arada tutmak için ek bir div gerekebilir */
+        .header-logo-group {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Logolar arası boşluk */
+        }
+
+    </style>
+</head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="images/logo.png" alt="Mavi Ufuklar Logosu" style="max-height: 100%; max-width: 100%;">
+      </div>
+      <div class="logo-container">
+        <img src="images/okul logo.png" alt="Okul Logosu" style="max-height: 100%; max-width: 100%;">
+      </div>
+    
+    </header>
+ 
+    <h2>Mavi Ufuklar Final Konseri Coşkusu Düzce Teknopark'ı Sardı!</h2>
+    <div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mczXkYqUzOw?si=HDXzp8QSjt9Vl5d0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+ </div>
+ 
+ 
+    <div class="description">
+<p>Avrupa Birliği SHORE programı tarafından desteklenen "Blue Horizons (Mavi Ufuklar)" projemizin en heyecan verici anlarından biri olan kapanış konserimizi, 31 Mayıs akşamı Düzce Teknopark Konferans Salonu'nda öğrencilerimiz, velilerimiz ve değerli konuklarımızın yoğun katılımıyla gerçekleştirdik.
+<br> Aylardır süren emeğin, öğrenmenin ve farkındalığın sanatla buluştuğu bu özel gecede, projemizin ruhunu yansıtan unutulmaz anlar yaşadık. Programımız, proje boyunca gerçekleştirdiğimiz tüm faaliyetleri, öğrencilerimizin ve öğretmenlerimizin gözünden anlatan "Mavinin Sihri" adlı proje belgesel filmimizin gösterimiyle başladı.
+<br> Gecenin açılış konuşmasını yapan <strong>Okul Müdürümüz Sayın Mustafa Karaoğlu,</strong>  Hürriyet Ortaokulu olarak öğrencilerimizin sadece akademik değil, aynı zamanda çevre bilinci yüksek bireyler olarak yetişmesine verdikleri önemi vurguladı. Sayın Karaoğlu, projede emeği geçen tüm öğretmenlerimizi ve öğrencilerimizi tebrik ederek bizleri onurlandırdı.
+<br>Proje Koordinatörümüz Sedef Pehlivan ise yaptığı açıklamada,<strong> "Bu konser, aylar süren emeğimizin, öğrencilerimizin öğrendiklerini sanatla ve müzikle ifade etme coşkusunun bir kutlamasıdır. 'Mavi Ufuklar' ile Düzce'de suyun önemine dikkat çekmeye çalıştık. Öğrencilerimizin bestelediği proje şarkısını bu sahnede duymak hepimiz için büyük bir gurur kaynağı oldu. Projemiz sona erse de yarattığı farkındalık dalgasının devam edeceğine inanıyoruz," </strong> ifadelerini kullandı.
+<br>Gecenin en coşkulu anları ise Müzik Öğretmenimiz Ahmet Emre Esen yönetimindeki proje koromuzun ve müzik grubumuzun sahne almasıyla yaşandı. Koromuz, proje için besteledikleri özgün şarkıyı ve diğer eserleri seslendirerek dinleyicilerden büyük alkış aldı.
+<br>Bu muhteşem gecenin gerçekleşmesinde emeği geçen başta sevgili öğrencilerimize, onlara her zaman destek olan siz değerli velilerimize, tüm proje ekibi öğretmenlerimize, bizlere ev sahipliği yapan Düzce Teknopark yönetimine ve projemizin hamisi olan SHORE programı ile Avrupa Birliği'ne sonsuz teşekkürlerimizi sunarız.
+<br>Projemiz boyunca yarattığımız bu "farkındalık dalgasını" daha da büyütmek için bizi takip etmeye devam edin!
+</p>
+
+</div>
+
+  <div class="footer-banner-container">
+    <img src="images/banner.png" alt="EU Missions - Restore Our Ocean & Waters" class="footer-banner">
+    <img src="images/shore logo.png" alt="Shore Logo Vertical" class="footer-banner">
+    <img src="images/funded.png" alt="Funded by Europe logo" class="footer-banner">
+  </div>
+
+       
+    <!-- Alt Bilgi -->
+    <footer>
+      <div class="container">
+          <div class="footer-content">
+              <div class="footer-logo">
+                  <img src="images/logo.png" alt="Blue Horizons Logo">
+                  <h3>Mavi Ufuklar Projesi</h3>
+              </div>
+              
+              <div class="footer-links">
+                  <h4>Hızlı Erişim</h4>
+                  <ul>
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="../about.html">Hakkında</a></li>
+                    <li><a href="../ekip.html">Ekip Üyelerimiz</a></li>
+                    <li><a href="../galeri.html">Galeri</a></li>
+                    <li><a href="../etkinlik.html">Etkinliklerimiz</a></li>
+                    <li><a href="../iletisim.html">İletişim</a></li>
+                  </ul>
+              </div>
+              
+              <div class="footer-contact">
+                  <h4>İletişim</h4>
+                  <p><i class="fas fa-map-marker-alt"></i> BAHÇELİEVLER MAH. 31. SK. HÜRRİYET ORTA OKULU BLOK NO 2 İÇ KAPI NO 1 MERKEZ / DÜZCE</p>
+                  <p><i class="fas fa-phone"></i> +90 (505) 350 58 11</p> <p><i class="fas fa-envelope"></i> <a href="mailto:duzcehurriyetortaokulu@meb.k12.tr">duzcehurriyetortaokulu@meb.k12.tr</a></p> </div>
+              
+              <div class="footer-social">
+                  <h4>Sosyal Medya</h4>
+                  <div class="social-icons">
+                      <a href="https://www.facebook.com/duzcehurriyet" target="_blank" rel="noopener noreferrer">
+                          <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/duzcehurriyetortaokulu/" target="_blank" rel="noopener noreferrer">
+                          <i class="fab fa-instagram"></i>
+                      </a>
+                      <a href="https://www.youtube.com/@hurriyetortaokuluduzcemerk6196" target="_blank" rel="noopener noreferrer">
+                          <i class="fab fa-youtube"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="footer-bottom">
+              <p>&copy; 2025 Mavi Ufuklar Projesi. Tüm hakları saklıdır.</p>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+  
+  <!-- ScrollReveal Animations -->
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // ScrollReveal ayarları
+          ScrollReveal().reveal('.reveal', { 
+              delay: 200,
+              distance: '50px',
+              duration: 1000,
+              easing: 'ease-in-out',
+              origin: 'bottom',
+              interval: 200
+          });
+          
+          // Mobil menü için hamburger toggle
+          const menuToggle = document.createElement('div');
+          menuToggle.classList.add('menu-toggle');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          document.querySelector('header').appendChild(menuToggle);
+          
+          menuToggle.addEventListener('click', function() {
+              document.querySelector('.menu').classList.toggle('active');
+          });
+      });
+  </script>
+ </body>
+</html>
